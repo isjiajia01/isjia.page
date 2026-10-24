@@ -3,31 +3,117 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Span Planning</title>
-<meta name="description" content="Span is a calm planning and recovery layer over Apple Calendar and Reminders. Read-only, on-device, no server, no sync of its own.">
+<title>Span — Plan the day you actually have</title>
+<meta name="description" content="Span is a calm planning layer over Apple Calendar and Reminders. Read-only, on-device, no server and no sync of its own. iPhone, iOS 17 or later.">
+<link rel="canonical" href="https://isjia.page/span/">
+<meta name="theme-color" content="#fdfcf9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#12110e" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Span — Plan the day you actually have">
+<meta property="og:description" content="A calm planning layer over the Calendar and Reminders you already keep.">
+<meta property="og:url" content="https://isjia.page/span/">
+<meta property="og:image" content="https://isjia.page/assets/icons/span-256.png">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="../assets/icons/solis-256.png" type="image/png">
+<link rel="apple-touch-icon" href="../assets/icons/solis-256.png">
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
-<main>
-  <p class="crumb"><a href="../">← JJ · tiny apps</a></p>
-  <h1>Span Planning</h1>
-  <p class="lede">Plan the day you actually have.</p>
+<div class="sky" aria-hidden="true"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
 
-  <p>Span is a planning layer that sits on top of the Calendar and Reminders you already keep. It helps you see your day and week as one picture — what's fixed, what's flexible, and where the day needs to give a little — without asking you to move your life into yet another app.</p>
+<div class="nav-outer">
+  <div class="wrap nav">
+    <a class="brand" href="../"><span class="mark">JJ</span> isjia.page</a>
+    <nav class="nav-links" aria-label="Main">
+      <a class="optional" href="../#apps">Apps</a>
+      <a href="../support/#span">Support</a>
+      <a class="cta" href="https://apps.apple.com/app/id6818993580">Download</a>
+    </nav>
+  </div>
+</div>
 
-  <ul>
-    <li>Built on your existing Apple Calendar and Reminders</li>
-    <li>Read-only: Span looks, it never edits or deletes your events</li>
-    <li>No server and no sync of its own — everything stays on your device</li>
-    <li>iOS 17 or later</li>
-  </ul>
+<main class="wrap">
+  <p class="crumb"><a href="../">← All apps</a></p>
 
-  <p><a class="btn" href="privacy/">Privacy policy</a></p>
+  <section class="app-hero">
+    <div class="head">
+      <img src="../assets/icons/span-256.png" alt="Span app icon" width="84" height="84">
+      <div>
+        <h1>Span</h1>
+        <p class="sub">Planning · iPhone · iOS 17 or later</p>
+      </div>
+    </div>
+    <p class="lede">Plan the day you actually have.</p>
+  </section>
 
-  <h2 id="support">Support</h2>
-  <p>Questions, bugs or ideas — email <a href="mailto:isjiajiazhang@gmail.com">isjiajiazhang@gmail.com</a> or find me on X at <a href="https://x.com/jjmakesapps">@jjmakesapps</a>. I read everything and reply as fast as one person can.</p>
+  <div class="app-body">
+    <div>
+      <p>Span sits on top of the Calendar and Reminders you already keep. It helps you see your day and week as one picture — what's fixed, what's flexible, and where the day needs to give a little — without asking you to move your life into yet another app.</p>
 
-  <footer><a href="../">JJ · building tiny iOS apps</a></footer>
+      <ul class="feature-list">
+        <li>Built on your existing Apple Calendar and Reminders</li>
+        <li>Read-only: Span looks, it never edits or deletes your events or reminders</li>
+        <li>Day capacity in hours, with plans pencilled into the space that is actually left</li>
+        <li>Reflow is explicit: Span shows the exact before and after before it moves anything</li>
+        <li>Running-plan handoff, cross-day rollover recovery and a single Undo for each change</li>
+        <li>No server and no sync of its own — everything stays on your device</li>
+      </ul>
+
+      <h2>Before you grant access</h2>
+      <p>Span is usable before it touches your calendar: until you allow Calendar and Reminders access it shows a clearly labelled sample day, so you can read the interface without exposing anything. The sample never mixes into your real plans, and granting access reveals your own day exactly as it is — Span does not import the sample into it.</p>
+      <p>Access is read-only. Plan durations, pencil slots and capacity are Span's own local data; your calendars and reminders are never modified. Location, if you allow it, is used only to estimate travel time to an outing you added.</p>
+
+      <h2>Price</h2>
+      <p>Span is a free download with no subscription and no in-app purchase. There is no account to create and no data leaves the device.</p>
+    </div>
+
+    <aside>
+      <div class="panel">
+        <h3>Details</h3>
+        <dl>
+          <dt>Platforms</dt>
+          <dd>iPhone · iOS 17 or later</dd>
+          <dt>Price</dt>
+          <dd>Free — no subscription, no in-app purchase</dd>
+          <dt>Account</dt>
+          <dd>None required</dd>
+          <dt>Data</dt>
+          <dd>No collection. Calendar and Reminders are read-only, on device</dd>
+          <dt>Availability</dt>
+          <dd>On the App Store · version 1.0</dd>
+        </dl>
+        <div class="link-row">
+          <a class="btn small primary" href="https://apps.apple.com/app/id6818993580">App Store</a>
+          <a class="btn small" href="privacy/">Privacy</a>
+          <a class="btn small" href="../support/#span">Support</a>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="cta-band" id="support">
+    <h2>Need help with Span?</h2>
+    <p>The sample day, permissions, what Span may change, and where your data lives are answered on the support page.</p>
+    <a class="btn primary" href="../support/#span">Open Span support</a>
+  </div>
 </main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <strong style="color:var(--ink)">isjia.page</strong>
+        <p class="meta" style="margin:6px 0 0">Apps by Jiajia Zhang · built in Denmark.</p>
+      </div>
+      <div class="links">
+        <a href="../">All apps</a>
+        <a href="../support/">Support</a>
+        <a href="privacy/">Privacy</a>
+        <a href="mailto:isjiajiazhang@gmail.com">Email</a>
+      </div>
+    </div>
+    <p class="fine">Apple, iPhone, Apple Watch, Apple TV, Mac and Safari are trademarks of Apple Inc. This site is not affiliated with Apple.</p>
+  </div>
+</footer>
 </body>
 </html>

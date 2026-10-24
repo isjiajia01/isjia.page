@@ -3,32 +3,116 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ThreadLite for Safari</title>
-<meta name="description" content="ThreadLite keeps long AI chat threads responsive in Safari on Mac — cuts active DOM nodes by up to 87%. 100% local, zero tracking.">
+<title>ThreadLite — Keep long AI chats responsive in Safari</title>
+<meta name="description" content="ThreadLite helps long ChatGPT and Gemini chats stay responsive in Safari on Mac. It never hides or deletes messages, makes no network requests and stores no conversation content.">
+<link rel="canonical" href="https://isjia.page/threadlite/">
+<meta name="theme-color" content="#fdfcf9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#12110e" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ThreadLite — Keep long AI chats responsive in Safari">
+<meta property="og:description" content="Long AI chats that stay responsive in Safari — reversible, fail-open and entirely local.">
+<meta property="og:url" content="https://isjia.page/threadlite/">
+<meta property="og:image" content="https://isjia.page/assets/icons/threadlite-256.png">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="../assets/icons/solis-256.png" type="image/png">
+<link rel="apple-touch-icon" href="../assets/icons/solis-256.png">
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
-<main>
-  <p class="crumb"><a href="../">← JJ · tiny apps</a></p>
-  <h1>ThreadLite for Safari</h1>
-  <p class="lede">Keep long AI chats responsive.</p>
+<div class="sky" aria-hidden="true"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
 
-  <p>Long ChatGPT and Gemini threads make Safari work harder and harder — fans spinning, scrolling stuttering, typing lagging. ThreadLite trims the weight of those pages by cutting active DOM nodes by up to 87%, so marathon threads stay smooth.</p>
+<div class="nav-outer">
+  <div class="wrap nav">
+    <a class="brand" href="../"><span class="mark">JJ</span> isjia.page</a>
+    <nav class="nav-links" aria-label="Main">
+      <a class="optional" href="../#apps">Apps</a>
+      <a href="../support/#threadlite">Support</a>
+      <a class="cta" href="https://apps.apple.com/app/id6811009081?mt=12">Download</a>
+    </nav>
+  </div>
+</div>
 
-  <ul>
-    <li>Makes very long AI chat threads scroll and type smoothly again</li>
-    <li>Works with ChatGPT and Gemini in Safari on macOS</li>
-    <li>100% local — everything happens in your browser, on your Mac</li>
-    <li>Zero tracking, zero analytics, nothing to sign up for</li>
-  </ul>
+<main class="wrap">
+  <p class="crumb"><a href="../">← All apps</a></p>
 
-  <p><a class="btn" href="https://apps.apple.com/app/threadlite-for-safari/id6811009081?mt=12">Download on the Mac App Store</a> <a class="btn" href="privacy/">Privacy policy</a></p>
-  <p class="meta">$0.99 one-time purchase. No subscription, no ads.</p>
+  <section class="app-hero">
+    <div class="head">
+      <img src="../assets/icons/threadlite-256.png" alt="ThreadLite app icon" width="84" height="84">
+      <div>
+        <h1>ThreadLite</h1>
+        <p class="sub">Safari extension · macOS</p>
+      </div>
+    </div>
+    <p class="lede">Keep long AI chats responsive.</p>
+  </section>
 
-  <h2 id="support">Support</h2>
-  <p>Questions, bugs or ideas — email <a href="mailto:isjiajiazhang@gmail.com">isjiajiazhang@gmail.com</a> or find me on X at <a href="https://x.com/jjmakesapps">@jjmakesapps</a>. I read everything and reply as fast as one person can.</p>
+  <div class="app-body">
+    <div>
+      <p>Long ChatGPT and Gemini threads make Safari work harder and harder — fans spinning, scrolling stuttering, typing lagging. ThreadLite asks Safari to defer work for conversation turns that are far offscreen, so the page you are actually looking at stays responsive.</p>
 
-  <footer><a href="../">JJ · building tiny iOS apps</a></footer>
+      <ul class="feature-list">
+        <li>Helps long AI chat threads stay responsive in Safari on macOS</li>
+        <li>Works with chatgpt.com and gemini.google.com</li>
+        <li>Keep awake: Auto, 20, 40 or 80 recent messages; Wake all reverses it</li>
+        <li>Reversible and fail-open — it never hides or deletes a message</li>
+        <li>Active, focused, selected and streaming turns are never touched</li>
+        <li>No network requests, no analytics, no conversation content stored</li>
+      </ul>
+
+      <h2>It changes rendering, not your history</h2>
+      <p>ThreadLite uses Safari's own content-visibility support on eligible off-screen turns. Your prompts, code blocks and responses stay exactly where they were, in the page and in your account. Nothing is deleted, rewritten or uploaded, and no chat content is ever copied or stored by the app. Cmd+F, copy and VoiceOver are designed to be preserved; they are not presented here as independently verified guarantees.</p>
+
+      <h2>Price</h2>
+      <p>ThreadLite is sold on the Mac App Store with a one-time lifetime purchase — no subscription, no ads. If a new Mac does not show the app as purchased, use Restore Purchase with the same Apple Account.</p>
+    </div>
+
+    <aside>
+      <div class="panel">
+        <h3>Details</h3>
+        <dl>
+          <dt>Platforms</dt>
+          <dd>macOS with Safari</dd>
+          <dt>Price</dt>
+          <dd>One-time lifetime purchase (App Store price shown locally)</dd>
+          <dt>Account</dt>
+          <dd>None required</dd>
+          <dt>Data</dt>
+          <dd>No collection. Runs entirely in your browser</dd>
+          <dt>Availability</dt>
+          <dd>On the Mac App Store · version 1.3 (macOS)</dd>
+        </dl>
+        <div class="link-row">
+          <a class="btn small primary" href="https://apps.apple.com/app/id6811009081?mt=12">Mac App Store</a>
+          <a class="btn small" href="privacy/">Privacy</a>
+          <a class="btn small" href="../support/#threadlite">Support</a>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="cta-band" id="support">
+    <h2>Need help with ThreadLite?</h2>
+    <p>Enabling it in Safari, choosing a mode, and restoring the purchase are answered on the support page.</p>
+    <a class="btn primary" href="../support/#threadlite">Open ThreadLite support</a>
+  </div>
 </main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <strong style="color:var(--ink)">isjia.page</strong>
+        <p class="meta" style="margin:6px 0 0">Apps by Jiajia Zhang · built in Denmark.</p>
+      </div>
+      <div class="links">
+        <a href="../">All apps</a>
+        <a href="../support/">Support</a>
+        <a href="privacy/">Privacy</a>
+        <a href="mailto:isjiajiazhang@gmail.com">Email</a>
+      </div>
+    </div>
+    <p class="fine">Apple, iPhone, Apple Watch, Apple TV, Mac and Safari are trademarks of Apple Inc. This site is not affiliated with Apple.</p>
+  </div>
+</footer>
 </body>
 </html>
