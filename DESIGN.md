@@ -7,7 +7,7 @@ Direction: **petrol orbits on cool paper**. The light theme uses cool blue-grey;
 ## Background and brand composition
 - **Hero statement**: the capsule + dot is gone. "An independent developer, shipping solo" is now `.byline`: a plain line with two accent hairlines (editorial dateline), hairlines hidden <480px. Same words.
 - **Background = orbits, not blur blobs.** Page: `.sky` (fixed, CSS only, existing markup) = cool accent wash from the top + three concentric-hairline orbit systems, each carrying one slow planet. Hero: `.orbits` inside `.stage` = three hairline rings with planets + a rotating tick dial around the headline (astrolabe/sundial, tying the background to Solis). Colours derive from `--accent`/`--ink` via `color-mix` and stage `--st-*` values.
-- **Motion (no-preference only)**: planets/dial rotate 90–260 s per turn, wash breathes opacity 0.72→1 over 14–16 s; no flicker, all `pointer-events:none`, `aria-hidden`. Reduce: every animation off (global rule), page is fully visible and static; nothing depends on scroll/JS.
+- **Motion (no-preference only)**: only the two inner hero rings rotate (90/150s); the viewport-sized background systems, outer ring, dial and glow are static. Navigation and dock use solid surfaces without backdrop filtering. This reduces animated surface area and scrolling backdrop sampling; it is not a measured FPS guarantee. Decorative layers remain `pointer-events:none` and `aria-hidden`. Reduced motion disables animation; no effect depends on JavaScript.
 - **Logo**: `assets/brand-jj.svg`: two J eyes and a tilted `>` mouth on a petrol circle. Applied as the CSS background of `.brand .mark`; the 18 navigation markups retain their accessible "JJ" text. Hover, when motion is allowed: −9° tilt + 1.07 scale. All 19 pages use the matching site favicon.
 
 ## Round 3 (user override, 2026-10-24): palette, favicon, OG
@@ -33,7 +33,7 @@ Stage-local custom properties on `.stage, .shot-stage, .cta-band, .card.feature,
 ## Components (all in assets/style.css)
 | Component | Use |
 |---|---|
-| `.nav` pill | Glass capsule nav on every page (CSS only; markup unchanged). |
+| `.nav` pill | Solid capsule nav on every page; no scrolling backdrop blur (CSS only; markup unchanged). |
 | `.stage` | Hero panel: radius 32, dot grid + glow, centered h1/lede/actions, `.phones` trio, `.dock` icon links. |
 | `.phones` / `.phone` | Real iPhone screenshots in a bezel (CSS border + shadow, never stretched: width set, height auto, `aspect-ratio` from file). Bottom fade mask. |
 | `.bento` + `a.card` modifiers | 12-col grid. `.feature` (Solis, 2 phones), `.wide`/`.half` with `.media` image well on top, `.plain` (Span, Hairspring: large icon plate, no fake UI). |
@@ -42,7 +42,10 @@ Stage-local custom properties on `.stage, .shot-stage, .cta-band, .card.feature,
 | `.cta-band` | Dark stage closer. |
 
 ## Scroll reveal
-Homepage product cards, principles and section headings, plus closing CTA bands, gently enter from 96.5% scale and 20px lower while fading in. CSS `view()` timelines complete after 180px of entry (120px for short headings/rules); scrolling back reverses the entrance. Independent `translate`/`scale` properties preserve hover transforms. Animation is gated by `@supports` and normal-motion screen media; unsupported browsers, print and reduced motion show all content immediately. No JavaScript or persistent hidden state.
+Homepage product cards, principles and section headings, plus closing CTA bands, enter from 94% scale and 28px lower while fading in. CSS `view()` timelines complete over 36vh of entry (24vh for short headings/rules), making the entrance more visible than the original fixed 180/120px distances. Scrolling back reverses the entrance. Animation requires support for both the timeline and range, plus normal-motion screen media; unsupported browsers, print and reduced motion show all content immediately. No JavaScript or persistent hidden state.
+
+## Pointer and keyboard feedback
+Card surfaces keep a static shadow and position during hover. A small direction arrow appears beside each name, while the image gently scales; the lead card's existing link arrow shifts. Mouse motion requires a fine, hover-capable pointer. Keyboard focus receives equivalent arrows/borders and image feedback. Brand tilt and dock lift have the same gating; reduced motion retains state changes without movement. No pointer tracking or extra compositor hints are added.
 
 ## Responsive
 - ≥760px: product grid uses 12 columns with 12/7/5/4-column cards.

@@ -140,14 +140,8 @@ img { max-width: 100%; display: block; }
 .sky .g1 { --d: max(1500px, 150vw); --g: 112px; --n: 4; left: 50%; top: -10vh; }
 .sky .g2 { --d: 1120px; --g: 92px; --n: 3; left: 0; top: 62vh; }
 .sky .g3 { --d: 1040px; --g: 104px; --n: 3; left: 100%; top: 94vh; }
-@media (prefers-reduced-motion: no-preference) {
-  .sky .g1 { animation: orbit 140s linear infinite; }
-  .sky .g2 { animation: orbit 110s linear infinite reverse; }
-  .sky .g3 { animation: orbit 170s linear infinite; }
-  .sky::before { animation: breathe 16s ease-in-out infinite alternate; }
-}
-@keyframes orbit { to { rotate: 360deg; } }
-@keyframes breathe { from { opacity: 0.72; } to { opacity: 1; } }
+/* Keep viewport-sized gradients and masks static while the document scrolls.
+   Motion belongs to the smaller, non-fixed hero rings below. */
 
 /* ---------- nav: floating capsule ---------- */
 
@@ -168,9 +162,7 @@ img { max-width: 100%; display: block; }
   padding: 7px 8px 7px 14px;
   border: 1px solid var(--line);
   border-radius: 999px;
-  background: color-mix(in srgb, var(--bg) 74%, transparent);
-  backdrop-filter: blur(18px) saturate(150%);
-  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  background: var(--bg);
   box-shadow: var(--shadow);
 }
 .brand {
@@ -198,7 +190,10 @@ img { max-width: 100%; display: block; }
   box-shadow: 0 1px 3px color-mix(in srgb, var(--ink) 22%, transparent);
 }
 @media (prefers-reduced-motion: no-preference) {
-  .brand .mark { transition: transform 0.35s cubic-bezier(0.3, 1.5, 0.5, 1); }
+  .brand .mark { transition: transform 0.25s ease; }
+  .brand:focus-visible .mark { transform: rotate(-9deg) scale(1.07); }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
   .brand:hover .mark { transform: rotate(-9deg) scale(1.07); }
 }
 .nav-links { display: flex; align-items: center; gap: 2px; flex-wrap: nowrap; }
@@ -280,7 +275,11 @@ section.block { padding: 96px 22px 8px; }
   box-shadow: var(--shadow);
   transition: transform 0.16s ease, border-color 0.16s ease, color 0.16s ease, background 0.16s ease;
 }
-.btn:hover { text-decoration: none; border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+.btn:hover { text-decoration: none; border-color: var(--accent); color: var(--accent); }
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .btn:hover { transform: translateY(-1px); }
+}
+.btn:active { transform: none; }
 .btn.primary { background: var(--ink); border-color: var(--ink); color: var(--bg); }
 .btn.primary:hover { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
 .btn.small { padding: 8px 14px; font-size: 14px; }
@@ -376,9 +375,7 @@ section.block { padding: 96px 22px 8px; }
 @media (prefers-reduced-motion: no-preference) {
   .orbits .r1 { animation: spin 90s linear infinite; }
   .orbits .r2 { animation: spin 150s linear infinite reverse; }
-  .orbits .r3 { animation: spin 220s linear infinite; }
-  .orbits .dial { animation: spin 260s linear infinite reverse; }
-  .stage::before { animation: breathe 14s ease-in-out infinite alternate; }
+  /* The outer ring, tick dial and glow stay static: fewer large animated layers. */
 }
 @media (max-width: 559px) { .orbits .dial { opacity: 0.6; } }
 @keyframes spin { from { rotate: var(--a); } to { rotate: calc(var(--a) + 360deg); } }
@@ -455,12 +452,15 @@ section.block { padding: 96px 22px 8px; }
   padding: 10px;
   border: 1px solid var(--st-line);
   border-radius: 26px;
-  background: rgba(15, 28, 34, 0.72);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: var(--st-card);
 }
 .dock a { display: block; border-radius: 13px; transition: transform 0.18s ease; }
-.dock a:hover { transform: translateY(-3px); }
+@media (prefers-reduced-motion: no-preference) {
+  .dock a:focus-visible { transform: translateY(-3px); }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .dock a:hover { transform: translateY(-3px); }
+}
 .dock img { width: 48px; height: 48px; border-radius: 12px; border: 1px solid var(--st-line); }
 .stage .dock { margin-bottom: 30px; }
 @media (max-width: 559px) {
@@ -492,17 +492,30 @@ section.block { padding: 96px 22px 8px; }
   padding: 22px;
   color: var(--ink);
   box-shadow: var(--shadow);
-  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  transition: border-color 0.18s ease;
 }
-.card:hover {
-  text-decoration: none;
-  box-shadow: var(--shadow-lift);
-  border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
+.card:hover { text-decoration: none; }
+.card:focus-visible { border-color: color-mix(in srgb, var(--accent) 55%, var(--line)); }
+.card:not(.feature) .name::after {
+  content: "→" / "";
+  display: inline-block;
+  margin-left: 0.3em;
+  color: var(--accent);
+  opacity: 0;
+  translate: -4px 0;
+}
+.card:focus-visible .name::after { opacity: 1; translate: 0 0; }
+@media (hover: hover) and (pointer: fine) {
+  .card:hover { border-color: color-mix(in srgb, var(--accent) 55%, var(--line)); }
+  .card:hover .name::after { opacity: 1; translate: 0 0; }
 }
 @media (prefers-reduced-motion: no-preference) {
-  .card:hover { transform: translateY(-3px); }
-  .card:hover .media img { transform: scale(1.025); }
-  .media img { transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  .card .name::after { transition: opacity 0.18s ease, translate 0.18s ease; }
+  .media img { transition: scale 0.35s ease, translate 0.35s ease; }
+  .card:focus-visible .media:not(.plate) img { scale: 1.025; }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .card:hover .media:not(.plate) img { scale: 1.025; }
 }
 .card .icon {
   width: 56px; height: 56px;
@@ -558,7 +571,10 @@ section.block { padding: 96px 22px 8px; }
   box-shadow: 0 0 0 4px #05090b, 0 0 0 5px rgba(233, 241, 243, 0.16), 0 30px 50px -20px rgba(0, 0, 0, 0.8);
 }
 @media (prefers-reduced-motion: no-preference) {
-  .card:hover .media.well > img { transform: translateX(-50%) translateY(-6px); }
+  .card:focus-visible .media.well > img { translate: 0 -6px; }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .card:hover .media.well > img { translate: 0 -6px; }
 }
 
 /* typographic plate for apps without screenshots (no invented UI) */
@@ -611,7 +627,18 @@ section.block { padding: 96px 22px 8px; }
 .card.feature .desc { color: var(--st-muted); font-size: 18px; margin-top: 12px; max-width: 34ch; }
 .card.feature .foot { color: var(--st-muted); margin-top: 20px; }
 .card.feature .more { display: inline-block; margin-top: 22px; font-weight: 600; color: var(--st-ink); font-size: 15px; }
-.card.feature:hover .more { color: var(--st-accent); }
+.card.feature .more::after { content: "→" / ""; display: inline-block; margin-left: 6px; }
+.card.feature:focus-visible .more { color: var(--st-accent); }
+@media (hover: hover) and (pointer: fine) {
+  .card.feature:hover .more { color: var(--st-accent); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .card.feature .more::after { transition: translate 0.18s ease; }
+  .card.feature:focus-visible .more::after { translate: 4px 0; }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .card.feature:hover .more::after { translate: 4px 0; }
+}
 .card.feature .duo {
   position: relative;
   display: flex;
@@ -859,20 +886,22 @@ footer.site .fine { margin-top: 22px; font-size: 13px; }
    motion / print) nothing is ever hidden. Uses the independent opacity /
    translate / scale properties so `transform` hovers keep working, and only
    backwards fill so a finished element carries no animation residue. */
-@supports (animation-timeline: view()) {
+@supports (animation-timeline: view()) and (animation-range: entry 0% entry 36vh) {
   @media screen and (prefers-reduced-motion: no-preference) {
     #apps > .section-head, #principles > .section-head, #support > .section-head,
     #apps .card, #principles .rule, .cta-band {
       animation: reveal linear backwards;
       animation-timeline: view();
-      /* done once the top edge has risen ~180px: tall cards never wait to be fully in view */
-      animation-range: entry 0% entry 180px;
+      /* Viewport-based distance keeps the entrance visible on large screens,
+         without waiting for a tall card to fit entirely inside the viewport. */
+      animation-range: entry 0% entry 36vh;
     }
     #principles .rule, #apps > .section-head, #principles > .section-head, #support > .section-head {
-      animation-range: entry 0% entry 120px;
+      animation-range: entry 0% entry 24vh;
     }
     @keyframes reveal {
-      from { opacity: 0; translate: 0 20px; scale: 0.965; }
+      from { opacity: 0; translate: 0 28px; scale: 0.94; }
+      to { opacity: 1; translate: 0 0; scale: 1; }
     }
   }
 }
@@ -881,4 +910,5 @@ footer.site .fine { margin-top: 22px; font-size: 13px; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .btn:hover, .dock a:hover { transform: none; }
+  .card .name::after, .card.feature .more::after { translate: none !important; }
 }
