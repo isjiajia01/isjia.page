@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DOT — Weather, in dots.</title>
+<meta name="description" content="DOT is a design-first weather app in preparation for iPhone, iOS 17 or later: animated dot scenes, a clear 24-hour forecast and widgets. Live weather is powered by Apple WeatherKit.">
+<link rel="canonical" href="https://app.isjia.page/dot/">
+<meta name="theme-color" content="#f5f8f9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a1317" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="DOT — Weather, in dots.">
+<meta property="og:description" content="Weather, in dots. In preparation for iPhone, with live weather powered by Apple WeatherKit.">
+<meta property="og:url" content="https://app.isjia.page/dot/">
+<meta property="og:image" content="https://app.isjia.page/assets/icons/dot-256.png">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" sizes="180x180">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="sky" aria-hidden="true"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
+
+<div class="nav-outer">
+  <div class="wrap nav">
+    <a class="brand" href="../"><span class="mark">JJ</span> isjia.page</a>
+    <nav class="nav-links" aria-label="Main">
+      <a class="optional" href="../#apps">Apps</a>
+      <a href="../support/#dot">Support</a>
+      <a class="cta" href="mailto:isjiajiazhang@gmail.com?subject=DOT">Contact</a>
+    </nav>
+  </div>
+</div>
+
+<main class="wrap" id="main">
+  <p class="crumb"><a href="../">← All apps</a></p>
+
+  <section class="app-hero">
+    <div class="head">
+      <img src="../assets/icons/dot-256.png" alt="DOT app icon" width="84" height="84">
+      <div>
+        <h1>DOT</h1>
+        <p class="sub">Weather · iPhone · iOS 17 or later</p>
+      </div>
+    </div>
+    <p class="lede">Weather, in dots.</p>
+  </section>
+
+  <div class="app-body">
+    <div>
+      <p>DOT is a design-first weather app built around a moving dot painting of the sky, with quiet type for the details. It is in preparation for iPhone. Live weather is powered by Apple WeatherKit, with Apple Weather attribution. A separate, clearly labelled Demo source is available in Settings.</p>
+
+      <ul class="feature-list">
+        <li><strong>A sky drawn in dots</strong> — animated weather scenes, with a still composition when Reduce Motion is enabled.</li>
+        <li><strong>A clear next 24 hours</strong> — temperature trends and rain chances, designed for a quick glance.</li>
+        <li><strong>Widgets for your screens</strong> — Small, Medium and Large widgets, plus Lock Screen and StandBy layouts.</li>
+        <li><strong>Honest about data age</strong> — old readings are labelled with their time; expired values are not presented as current weather.</li>
+        <li><strong>Powered by Apple WeatherKit</strong> — live weather for your selected place, with Apple Weather attribution and legal information.</li>
+        <li><strong>No account, no ads, no tracking</strong> — settings and cached weather stay on your device, shared locally with widgets through an App Group.</li>
+      </ul>
+
+      <h2>Optional location</h2>
+      <p>DOT first asks for location permission after a location action, such as “Use my location” or the Location control in Settings. Approximate location is enough; if access is already granted and the current-location slot is selected (including the initial Shanghai fallback), the app can request a location at launch. Device-location lookups use Apple's geocoding service. With the Apple WeatherKit source selected, selected coordinates go to Apple WeatherKit for weather.</p>
+      <p>Place search starts with a GeoNames cities5000 database bundled on your device; local city matches and empty-query suggestions need no search network request. Only a query with no local match or input recognised as an address uses Apple Maps through MapKit, sending the query and, when available, a region around your selected place. This fallback can occur while you type, including for partial queries. Search works this way with both live and Demo weather, and does not request new location permission. See the <a href="privacy/">privacy policy</a> for details and city data attribution.</p>
+
+      <p>DOT has no analytics, advertising or tracking SDKs. Its third-party dependency, the MIT-licensed Pow library, provides on-device visual effects and haptic feedback without network requests.</p>
+
+      <h2>DOT Pro</h2>
+      <p>DOT Pro is a one-time unlock, not a subscription. Purchases and restores use the App Store. Family Sharing is configured for local testing; production purchases and Family Sharing remain unverified.</p>
+    </div>
+
+    <aside>
+      <div class="panel">
+        <h3>Details</h3>
+        <dl>
+          <dt>Platforms</dt>
+          <dd>iPhone · iOS 17 or later</dd>
+          <dt>Pro</dt>
+          <dd>One-time Pro unlock · production purchases unverified</dd>
+          <dt>Account</dt>
+          <dd>None required</dd>
+          <dt>Data</dt>
+          <dd>Local settings, cache and city search; Apple Maps for search fallback; Apple services for weather and location lookups</dd>
+          <dt>Availability</dt>
+          <dd>In preparation · coming soon</dd>
+        </dl>
+        <div class="link-row">
+          <a class="btn small" href="privacy/">Privacy</a>
+          <a class="btn small" href="../support/#dot">Support</a>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="cta-band" id="support">
+    <h2>Questions about DOT?</h2>
+    <p>Availability, Apple WeatherKit, location, widgets and Pro are covered in the support section.</p>
+    <a class="btn primary" href="../support/#dot">Open DOT support</a>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <strong style="color:var(--ink)">isjia.page</strong>
+        <p class="meta" style="margin:6px 0 0">Apps by Jiajia Zhang · built in Denmark.</p>
+      </div>
+      <div class="links">
+        <a href="../">All apps</a>
+        <a href="../support/">Support</a>
+        <a href="privacy/">Privacy</a>
+        <a href="mailto:isjiajiazhang@gmail.com">Email</a>
+      </div>
+    </div>
+    <p class="fine">Apple, iPhone, Apple Watch, Apple TV, Mac and Safari are trademarks of Apple Inc. This site is not affiliated with Apple.</p>
+  </div>
+</footer>
+</body>
+</html>

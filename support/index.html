@@ -3,25 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Support · isjia.page</title>
-<meta name="description" content="Support and FAQ for every JJ app: Solis, Punctum, ThreadLite, Span, Wayfinder, Ordbro, Slip and Hairspring. Contact, common questions and privacy policies in one place.">
+<title>Support for Solis, Punctum, ThreadLite, Span, Wayfinder, Ordbro, Slip, Hairspring and DOT · isjia.page</title>
+<meta name="description" content="Support and FAQ for every JJ app: Solis, Punctum, ThreadLite, Span, Wayfinder, Ordbro, Slip, Hairspring and DOT. Contact, common questions and privacy policies in one place.">
 <link rel="canonical" href="https://app.isjia.page/support/">
 <meta name="theme-color" content="#f5f8f9" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0a1317" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Support · isjia.page">
-<meta property="og:description" content="Support and FAQ for Solis, Punctum, ThreadLite, Span, Wayfinder, Ordbro, Slip and Hairspring.">
+<meta property="og:title" content="Support for Solis, Punctum, ThreadLite, Span, Wayfinder, Ordbro, Slip, Hairspring and DOT · isjia.page">
+<meta property="og:description" content="Support and FAQ for Solis, Punctum, ThreadLite, Span, Wayfinder, Ordbro, Slip, Hairspring and DOT.">
 <meta property="og:url" content="https://app.isjia.page/support/">
 <meta property="og:image" content="https://app.isjia.page/assets/og-home.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="JJ's face mark — two J eyes and a &gt; prompt — beside the headline “Small apps that do one thing properly.”, with the eight JJ app icons.">
+<meta property="og:image:alt" content="JJ's face mark — two J eyes and a &gt; prompt — beside the headline “Small apps that do one thing properly.”, with JJ app icons.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Support · isjia.page">
-<meta name="twitter:description" content="Support and FAQ for Solis, Punctum, ThreadLite, Span, Wayfinder, Ordbro, Slip and Hairspring.">
+<meta name="twitter:title" content="Support for Solis, Punctum, ThreadLite, Span, Wayfinder, Ordbro, Slip, Hairspring and DOT · isjia.page">
+<meta name="twitter:description" content="Support and FAQ for Solis, Punctum, ThreadLite, Span, Wayfinder, Ordbro, Slip, Hairspring and DOT.">
 <meta name="twitter:image" content="https://app.isjia.page/assets/og-home.png">
-<meta name="twitter:image:alt" content="JJ's face mark — two J eyes and a &gt; prompt — beside the headline “Small apps that do one thing properly.”, with the eight JJ app icons.">
+<meta name="twitter:image:alt" content="JJ's face mark — two J eyes and a &gt; prompt — beside the headline “Small apps that do one thing properly.”, with JJ app icons.">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="../assets/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" sizes="180x180">
@@ -64,6 +64,7 @@
           <li><a href="#ordbro">Ordbro</a></li>
           <li><a href="#slip">Slip</a></li>
           <li><a href="#hairspring">Hairspring</a></li>
+          <li><a href="#dot">DOT</a></li>
         </ul>
         <p>Elsewhere</p>
         <ul>
@@ -419,6 +420,48 @@
           </div>
         </section>
 
+        <!-- ============ DOT ============ -->
+        <section class="support-app" id="dot">
+          <div class="head">
+            <img src="../assets/icons/dot-256.png" alt="" width="46" height="46" loading="lazy">
+            <div>
+              <h2>DOT</h2>
+              <p class="who">Weather · iPhone · iOS 17 or later · In preparation</p>
+            </div>
+          </div>
+
+          <div class="qa">
+            <p class="q">Can I download DOT yet?</p>
+            <p class="a">DOT is in preparation and is not yet on the App Store. It is a design-first weather app for iPhone, with animated dot scenes, a clear 24-hour forecast and widgets. There is no download link yet.</p>
+          </div>
+          <div class="qa">
+            <p class="q">Where does the weather come from?</p>
+            <p class="a">DOT uses Apple WeatherKit for live weather, with Apple Weather attribution and legal information. Settings also offers an explicitly selected, labelled Demo source; a failed live request does not silently select Demo. Old readings are labelled with their time; readings more than six hours old are not shown as current weather, and cached weather older than 24 hours is no longer displayed.</p>
+          </div>
+          <div class="qa">
+            <p class="q">Does DOT need my precise location?</p>
+            <p class="a">No. DOT requests reduced accuracy, although iOS may supply precise coordinates depending on your system settings. DOT first asks for permission after a location action such as “Use my location” or the Location control in Settings; once access is granted and the current-location slot is selected (including the initial Shanghai fallback), it can request a location at launch. Device-location lookups go to Apple's geocoding service. You can also search for a place without granting new location permission. With the Apple WeatherKit source selected, selected coordinates go to Apple WeatherKit for weather. See <a href="../dot/privacy/">DOT's privacy policy</a> for details.</p>
+          </div>
+          <div class="qa">
+            <p class="q">Does place search work offline?</p>
+            <p class="a">DOT first searches a GeoNames cities5000 database bundled on your device. Local city matches and empty-query suggestions need no search network request. Only a query with no local match or input recognised as an address uses Apple Maps through MapKit, sending the query and, when available, a region around your selected place. This can happen while you type, so a partial query may be sent. The same search behaviour applies to live and Demo weather; live weather requests are separate. The <a href="../dot/privacy/">privacy policy</a> explains the fallback and includes GeoNames / CC BY 4.0 attribution.</p>
+          </div>
+          <div class="qa">
+            <p class="q">Which widgets are being prepared?</p>
+            <p class="a">Small, Medium and Large widgets, plus Lock Screen and StandBy layouts. Widgets use static dot scenes and show the age of cached weather.</p>
+          </div>
+          <div class="qa">
+            <p class="q">What is DOT Pro?</p>
+            <p class="a">DOT Pro is a one-time unlock, not a subscription. Purchases and restores are handled by the App Store. Family Sharing is configured for local testing; production purchases and Family Sharing remain unverified. DOT has no account, ads, analytics or tracking.</p>
+          </div>
+
+          <div class="links">
+            <a class="chip" href="../dot/">DOT page</a>
+            <a class="chip" href="../dot/privacy/">Privacy policy</a>
+            <a class="chip" href="mailto:isjiajiazhang@gmail.com?subject=DOT%20support">Email support</a>
+          </div>
+        </section>
+
         <div class="cta-band" style="margin-top:44px">
           <h2>Not covered here?</h2>
           <p>Send the app name, your device and OS version, and what you expected to happen. Screenshots help a lot.</p>
@@ -446,6 +489,7 @@
         <a href="../ordbro/">Ordbro</a>
         <a href="../slip/">Slip</a>
         <a href="../hairspring/">Hairspring</a>
+        <a href="../dot/">DOT</a>
         <a href="https://x.com/jjmakesapps">X</a>
       </div>
     </div>

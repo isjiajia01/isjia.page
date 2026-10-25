@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DOT Privacy Policy</title>
+<meta name="description" content="DOT privacy: local settings and cache, optional location, offline city search with Apple Maps fallback, Apple WeatherKit requests and App Store purchases. No analytics, ads or tracking.">
+<link rel="canonical" href="https://app.isjia.page/dot/privacy/">
+<meta name="theme-color" content="#f5f8f9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a1317" media="(prefers-color-scheme: dark)">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="DOT Privacy Policy">
+<meta property="og:description" content="Local settings and cache, offline city search with Apple Maps fallback, and Apple weather services. No analytics, ads or tracking.">
+<meta property="og:url" content="https://app.isjia.page/dot/privacy/">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../../assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png" sizes="180x180">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="sky" aria-hidden="true"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
+
+<div class="nav-outer">
+  <div class="wrap nav">
+    <a class="brand" href="../../"><span class="mark">JJ</span> isjia.page</a>
+    <nav class="nav-links" aria-label="Main">
+      <a class="optional" href="../../#apps">Apps</a>
+      <a href="../../support/#dot">Support</a>
+      <a class="cta" href="mailto:isjiajiazhang@gmail.com?subject=DOT">Contact</a>
+    </nav>
+  </div>
+</div>
+
+<main class="wrap narrow" id="main">
+  <p class="crumb"><a href="../">← DOT</a></p>
+
+  <section style="padding:26px 0 10px">
+    <p class="eyebrow">DOT · Privacy</p>
+    <h1>Privacy Policy</h1>
+    <p class="lede">The developer does not collect personal data through DOT. There is no account, no advertising, no analytics and no tracking. City search starts on your device; Apple services handle search fallback, weather requests, location lookups and purchases as described below.</p>
+    <p class="meta">Last updated: 25 October 2026</p>
+  </section>
+
+  <section style="padding-bottom:24px">
+    <h2>Weather and Apple services</h2>
+    <p>DOT is in preparation and uses Apple WeatherKit for live weather. To retrieve weather, DOT sends the coordinates of your selected saved place or device location to Apple WeatherKit through Apple's native framework. Weather can load for a saved place without location permission; Shanghai is the initial saved place. Apple handles the service's authentication and may receive ordinary network connection information.</p>
+    <p>DOT displays Apple Weather attribution using the marks and legal link returned by WeatherKit. Loading those marks requests images from Apple's servers; opening the legal link visits Apple's legal page. Weather requests do not go through a server operated by the developer.</p>
+    <p>You can explicitly select the Demo source in Settings. Its generated weather is labelled “Demo data”; a failed live request does not silently switch to Demo.</p>
+
+    <h2>Location and place search</h2>
+    <p>DOT first requests location permission after an explicit action, such as tapping “Use my location” or the Location control in DOT's Settings. It requests When In Use permission, not background-location permission. Approximate location is enough, and DOT requests reduced accuracy; the coordinates iOS supplies may still be precise depending on your system settings. If access is already granted and the current-location slot is selected (including the initial Shanghai fallback slot), the app can request a location at launch without another tap.</p>
+    <p>When a location is obtained, DOT sends it to Apple's geocoding service to resolve a place name and time zone, saves that place locally and selects it. With the Apple WeatherKit source selected, this also refreshes weather for those coordinates through Apple WeatherKit.</p>
+    <p><strong>City and place search.</strong> DOT first searches a GeoNames cities5000 city database bundled with the app and stored on your device. City names, aliases, pinyin and abbreviations that match this database are processed locally, unless the input is recognised as an address as described below; those local city queries are not sent to Apple or the developer. The database does not download updates during search. Opening search with an empty query shows local city suggestions. This search behaviour applies to both the Apple WeatherKit and Demo weather sources.</p>
+    <p>If the city database has no matching result for a non-empty query, or your input looks like an address (for example, a house number or a recognised street word), DOT uses Apple Maps through MapKit to find the place. In these cases, your search text and a region around your selected place, when available, are sent directly to Apple's Maps services. This fallback can happen while you type, so a partial query with no local match may be sent. Apple may also receive the network information necessary to deliver the service. This is subject to <a href="https://www.apple.com/legal/privacy/data/en/apple-maps/">Apple Maps &amp; Privacy</a>. DOT operates no search server and adds no search analytics or query logging.</p>
+    <p>Searching does not request new location permission. If you have already chosen a current-location place, its coordinates can provide the search region. Selecting a place saves its name, coordinates, country and time zone on your device and in DOT's local App Group for weather and widgets. Weather requests continue to use Apple's weather services separately from search when the Apple WeatherKit source is selected.</p>
+    <p>For Apple's handling of data, see <a href="https://www.apple.com/legal/privacy/">Apple's privacy policy</a> and <a href="https://weatherkit.apple.com/legal-attribution.html">Apple Weather legal information</a>.</p>
+
+    <h2>What stays on your device</h2>
+    <p>Your saved places, including coordinates and time zones, preferences and weather cache are stored on your device, in the app's local storage and an App Group shared with DOT's widgets. The local Pro entitlement is also shared with widgets. DOT has no developer-operated sync service. Widgets read this shared cache; they do not request location or fetch weather from WeatherKit.</p>
+    <p>Cached readings are labelled with their age or update time. When Apple's data expires or a failed refresh is recorded in the cache, remaining usable readings are marked stale. Readings more than six hours old are not shown as current weather; any remaining forecast is tied to its last update. After more than 24 hours, cached weather is no longer returned or displayed. This is a display and access limit, not automatic file deletion: old cache files can remain on disk until overwritten, and there is no scheduled disk-purge period.</p>
+    <p>In DEBUG builds, WeatherKit diagnostics can include place names, coordinates, weather values, request timing and errors. A diagnostic report is written to the app's local Documents storage and debug console; DOT does not upload it. The diagnostic screen and report export are limited to DEBUG builds. The labelled Demo source is a separate option in Settings.</p>
+
+    <h2>Purchases</h2>
+    <p>DOT Pro is a one-time unlock, not a subscription. Purchases, verification and restores use Apple's App Store and StoreKit. Apple handles payment and billing; DOT checks verified Pro entitlements and does not receive your payment-card details. Family Sharing is configured for local testing but has not been verified in production. DOT is not yet available on the App Store, and production purchases remain unverified.</p>
+
+    <h2>Analytics, advertising and tracking</h2>
+    <p>DOT has no accounts, analytics, advertising, tracking technologies or third-party analytics, advertising or tracking SDKs. The developer does not collect personal data from users, including children. The app's third-party dependency is Pow, an open-source visual-effects library under the MIT licence. DOT uses it only for on-device visual effects and haptic feedback, without network requests.</p>
+
+    <h2>City data attribution</h2>
+    <p>City and geographic data provided by <a href="https://www.geonames.org/">GeoNames</a>, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. DOT packages a subset of the cities5000 dataset with selected aliases and generated pinyin indexes.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about this policy: <a href="mailto:isjiajiazhang@gmail.com">isjiajiazhang@gmail.com</a>. For help with the app, see the <a href="../../support/#dot">DOT support section</a>.</p>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <strong style="color:var(--ink)">isjia.page</strong>
+        <p class="meta" style="margin:6px 0 0">Apps by Jiajia Zhang · built in Denmark.</p>
+      </div>
+      <div class="links">
+        <a href="../../">All apps</a>
+        <a href="../../support/">Support</a>
+        <a href="../">DOT</a>
+        <a href="mailto:isjiajiazhang@gmail.com">Email</a>
+      </div>
+    </div>
+    <p class="fine">Apple, iPhone, Apple Watch, Apple TV, Mac and Safari are trademarks of Apple Inc. This site is not affiliated with Apple.</p>
+  </div>
+</footer>
+</body>
+</html>

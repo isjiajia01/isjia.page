@@ -439,7 +439,7 @@ section.block { padding: 96px 22px 8px; }
 }
 @keyframes rise { from { opacity: 0; transform: translateY(36px); } }
 
-/* icon dock: all eight apps, one tap */
+/* icon dock: all nine apps, one tap */
 .dock {
   position: relative;
   display: flex;
