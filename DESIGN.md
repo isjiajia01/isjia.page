@@ -28,7 +28,7 @@ User explicitly authorised overriding the earlier locks on **colour tokens** and
 - Body 17px/1.65 sans (unchanged). Eyebrows: sentence-case `.tag` kept small; no new all-caps.
 
 ## Shared dark surfaces
-Stage-local custom properties on `.stage, .shot-stage, .cta-band, .card.feature, .media`: `--st-bg #0a1317`, `--st-card #0f1c22`, `--st-ink #e9f1f3`, `--st-muted #8ea5ad`, `--st-line #22343b`, `--st-accent #5fb6c4`.
+Stage-local custom properties on `.stage, .shot-stage, .cta-band, .card.feature, .media`: `--st-bg #090a10`, `--st-card #131622`, `--st-ink #f8fafc`, `--st-muted #8290a5`, `--st-line rgba(255, 255, 255, 0.08)`, `--st-accent #38bdf8`, `--st-accent-warm #fbbf24`.
 
 ## Components (all in assets/style.css)
 | Component | Use |
