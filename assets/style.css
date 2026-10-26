@@ -924,6 +924,21 @@ details.faq p { margin: 10px 0 0; color: var(--muted); font-size: 15.5px; }
   border-radius: 32px;
 }
 .cta-band h2 { margin-bottom: 10px; font-size: clamp(28px, 4.2vw, 46px); line-height: 1.08; letter-spacing: -0.04em; }
+/* sign-off: the one place on the site large enough for the 3D mark's material to
+   read. Decorative, so it stays a background image like .brand .mark — no alt text,
+   nothing for a screen reader. Static on purpose: no motion, nothing to reduce. */
+.cta-band h2::before {
+  content: "";
+  display: block;
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 20px;
+  background: url("disc-192.png") center / contain no-repeat;
+  filter: drop-shadow(0 12px 22px rgba(0, 0, 0, 0.55));
+}
+@media (max-width: 559px) {
+  .cta-band h2::before { width: 72px; height: 72px; margin-bottom: 16px; }
+}
 .cta-band p { color: var(--st-muted); max-width: 46ch; margin: 0 auto 22px; }
 
 footer.site {
