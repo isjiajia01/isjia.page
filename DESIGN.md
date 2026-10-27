@@ -113,3 +113,57 @@ User supplied `isjia-burgundy-satin.svg` as the personal mark, asked for a 3D ve
 
 **Verified (Chromium, local `python3 -m http.server`).** Light + dark at 1440/390/320 on index, Solis, Span, support, DOT privacy and 404: `scrollWidth - innerWidth = 0` everywhere, no 4xx/5xx and no failed requests after forcing every image eager, `--accent`/`--bg` compute to the new tokens, all three icon links resolve, `favicon.svg` is the file the browser requests, nav mark reads as a face at 30 px in both themes, touch icon renders opaque at 180 px. Contrast measured on the final tokens (values above, ≥4.5:1 for every text pair touched).
 **Not verified:** Safari/WebKit rendering of `color-mix`/`mask-image`, a real iOS home-screen install of the new touch icon, and social-crawler caches of the old OG image.
+
+## Round 5 (user request, 2026-10-27): rebuild on the supplied prototype
+User handed over a saved prototype (`~/Downloads/isjia.page 重构.html`: home + one app page + an icon sheet) and asked to refactor "the whole site" on it, with one explicit correction: **everything in the prototype was sample material — icons, screenshots and app behaviours must come from the real apps / LifeOS**, never from the mock SVGs in the file.
+
+**What was taken from the prototype.** The composition and its rhythm: sticky translucent header, centred hero over a dot field, a row of the real app icons with a name card on hover/focus, the "No accounts ● No ads ● No tracking ● …" ticker, "The shelf · 09" with platform filter pills, a card per app (icon, status dot, category, name, one line, platforms, arrow), the hairline 01/02/03 values row, the two-card contact block (plain + wine gradient), the footer. App pages follow the prototype's detail page: back-link header, icon + category + big name + tagline + buttons, a real-screenshot figure, "What it does" with a 3-up feature grid, then notes and a details panel, a support band, "More from JJ", footer.
+
+**What was deliberately not taken.** The prototype's fake icons and fake app UI (its Solis/Slip/… SVGs, the `[real screenshot goes here]` phone shell, the invented `#ffb547` per-app palette, Geist from fonts.gstatic.com, React/Babel runtime, canvas hero, hover-caption script). Real assets are the ones already in `assets/icons/` and `assets/shots/` (same sources as the table above); apps with no screenshots (Span, Hairspring, DOT) get an icon plate rather than invented UI.
+
+**Theme: one dark theme.** Wine-black canvas `#100a0c`, bone text `#f8f6eb`, rose accent `#e0a3b1`, wine `#7c4a55`, cards `#171013`/`#1d1216`, hairlines `rgba(248,246,235,.08)`. Status colours keep their meaning: live `#5bd68a`, in review `#e8b45a`, coming soon `#a69b95`. `color-scheme: dark`; `prefers-color-scheme` no longer switches anything (the bone-paper light theme of rounds 3–4 is retired, as the prototype is a single dark design). `theme-color` is `#100a0c` on every page.
+- **Per-app accent** (`--app-accent`, set inline on `<body>` of that app page only) is sampled from that app's own icon: Solis `#d9a566`, Punctum `#f0b04a`, ThreadLite `#e08b5e`, Span `#8fa6ff`, Wayfinder `#e0885f`, Ordbro `#7f9bff`, Slip `#8b93ff`, Hairspring `#e3cba6`, DOT `#f2b23c`. Used for the category eyebrow, feature glyphs, figure glow and the "Get …" button (dark text on the accent). The site accent stays rose.
+
+**Type.** System fonts only (`-apple-system` / `system-ui` stack, `ui-monospace` for eyebrows, labels, statuses and platform lines) — no webfont shipped or fetched. Hero h1 `clamp(42px, 7.2vw, 104px)`/0.98/−0.045em/600; sections `clamp(34px, 4.6vw, 62px)`; body 17px/1.6. The Instrument Serif italic file is retained but no longer used (documented in the CSS) — the prototype's single accent-coloured phrase replaces it.
+
+**Components (all in `assets/style.css`, 925 lines).** `.site-header`/`.brand`/`.nav`, `.hero`+`.field` (CSS dot field, masked; no canvas), `.icon-row`/`.ico`/`.ico-pop`, `.ticker`, `.shelf-section`+`.pills`+`.card`, `.values`, `.contact-grid`/`.panel.wine`, `.detail-hero`/`.screens`/`.screen`/`.win`/`.icon-plate`, `.feature-grid`/`.feature`, `.detail-body`/`.notes`/`.facts`, `.support-band`, `.more-section`, `.page-head`, `.support-layout`/`.toc`/`.support-app`/`.qa`/`.chip`, `.legal`, `.lost`, `.site-footer`.
+
+**No JavaScript added; Lenis removed.** The prototype's interactions were rebuilt in CSS where they carry meaning: the nine item captions are `:hover`/`:focus-visible` popovers (keyboard works, `aria-hidden` because the link already has an `aria-label`), the platform filter is a radio group + `label` pills with `:has()` filtering (browsers without `:has()` show all nine), the ticker is a duplicated-span marquee that pauses on hover and stops under reduced motion. `assets/lenis.min.js` is no longer referenced (file kept).
+
+**Facts unchanged.** Prices, IAP shapes, versions, availability strings, App Store URLs (`6770580536`, `6819719995`, `6811009081?mt=12`, `6818993580`, `6823482560`; Ordbro/Slip/Hairspring/DOT still have none), platform/OS lines, support anchors, privacy text, CNAME, robots, 404 `noindex`, canonical/og URLs and JSON-LD are carried over verbatim. Old `.stage`/`.bento`/`.cta-band`/`.app-hero` markup is gone; the copy was re-cut only where the new layout needs a short label (feature card titles), from the same sentences.
+
+**Privacy pages.** Shell swapped only (theme colour, header, footer, `.legal` wrapper around the body sections): the script asserted the visible text of `<main>` is byte-identical before and after for all nine pages.
+
+**OG image.** `assets/og-home.png` rebuilt 1200×630 from a throw-away page in /tmp: same copy as the hero, rose accent phrase, dot field, the nine real icons and the 3D disc; no new assets on the site.
+
+**Verified (headless Chromium 1248, local `python3 -m http.server`).** 21 pages × 320/390/1440: `scrollWidth == clientWidth`, no broken images, all local `href`/`src` resolve (`/tmp/isjia_proto/static_check.py`, 0 issues). Filter pills return exactly Solis·Punctum·Span·Slip·DOT (iPhone), Solis·Punctum·Hairspring (Watch/TV), ThreadLite·Wayfinder·Ordbro (Mac). Privacy text equality asserted per page; the five Store URLs are unchanged; one email address on the site. Screenshots reviewed at 1440 (home, Solis, Punctum, Span) and 390 (home, Solis, Ordbro, support, Solis privacy).
+**Not verified:** Safari/WebKit rendering (`backdrop-filter`, `:has()`, `color-mix`, `animation-timeline`), real iOS home-screen icon, social-crawler cache of the new OG image, and hover popovers on a real trackpad.
+
+**Detail pages are not one template (round 5, follow-up).** Every app page carries its own hero arrangement plus one section that only makes sense for that app, in the app's own accent:
+| App | Hero | Signature section |
+|---|---|---|
+| Solis | one iPhone (Today) | `.shot-strip`: four labelled screens — Today / Sky / Year of light / Moon |
+| Punctum | 21:9 dot-matrix shot | `.check-list`: "In the app" / "Around it" inventory (neutral bullets) |
+| ThreadLite | host-app shot | `.check-list`: "It defers" / "It never touches", incl. the unverified ⌘F/VoiceOver caveat |
+| Wayfinder | palette shot | `.step-list`: task → session → saved page → palette |
+| Ordbro | page-translation shot | `.step-list`: translation only / bilingual / original |
+| Slip | two iPhone screens | `.check-list`: "It does" / "It does not" (bank, notifications, upload, cloud sync) |
+| Span | icon plate (no screenshots exist) | `.step-list`: sample day → you decide → read-only |
+| Hairspring | icon plate | `.check-list`: "On Apple Watch" / "On Apple TV" (face names, screensaver caveat) |
+| DOT | icon plate | `.step-list`: WeatherKit / Demo / your place, cached locally |
+
+Wording that the signature section now carries was removed from that page's notes blocks (ThreadLite, Wayfinder, Span, Slip, Ordbro, Hairspring, DOT) so nothing is said twice; the underlying facts are the same sentences as before. New components, all in `style.css`: `.shot-strip`, `.check-list` (with a neutral variant for two-way inventories), `.step-list`.
+
+## Round 6 (user request, 2026-10-27): Hairspring removed
+User: "Hairspring 不打算用了，把有关它的全部内容都删除." Removed from the site, not archived in it:
+- deleted `hairspring/index.html`, `hairspring/privacy/index.html`, `assets/icons/hairspring-256.png` (copies kept outside the repo in `/tmp/isjia_proto/removed-hairspring/` for this session only);
+- home: icon row item, shelf card, JSON-LD item (renumbered 1–8), meta description, shelf count 09 → 08, pill counts Watch/TV 3 → 2, All 9 → 8;
+- the eight app pages: "More from JJ" row and "See all eight apps";
+- `support/`: title/description/og/twitter app list, TOC entry, FAQ section and footer link;
+- `sitemap.xml`: both URLs; `assets/og-home.png` re-rendered with eight icons;
+- `../check-sites.py` products tuple; `me.isjia.page` dictionaries + `lib/resume.ts` (eight → seven apps, Hairspring dropped from the lists) rebuilt into `out/`;
+- `AGENTS.md`: price/ID/known-todo lines updated, plus a note not to re-add the app.
+
+Counts after removal: 8 apps — iPhone 5, Apple Watch 2, Apple TV 2, Mac 3. Verified: 19 pages, 0 static issues, `scrollWidth == clientWidth` at 320/390/1440, sitemap parses, filters return 8/5/2/2/3, no remaining references outside this log and the AGENTS.md note.
+
+**Hero dot field (same request, earlier in the session).** The prototype's animated field is back, as `assets/field.js` (self-hosted, no dependencies, ~250 lines): 17px grid, flow-field brightness, reveal from the centre over 1.8s, pointer repulsion within 190px, click ripple, wine → rose → cream ramp, batched fills (~65 paths per frame). It stops for `prefers-reduced-motion` (one still frame), when the hero is off-screen, and when the tab is hidden; without JS the CSS dot field still renders (`.field::before`, hidden only when the script marks `html.field-on`). This supersedes the "no JS added" line above for this one file.

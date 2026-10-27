@@ -6,8 +6,7 @@
 <title>Solis — Sun &amp; Moon</title>
 <meta name="description" content="Solis shows sunrise, sunset, golden hour, twilight, Moon phases and Earthlight for iPhone, Apple Watch and Apple TV. One-time purchase, no subscription, no tracking.">
 <link rel="canonical" href="https://app.isjia.page/solis/">
-<meta name="theme-color" content="#f7f3ec" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0e090b" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#100a0c">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Solis — Sun &amp; Moon">
 <meta property="og:description" content="The daylight, at a glance: sunrise, golden hour, Moon phases and Earthlight.">
@@ -19,113 +18,137 @@
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=2" sizes="180x180">
 <link rel="stylesheet" href="../assets/style.css">
 </head>
-<body>
+<body style="--app-accent: #d9a566">
+<a class="skip" href="#features">Skip to the features</a>
 <div class="sky" aria-hidden="true"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
 
-<div class="nav-outer">
-  <div class="wrap nav">
-    <a class="brand" href="../"><span class="mark">JJ</span> isjia.page</a>
-    <nav class="nav-links" aria-label="Main">
-      <a class="optional" href="../#apps">Apps</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <div class="app-head">
+      <a class="back" href="../"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>All apps</a>
+      <span class="sep" aria-hidden="true">/</span>
+      <span class="id"><img src="../assets/icons/solis-256.png" alt="" width="26" height="26">Solis</span>
+    </div>
+    <nav class="nav" aria-label="Solis">
+      <a class="optional" href="#features">Features</a>
       <a href="../support/#solis">Support</a>
       <a class="cta" href="https://apps.apple.com/app/id6770580536">Download</a>
     </nav>
   </div>
-</div>
+</header>
 
-<main class="wrap">
-  <p class="crumb"><a href="../">← All apps</a></p>
-
-  <section class="app-hero">
-    <div class="head">
-      <img src="../assets/icons/solis-256.png" alt="Solis app icon" width="84" height="84">
-      <div>
-        <h1>Solis</h1>
-        <p class="sub">Sun &amp; Moon · iPhone, Apple Watch, Apple TV</p>
+<main>
+  <section class="wrap detail-hero">
+    <div class="copy">
+      <img class="app-icon" src="../assets/icons/solis-256.png" alt="Solis app icon" width="108" height="108">
+      <p class="cat">Sun &amp; Moon · iPhone · Watch · TV</p>
+      <h1>Solis</h1>
+      <p class="tagline">The daylight, at a glance.</p>
+      <div class="btn-row">
+        <a class="btn app" href="https://apps.apple.com/app/id6770580536">Get Solis <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="btn" href="#features">See what it does</a>
       </div>
     </div>
-    <p class="lede">The daylight, at a glance.</p>
+    <figure class="figure">
+      <div class="screens count-1">
+      <span class="screen lead"><img src="../assets/shots/solis-today.webp" alt="Solis showing the sunset countdown and golden hour for Copenhagen" width="560" height="1214"></span>
+      </div>
+    </figure>
   </section>
 
-  <figure class="shot-stage">
-    <div class="phones">
-      <span class="phone lead"><img src="../assets/shots/solis-today.webp" alt="Solis showing the sunset countdown and golden hour for Copenhagen" width="560" height="1214"></span>
-      <span class="phone m-hide"><img src="../assets/shots/solis-sun.webp" alt="Solis Sky view following the Sun across the day" width="560" height="1214"></span>
-      <span class="phone"><img src="../assets/shots/solis-year.webp" alt="Solis year-of-light chart comparing daylight in Copenhagen and Reykjavík" width="560" height="1214"></span>
-      <span class="phone m-hide"><img src="../assets/shots/solis-moon.webp" alt="Solis Moon screen showing a waning gibbous Moon with rise and set times" width="560" height="1214"></span>
+  <section class="wrap detail-section" id="features">
+    <p class="eyebrow">What it does</p>
+    <h2>The whole day’s light, <span class="em">in one glance.</span></h2>
+    <div class="feature-grid">
+        <div class="feature"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="14" cy="14" r="5"/><path d="M14 3v3M14 22v3M3 14h3M22 14h3M6.5 6.5l2 2M19.5 19.5l-2-2M21.5 6.5l-2 2M8.5 19.5l-2-2"/></svg><h3>Sunrise &amp; sunset</h3><p>Solar noon, twilight, and golden and blue hour, morning and evening.</p></div>
+        <div class="feature"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 5a9 9 0 1 0 5 13A7 7 0 0 1 18 5z"/></svg><h3>Moon phases</h3><p>The phase tonight, with moonrise and moonset times.</p></div>
+        <div class="feature"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="14" cy="14" r="10"/><path d="M4 14h20M14 4c3 3 4 6.5 4 10s-1 7-4 10c-3-3-4-6.5-4-10s1-7 4-10z"/></svg><h3>Earthlight</h3><p>The moving day/night boundary across the planet, and the year of light for a place you care about.</p></div>
+        <div class="feature"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="22" height="14" rx="3"/><circle cx="14" cy="15" r="4"/><path d="M9 8l1.5-3h7L19 8"/></svg><h3>Sky AR</h3><p>Point the camera at the sky to find the Sun and Moon.</p></div>
+        <div class="feature"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="8" height="8" rx="2"/><rect x="16" y="4" width="8" height="8" rx="2"/><rect x="4" y="16" width="8" height="8" rx="2"/><rect x="16" y="16" width="8" height="8" rx="2"/></svg><h3>Widgets &amp; Live Activities</h3><p>The current light on your Home Screen and Lock Screen, plus alternate icons.</p></div>
+        <div class="feature"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="7" width="12" height="14" rx="3.5"/><path d="M11 7V3h6v4M11 21v4h6v-4"/></svg><h3>Watch &amp; TV companions</h3><p>The same places on your wrist and on the television.</p></div>
     </div>
-  </figure>
+  </section>
 
-  <div class="app-body">
-    <div>
-      <p>Solis tells you what the sky is doing today: sunrise and sunset, the golden hours photographers plan around, twilight, and the Moon — its phase, rise and set. Open it, get the answer, put the phone away.</p>
-
-      <ul class="feature-list">
-        <li>Sunrise, sunset, solar noon and twilight times</li>
-        <li>Golden hour and blue hour, morning and evening</li>
-        <li>Moon phase, moonrise and moonset</li>
-        <li>Earthlight: the moving boundary between day and night across the planet, and the year of light for a place you care about</li>
-        <li>Sky AR — point the camera at the sky to find the Sun and Moon</li>
-        <li>Widgets, Live Activities and alternate icons</li>
-        <li>Apple Watch and Apple TV companions for the same places</li>
-        <li>Works for your current location, or anywhere you search</li>
-      </ul>
-
-      <h2>Built to stay out of the way</h2>
-      <p>No account, no ads, no tracking, and no server of its own. If you grant location permission it is used on your device to calculate times where you are; you can also pick a place by hand and never share a location at all. Settings and your purchase follow you across your devices through Apple's own mechanisms.</p>
-
-      <h2>Price</h2>
-      <p>Solis is a free download with a seven-day trial of the complete app from first launch. After that, Solis Full is a single lifetime purchase ($4.99) with Family Sharing — no subscription. Restore Purchases is on the unlock screen. Apple handles billing and refunds.</p>
-    </div>
-
-    <aside>
-      <div class="panel">
-        <h3>Details</h3>
-        <dl>
-          <dt>Platforms</dt>
-          <dd>iPhone · Apple Watch · Apple TV</dd>
-          <dt>Price</dt>
-          <dd>Free download · Solis Full $4.99 one-time (Family Sharing)</dd>
-          <dt>Account</dt>
-          <dd>None required</dd>
-          <dt>Data</dt>
-          <dd>No collection. Location stays on the device</dd>
-          <dt>Availability</dt>
-          <dd>On the App Store · version 1.2</dd>
-        </dl>
-        <div class="link-row">
-          <a class="btn small primary" href="https://apps.apple.com/app/id6770580536">App Store</a>
-          <a class="btn small" href="privacy/">Privacy</a>
-          <a class="btn small" href="../support/#solis">Support</a>
+  <section class="wrap detail-section">
+    <p class="eyebrow">The screens</p>
+    <h2>Four screens, <span class="em">one day.</span></h2>
+        <div class="shot-strip">
+        <figure><span class="screen"><img src="../assets/shots/solis-today.webp" alt="Solis Today screen with the sunset countdown and golden hour for Copenhagen" width="560" height="1214"></span><figcaption><b>Today</b>Sunset countdown and golden hour for where you are.</figcaption></figure>
+        <figure><span class="screen"><img src="../assets/shots/solis-sun.webp" alt="Solis Sky view following the Sun across the day" width="560" height="1214"></span><figcaption><b>Sky</b>The Sun's arc across the day.</figcaption></figure>
+        <figure><span class="screen"><img src="../assets/shots/solis-year.webp" alt="Solis year-of-light chart comparing daylight in Copenhagen and Reykjavík" width="560" height="1214"></span><figcaption><b>Year of light</b>Daylight across the year for a place you care about.</figcaption></figure>
+        <figure><span class="screen"><img src="../assets/shots/solis-moon.webp" alt="Solis Moon screen showing a waning gibbous Moon with rise and set times" width="560" height="1214"></span><figcaption><b>Moon</b>Tonight's phase, with moonrise and moonset.</figcaption></figure>
         </div>
+  </section>
+
+  <section class="wrap detail-body">
+    <div class="notes">
+        <p class="lead">Solis tells you what the sky is doing today: sunrise and sunset, the golden hours photographers plan around, twilight, and the Moon — its phase, rise and set. Open it, get the answer, put the phone away.</p>
+        <h2>Built to stay out of the way</h2>
+        <p>No account, no ads, no tracking, and no server of its own. If you grant location permission it is used on your device to calculate times where you are; you can also pick a place by hand and never share a location at all. Settings and your purchase follow you across your devices through Apple's own mechanisms.</p>
+        <h2>Price</h2>
+        <p>Solis is a free download with a seven-day trial of the complete app from first launch. After that, Solis Full is a single lifetime purchase ($4.99) with Family Sharing — no subscription. Restore Purchases is on the unlock screen. Apple handles billing and refunds.</p>
+    </div>
+    <aside class="facts">
+      <h3>Details</h3>
+      <dl>
+          <div class="row"><dt>Platforms</dt><dd>iPhone · Apple Watch · Apple TV</dd></div>
+          <div class="row"><dt>Price</dt><dd>Free download · Solis Full $4.99 one-time (Family Sharing)</dd></div>
+          <div class="row"><dt>Account</dt><dd>None required</dd></div>
+          <div class="row"><dt>Data</dt><dd>No collection. Location stays on the device</dd></div>
+          <div class="row"><dt>Availability</dt><dd>On the App Store · version 1.2</dd></div>
+      </dl>
+      <div class="btn-row">
+        <a class="btn small" href="https://apps.apple.com/app/id6770580536">App Store</a><a class="btn small" href="privacy/">Privacy</a><a class="btn small" href="../support/#solis">Support</a>
       </div>
     </aside>
-  </div>
+  </section>
 
-  <div class="cta-band" id="support">
-    <h2>Need help with Solis?</h2>
-    <p>Location, Sky AR, widgets and restoring Solis Full are answered on the support page.</p>
-    <a class="btn primary" href="../support/#solis">Open Solis support</a>
-  </div>
-</main>
-
-<footer class="site">
-  <div class="wrap">
-    <div class="cols">
+  <section class="wrap">
+    <div class="support-band">
       <div>
-        <strong style="color:var(--ink)">isjia.page</strong>
-        <p class="meta" style="margin:6px 0 0">Apps by Jiajia Zhang · built in Denmark.</p>
+        <h2>Need help with Solis?</h2>
+        <p>Location, Sky AR, widgets and restoring Solis Full are answered on the support page.</p>
       </div>
-      <div class="links">
-        <a href="../">All apps</a>
-        <a href="../support/">Support</a>
-        <a href="privacy/">Privacy</a>
-        <a href="mailto:isjiajiazhang@gmail.com">Email</a>
+      <div class="btn-row">
+        <a class="btn" href="../support/#solis">Solis support</a>
+        <a class="btn" href="privacy/">Privacy</a>
       </div>
     </div>
-    <p class="fine">Apple, iPhone, Apple Watch, Apple TV, Mac and Safari are trademarks of Apple Inc. This site is not affiliated with Apple.</p>
+  </section>
+</main>
+
+<section class="more-section">
+  <div class="wrap more-inner">
+    <div class="more-head">
+      <h2>More from JJ</h2>
+      <a href="../">See all eight apps →</a>
+    </div>
+    <div class="more-row">
+        <a href="../punctum/" aria-label="Punctum"><img src="../assets/icons/punctum-256.png" alt="" width="64" height="64"></a>
+        <a href="../threadlite/" aria-label="ThreadLite"><img src="../assets/icons/threadlite-256.png" alt="" width="64" height="64"></a>
+        <a href="../span/" aria-label="Span"><img src="../assets/icons/span-256.png" alt="" width="64" height="64"></a>
+        <a href="../wayfinder/" aria-label="Wayfinder"><img src="../assets/icons/wayfinder-256.png" alt="" width="64" height="64"></a>
+        <a href="../ordbro/" aria-label="Ordbro"><img src="../assets/icons/ordbro-256.png" alt="" width="64" height="64"></a>
+        <a href="../slip/" aria-label="Slip"><img src="../assets/icons/slip-256.png" alt="" width="64" height="64"></a>
+        <a href="../dot/" aria-label="DOT"><img src="../assets/icons/dot-256.png" alt="" width="64" height="64"></a>
+    </div>
   </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <span class="name">isjia.page</span>
+      <span class="meta">Apps by Jiajia Zhang · built in Denmark.</span>
+    </div>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="../">All apps</a>
+      <a href="../support/">Support</a>
+      <a href="privacy/">Privacy</a>
+      <a href="mailto:isjiajiazhang@gmail.com">Email</a>
+      <a href="https://x.com/jjmakesapps">X</a>
+    </nav>
+  </div>
+  <div class="wrap"><p class="fine">Apple, iPhone, Apple Watch, Apple TV, Mac and Safari are trademarks of Apple Inc. This site is not affiliated with Apple.</p></div>
 </footer>
-<script src="../assets/lenis.min.js" defer></script>
 </body>
 </html>

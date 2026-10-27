@@ -4,10 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>JJ · small apps for Apple devices</title>
-<meta name="description" content="JJ is an independent developer building a small family of quiet, single-purpose apps for iPhone, Apple Watch, Apple TV, Mac and Safari — Solis, Punctum, ThreadLite, Span, Wayfinder, Ordbro, Slip, Hairspring and DOT.">
+<meta name="description" content="JJ is an independent developer building a small family of quiet, single-purpose apps for iPhone, Apple Watch, Apple TV, Mac and Safari — Solis, Punctum, ThreadLite, Span, Wayfinder, Ordbro, Slip and DOT.">
 <link rel="canonical" href="https://app.isjia.page/">
-<meta name="theme-color" content="#f7f3ec" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0e090b" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#100a0c">
 <meta property="og:type" content="website">
 <meta property="og:title" content="JJ · small apps for Apple devices">
 <meta property="og:description" content="A small family of quiet, single-purpose apps — designed, built and shipped solo.">
@@ -27,7 +26,6 @@
 <link rel="icon" href="assets/favicon.svg?v=2" type="image/svg+xml">
 <link rel="icon" href="assets/favicon-32.png?v=2" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=2" sizes="180x180">
-<link rel="preload" href="assets/fonts/InstrumentSerif-Italic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/style.css">
 <script type="application/ld+json">
 {
@@ -42,8 +40,7 @@
     {"@type": "ListItem", "position": 5, "name": "Wayfinder", "url": "https://app.isjia.page/wayfinder/"},
     {"@type": "ListItem", "position": 6, "name": "Ordbro", "url": "https://app.isjia.page/ordbro/"},
     {"@type": "ListItem", "position": 7, "name": "Slip", "url": "https://app.isjia.page/slip/"},
-    {"@type": "ListItem", "position": 8, "name": "Hairspring", "url": "https://app.isjia.page/hairspring/"},
-    {"@type": "ListItem", "position": 9, "name": "DOT", "url": "https://app.isjia.page/dot/"}
+    {"@type": "ListItem", "position": 8, "name": "DOT", "url": "https://app.isjia.page/dot/"}
   ]
 }
 </script>
@@ -52,213 +49,234 @@
 <a class="skip" href="#apps">Skip to the apps</a>
 <div class="sky" aria-hidden="true"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
 
-<div class="nav-outer">
-  <div class="wrap nav">
-    <a class="brand" href="./"><span class="mark">JJ</span> isjia.page</a>
-    <nav class="nav-links" aria-label="Main">
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="./"><span class="mark">JJ</span> <span class="sub">isjia.page</span></a>
+    <nav class="nav" aria-label="Main">
       <a class="optional" href="#apps">Apps</a>
       <a href="support/">Support</a>
       <a class="cta" href="mailto:isjiajiazhang@gmail.com">Contact</a>
     </nav>
   </div>
-</div>
+</header>
 
 <main>
-  <section class="stage hero">
-    <div class="orbits" aria-hidden="true"><i class="r r1"></i><i class="dial"></i><i class="r r2"></i><i class="r r3"></i></div>
-    <div class="wrap">
-      <p class="byline"><span>An independent developer, shipping solo</span></p>
-      <h1>Small apps that do<br><span class="dim">one thing properly.</span></h1>
-      <p class="lede">Quiet, single-purpose apps for iPhone, Apple Watch, Apple TV, Mac and Safari. No accounts, no ads, no tracking — just the thing you opened them&nbsp;for.</p>
-      <div class="hero-actions">
-        <a class="btn primary" href="#apps">Explore the apps</a>
-        <a class="btn" href="support/">Get support</a>
-      </div>
-    </div>
-    <div class="phones">
-      <a class="phone p-left low" href="slip/"><img src="assets/shots/slip-insights.webp" alt="Slip Insights showing a monthly spending receipt and daily spending chart" width="560" height="1217"></a>
-      <a class="phone lead" href="solis/"><img src="assets/shots/solis-today.webp" alt="Solis showing the sunset countdown and golden hour for Copenhagen" width="560" height="1214"></a>
-      <a class="phone p-right low" href="solis/"><img src="assets/shots/solis-moon.webp" alt="Solis Moon screen showing a waning gibbous Moon with rise and set times" width="560" height="1214"></a>
-    </div>
-    <nav class="dock" aria-label="All apps">
-      <a href="solis/"><img src="assets/icons/solis-256.png" alt="Solis" width="48" height="48"></a>
-      <a href="punctum/"><img src="assets/icons/punctum-256.png" alt="Punctum" width="48" height="48"></a>
-      <a href="threadlite/"><img src="assets/icons/threadlite-256.png" alt="ThreadLite" width="48" height="48"></a>
-      <a href="span/"><img src="assets/icons/span-256.png" alt="Span" width="48" height="48"></a>
-      <a href="wayfinder/"><img src="assets/icons/wayfinder-256.png" alt="Wayfinder" width="48" height="48"></a>
-      <a href="ordbro/"><img src="assets/icons/ordbro-256.png" alt="Ordbro" width="48" height="48"></a>
-      <a href="slip/"><img src="assets/icons/slip-256.png" alt="Slip" width="48" height="48"></a>
-      <a href="hairspring/"><img src="assets/icons/hairspring-256.png" alt="Hairspring" width="48" height="48"></a>
-      <a href="dot/"><img src="assets/icons/dot-256.png" alt="DOT" width="48" height="48"></a>
-    </nav>
-  </section>
+  <section class="hero">
+    <div class="field" aria-hidden="true"><canvas class="field-canvas"></canvas></div>
+    <div class="wrap hero-inner">
+      <p class="eyebrow">An independent developer · shipping solo from Denmark</p>
+      <h1>Small apps that do <span class="em">one thing</span> properly.</h1>
+      <p class="hero-lede">Quiet, single-purpose apps for iPhone, Apple Watch, Apple TV, Mac and Safari. No accounts, no ads, no tracking — just the thing you opened them for.</p>
 
-  <section class="wrap block" id="apps">
-    <div class="section-head">
-      <h2>The apps.</h2>
-      <p>I make small apps for things I think should be simpler. Each one starts with a specific annoyance, and I try not to add more than it needs.</p>
-    </div>
+      <ul class="icon-row">
+        <li><a class="ico" href="solis/" aria-label="Solis — Sun &amp; Moon, iPhone, Apple Watch and Apple TV"><img src="assets/icons/solis-256.png" alt="" width="92" height="92"><span class="ico-pop" aria-hidden="true"><span class="n">Solis</span><span class="c">Sun &amp; Moon</span><span class="p">iPhone · Watch · TV</span></span></a></li>
+        <li><a class="ico" href="punctum/" aria-label="Punctum — dot-matrix clock, iPhone, Apple Watch and Apple TV"><img src="assets/icons/punctum-256.png" alt="" width="92" height="92"><span class="ico-pop" aria-hidden="true"><span class="n">Punctum</span><span class="c">Clock</span><span class="p">iPhone · Watch · TV</span></span></a></li>
+        <li><a class="ico" href="threadlite/" aria-label="ThreadLite — Safari extension for long AI chats on macOS"><img src="assets/icons/threadlite-256.png" alt="" width="92" height="92"><span class="ico-pop" aria-hidden="true"><span class="n">ThreadLite</span><span class="c">Safari extension</span><span class="p">macOS · Safari</span></span></a></li>
+        <li><a class="ico" href="span/" aria-label="Span — planning over Calendar and Reminders, iPhone"><img src="assets/icons/span-256.png" alt="" width="92" height="92"><span class="ico-pop" aria-hidden="true"><span class="n">Span</span><span class="c">Planning</span><span class="p">iPhone</span></span></a></li>
+        <li><a class="ico" href="wayfinder/" aria-label="Wayfinder — tabs and sessions, macOS Safari and Chrome"><img src="assets/icons/wayfinder-256.png" alt="" width="92" height="92"><span class="ico-pop" aria-hidden="true"><span class="n">Wayfinder</span><span class="c">Tabs &amp; sessions</span><span class="p">macOS · Safari · Chrome</span></span></a></li>
+        <li><a class="ico" href="ordbro/" aria-label="Ordbro — page and subtitle translation, macOS Safari"><img src="assets/icons/ordbro-256.png" alt="" width="92" height="92"><span class="ico-pop" aria-hidden="true"><span class="n">Ordbro</span><span class="c">Translation</span><span class="p">macOS · Safari</span></span></a></li>
+        <li><a class="ico" href="slip/" aria-label="Slip — receipts and daily budget, iPhone"><img src="assets/icons/slip-256.png" alt="" width="92" height="92"><span class="ico-pop" aria-hidden="true"><span class="n">Slip</span><span class="c">Money</span><span class="p">iPhone</span></span></a></li>
+        <li><a class="ico" href="dot/" aria-label="DOT — weather drawn in dots, iPhone"><img src="assets/icons/dot-256.png" alt="" width="92" height="92"><span class="ico-pop" aria-hidden="true"><span class="n">DOT</span><span class="c">Weather</span><span class="p">iPhone</span></span></a></li>
+      </ul>
 
-    <div class="bento">
-      <a class="card feature c12" href="solis/">
-        <div class="copy">
-          <img class="icon" src="assets/icons/solis-256.png" alt="Solis app icon" width="64" height="64">
-          <span class="tag">Sun &amp; Moon</span>
-          <div class="name">Solis</div>
-          <p class="desc">Sunrise, sunset, golden hour, Moon phases and Earthlight — the daylight, at a glance.</p>
-          <div class="foot"><span class="badge live">On the App Store</span><span>iPhone · Watch · TV</span></div>
-          <span class="more">See Solis</span>
-        </div>
-        <div class="duo">
-          <span class="phone"><img src="assets/shots/solis-sun.webp" alt="Solis Sky view following the Sun across the day" width="560" height="1214"></span>
-          <span class="phone"><img src="assets/shots/solis-year.webp" alt="Solis year-of-light chart comparing daylight in Copenhagen and Reykjavík" width="560" height="1214"></span>
-        </div>
-      </a>
-
-      <a class="card has-media c7" href="punctum/">
-        <div class="media ar-7-3"><img src="assets/shots/punctum-clock.webp" loading="lazy" alt="Punctum dot-matrix clock showing 09:41 and the date" width="1400" height="600"></div>
-        <div class="row">
-          <img class="icon" src="assets/icons/punctum-256.png" alt="Punctum app icon" width="56" height="56">
-          <div class="body">
-            <span class="tag">Clock</span>
-            <div class="name">Punctum</div>
-            <p class="desc">A dot-matrix clock that can also surface the weather, your next event and what's playing.</p>
-            <div class="foot"><span class="badge live">On the App Store</span><span>iPhone · Watch · TV</span></div>
-          </div>
-        </div>
-      </a>
-
-      <a class="card has-media c5" href="threadlite/">
-        <div class="media ar-8-5"><img src="assets/shots/threadlite-host.webp" loading="lazy" alt="ThreadLite host app showing that the Safari extension is on" width="1400" height="875"></div>
-        <div class="row">
-          <img class="icon" src="assets/icons/threadlite-256.png" alt="ThreadLite app icon" width="56" height="56">
-          <div class="body">
-            <span class="tag">Safari extension</span>
-            <div class="name">ThreadLite</div>
-            <p class="desc">Helps very long ChatGPT and Gemini chats stay responsive in Safari on Mac. Local, no tracking.</p>
-            <div class="foot"><span class="badge live">On the Mac App Store</span><span>macOS · Safari</span></div>
-          </div>
-        </div>
-      </a>
-
-      <a class="card has-media c5" href="wayfinder/">
-        <div class="media ar-1-1"><img src="assets/shots/wayfinder-palette.webp" loading="lazy" alt="Wayfinder palette searching tabs, sessions and saved pages for “bayes”" width="900" height="900"></div>
-        <div class="row">
-          <img class="icon" src="assets/icons/wayfinder-256.png" alt="Wayfinder app icon" width="56" height="56">
-          <div class="body">
-            <span class="tag">Tabs &amp; sessions</span>
-            <div class="name">Wayfinder</div>
-            <p class="desc">Search your tabs, saved pages and sessions from one palette, then put a whole window back.</p>
-            <div class="foot"><span class="badge live">Mac App Store</span><span>macOS · Safari · Chrome</span></div>
-          </div>
-        </div>
-      </a>
-
-      <a class="card has-media c7" href="ordbro/">
-        <div class="media ar-10-7"><img src="assets/shots/ordbro-web.webp" loading="lazy" alt="Ordbro translating a web article, with the translation shown under each paragraph" width="1400" height="980"></div>
-        <div class="row">
-          <img class="icon" src="assets/icons/ordbro-256.png" alt="Ordbro app icon" width="56" height="56">
-          <div class="body">
-            <span class="tag">Translation</span>
-            <div class="name">Ordbro</div>
-            <p class="desc">Translate web pages and video subtitles into your own language, with your own AI key.</p>
-            <div class="foot"><span class="badge review">In review</span><span>macOS · Safari</span></div>
-          </div>
-        </div>
-      </a>
-
-      <a class="card has-media c4" href="slip/">
-        <div class="media well ar-4-3"><img src="assets/shots/slip-home.webp" loading="lazy" alt="Slip home screen showing how much is left to spend today" width="560" height="1217"></div>
-        <div class="row">
-          <img class="icon" src="assets/icons/slip-256.png" alt="Slip app icon" width="56" height="56">
-          <div class="body">
-            <span class="tag">Money</span>
-            <div class="name">Slip</div>
-            <p class="desc">A local-only ledger: log what you spend, scan the receipt, and see what's left today.</p>
-            <div class="foot"><span class="badge review">In review</span><span>iPhone</span></div>
-          </div>
-        </div>
-      </a>
-
-      <a class="card has-media c4" href="span/">
-        <div class="media plate ar-4-3"><img src="assets/icons/span-256.png" alt="Span app icon" width="96" height="96"></div>
-        <div class="row">
-          <div class="body">
-            <span class="tag">Planning</span>
-            <div class="name">Span</div>
-            <p class="desc">A calm planning layer over the Calendar and Reminders you already keep. Read-only, on device.</p>
-            <div class="foot"><span class="badge live">On the App Store</span><span>iPhone</span></div>
-          </div>
-        </div>
-      </a>
-
-      <a class="card has-media c4" href="hairspring/">
-        <div class="media plate ar-4-3"><img src="assets/icons/hairspring-256.png" alt="Hairspring app icon" width="96" height="96"></div>
-        <div class="row">
-          <div class="body">
-            <span class="tag">Clock</span>
-            <div class="name">Hairspring</div>
-            <p class="desc">Time drawn with thin threads that pull the seconds toward the minute. Watch and TV.</p>
-            <div class="foot"><span class="badge">Coming soon</span><span>Watch · TV</span></div>
-          </div>
-        </div>
-      </a>
-
-      <a class="card has-media c4" href="dot/">
-        <div class="media plate ar-4-3"><img src="assets/icons/dot-256.png" alt="DOT app icon" width="96" height="96"></div>
-        <div class="row">
-          <div class="body">
-            <span class="tag">Weather</span>
-            <div class="name">DOT</div>
-            <p class="desc">Live weather from Apple WeatherKit, drawn in moving dots, with a clear next 24 hours and widgets. In preparation.</p>
-            <div class="foot"><span class="badge">Coming soon</span><span>iPhone</span></div>
-          </div>
-        </div>
-      </a>
+      <p class="icon-hint">Hover an icon to meet it, click to step inside.</p>
     </div>
   </section>
 
-  <section class="wrap block" id="support">
-    <div class="section-head">
-      <h2>Support, in one place.</h2>
-      <p>Every app has an FAQ, a contact address and links to its privacy policy on a single support page.</p>
-    </div>
-    <p><a class="btn" href="support/">Open the support page →</a></p>
-  </section>
-
-  <div class="wrap">
-    <div class="cta-band">
-      <h2>Questions, bugs or ideas?</h2>
-      <p>Email is read by one person — me. Include your device, OS version and what you were doing when it happened.</p>
-      <a class="btn primary" href="mailto:isjiajiazhang@gmail.com">isjiajiazhang@gmail.com</a>
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>No accounts ● No ads ● No tracking ● Designed, built and shipped solo ● Built in Denmark ● iPhone ● Apple Watch ● Apple TV ● Mac ● Safari ●</span>
+      <span>No accounts ● No ads ● No tracking ● Designed, built and shipped solo ● Built in Denmark ● iPhone ● Apple Watch ● Apple TV ● Mac ● Safari ●</span>
     </div>
   </div>
+
+  <section class="wrap shelf-section" id="apps">
+    <input class="f-radio" type="radio" name="platform" id="f-all" checked>
+    <input class="f-radio" type="radio" name="platform" id="f-iphone">
+    <input class="f-radio" type="radio" name="platform" id="f-watch">
+    <input class="f-radio" type="radio" name="platform" id="f-tv">
+    <input class="f-radio" type="radio" name="platform" id="f-mac">
+
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">The shelf · 08</p>
+        <h2>The apps.</h2>
+        <p>I make small apps for things I think should be simpler. Each one starts with a specific annoyance, and I try not to add more than it needs.</p>
+      </div>
+      <div class="pills" role="group" aria-label="Filter by platform">
+        <label class="pill" for="f-all">All <span class="n">8</span></label>
+        <label class="pill" for="f-iphone">iPhone <span class="n">5</span></label>
+        <label class="pill" for="f-watch">Apple Watch <span class="n">2</span></label>
+        <label class="pill" for="f-tv">Apple TV <span class="n">2</span></label>
+        <label class="pill" for="f-mac">Mac &amp; browser <span class="n">3</span></label>
+      </div>
+    </div>
+
+    <div class="shelf">
+      <a class="card" href="solis/" data-plat="iphone watch tv">
+        <div class="top">
+          <span class="cicon"><img src="assets/icons/solis-256.png" alt="Solis app icon" width="68" height="68"></span>
+          <span class="badge live">On the App Store</span>
+        </div>
+        <div class="body">
+          <span class="tag">Sun &amp; Moon</span>
+          <span class="name">Solis</span>
+          <p class="desc">Sunrise, sunset, golden hour, Moon phases and Earthlight — the daylight, at a glance.</p>
+        </div>
+        <div class="foot"><span>iPhone · Watch · TV</span><span class="arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+      </a>
+
+      <a class="card" href="punctum/" data-plat="iphone watch tv">
+        <div class="top">
+          <span class="cicon"><img src="assets/icons/punctum-256.png" alt="Punctum app icon" width="68" height="68"></span>
+          <span class="badge live">On the App Store</span>
+        </div>
+        <div class="body">
+          <span class="tag">Clock</span>
+          <span class="name">Punctum</span>
+          <p class="desc">A dot-matrix clock that can also surface the weather, your next event and what's playing.</p>
+        </div>
+        <div class="foot"><span>iPhone · Watch · TV</span><span class="arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+      </a>
+
+      <a class="card" href="threadlite/" data-plat="mac">
+        <div class="top">
+          <span class="cicon"><img src="assets/icons/threadlite-256.png" alt="ThreadLite app icon" width="68" height="68"></span>
+          <span class="badge live">On the Mac App Store</span>
+        </div>
+        <div class="body">
+          <span class="tag">Safari extension</span>
+          <span class="name">ThreadLite</span>
+          <p class="desc">Helps very long ChatGPT and Gemini chats stay responsive in Safari on Mac. Local, no tracking.</p>
+        </div>
+        <div class="foot"><span>macOS · Safari</span><span class="arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+      </a>
+
+      <a class="card" href="span/" data-plat="iphone">
+        <div class="top">
+          <span class="cicon"><img src="assets/icons/span-256.png" alt="Span app icon" width="68" height="68"></span>
+          <span class="badge live">On the App Store</span>
+        </div>
+        <div class="body">
+          <span class="tag">Planning</span>
+          <span class="name">Span</span>
+          <p class="desc">A calm planning layer over the Calendar and Reminders you already keep. Read-only, on device.</p>
+        </div>
+        <div class="foot"><span>iPhone</span><span class="arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+      </a>
+
+      <a class="card" href="wayfinder/" data-plat="mac">
+        <div class="top">
+          <span class="cicon"><img src="assets/icons/wayfinder-256.png" alt="Wayfinder app icon" width="68" height="68"></span>
+          <span class="badge live">On the Mac App Store</span>
+        </div>
+        <div class="body">
+          <span class="tag">Tabs &amp; sessions</span>
+          <span class="name">Wayfinder</span>
+          <p class="desc">Search your tabs, saved pages and sessions from one palette, then put a whole window back.</p>
+        </div>
+        <div class="foot"><span>macOS · Safari · Chrome</span><span class="arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+      </a>
+
+      <a class="card" href="ordbro/" data-plat="mac">
+        <div class="top">
+          <span class="cicon"><img src="assets/icons/ordbro-256.png" alt="Ordbro app icon" width="68" height="68"></span>
+          <span class="badge review">In review</span>
+        </div>
+        <div class="body">
+          <span class="tag">Translation</span>
+          <span class="name">Ordbro</span>
+          <p class="desc">Translate web pages and video subtitles into your own language, with your own AI key.</p>
+        </div>
+        <div class="foot"><span>macOS · Safari</span><span class="arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+      </a>
+
+      <a class="card" href="slip/" data-plat="iphone">
+        <div class="top">
+          <span class="cicon"><img src="assets/icons/slip-256.png" alt="Slip app icon" width="68" height="68"></span>
+          <span class="badge review">In review</span>
+        </div>
+        <div class="body">
+          <span class="tag">Money</span>
+          <span class="name">Slip</span>
+          <p class="desc">A local-only ledger: log what you spend, scan the receipt, and see what's left today.</p>
+        </div>
+        <div class="foot"><span>iPhone</span><span class="arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+      </a>
+
+      <a class="card" href="dot/" data-plat="iphone">
+        <div class="top">
+          <span class="cicon"><img src="assets/icons/dot-256.png" alt="DOT app icon" width="68" height="68"></span>
+          <span class="badge">Coming soon</span>
+        </div>
+        <div class="body">
+          <span class="tag">Weather</span>
+          <span class="name">DOT</span>
+          <p class="desc">Live weather from Apple WeatherKit, drawn in moving dots, with a clear next 24 hours and widgets.</p>
+        </div>
+        <div class="foot"><span>iPhone</span><span class="arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+      </a>
+    </div>
+  </section>
+
+  <section class="wrap values-section">
+    <div class="values">
+      <div class="value">
+        <span class="n">01</span>
+        <h3>No accounts.</h3>
+        <p>Open the app and use it. There is nothing to sign up for.</p>
+      </div>
+      <div class="value">
+        <span class="n">02</span>
+        <h3>No ads.</h3>
+        <p>Nothing competes with the thing you opened it for.</p>
+      </div>
+      <div class="value">
+        <span class="n">03</span>
+        <h3>No tracking.</h3>
+        <p>No analytics and no third-party trackers. Your data stays on your device.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap contact-section" id="contact">
+    <div class="contact-grid">
+      <div class="panel">
+        <h2>Support, in one place.</h2>
+        <p>Every app has an FAQ, a contact address and links to its privacy policy on a single support page.</p>
+        <a class="btn" href="support/">Open the support page <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+      <div class="panel wine">
+        <img class="contact-mark" src="assets/disc-192.png" alt="" width="96" height="96" loading="lazy">
+        <h2>Questions, bugs or ideas?</h2>
+        <p>Email is read by one person — me. Include your device, OS version and what you were doing when it happened.</p>
+        <a class="mail" href="mailto:isjiajiazhang@gmail.com">isjiajiazhang@gmail.com</a>
+      </div>
+    </div>
+  </section>
 </main>
 
-<footer class="site">
-  <div class="wrap">
-    <div class="cols">
-      <div>
-        <strong style="color:var(--ink)">isjia.page</strong>
-        <p class="meta" style="margin:6px 0 0">Apps by Jiajia Zhang · built in Denmark.</p>
-      </div>
-      <div class="links">
-        <a href="support/">Support</a>
-        <a href="solis/">Solis</a>
-        <a href="punctum/">Punctum</a>
-        <a href="threadlite/">ThreadLite</a>
-        <a href="span/">Span</a>
-        <a href="wayfinder/">Wayfinder</a>
-        <a href="ordbro/">Ordbro</a>
-        <a href="slip/">Slip</a>
-        <a href="hairspring/">Hairspring</a>
-        <a href="dot/">DOT</a>
-        <a href="https://x.com/jjmakesapps">X</a>
-      </div>
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <span class="name">isjia.page</span>
+      <span class="meta">Apps by Jiajia Zhang · built in Denmark.</span>
     </div>
-    <p class="fine">Apple, iPhone, Apple Watch, Apple TV, Mac and Safari are trademarks of Apple Inc. This site is not affiliated with Apple.</p>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="support/">Support</a>
+      <a href="solis/">Solis</a>
+      <a href="punctum/">Punctum</a>
+      <a href="threadlite/">ThreadLite</a>
+      <a href="span/">Span</a>
+      <a href="wayfinder/">Wayfinder</a>
+      <a href="ordbro/">Ordbro</a>
+      <a href="slip/">Slip</a>
+      <a href="dot/">DOT</a>
+      <a href="https://x.com/jjmakesapps">X</a>
+    </nav>
   </div>
+  <div class="wrap"><p class="fine">Apple, iPhone, Apple Watch, Apple TV, Mac and Safari are trademarks of Apple Inc. This site is not affiliated with Apple.</p></div>
 </footer>
-<script src="assets/lenis.min.js" defer></script>
+<script src="assets/field.js" defer></script>
 </body>
 </html>

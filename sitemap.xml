@@ -16,8 +16,6 @@
   <url><loc>https://app.isjia.page/ordbro/privacy/</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
   <url><loc>https://app.isjia.page/slip/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://app.isjia.page/slip/privacy/</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://app.isjia.page/hairspring/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://app.isjia.page/hairspring/privacy/</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
   <url><loc>https://app.isjia.page/dot/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://app.isjia.page/dot/privacy/</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
 </urlset>

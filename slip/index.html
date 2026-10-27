@@ -6,8 +6,7 @@
 <title>Slip — Receipts &amp; daily budget</title>
 <meta name="description" content="Slip is a local-only expense ledger for iPhone. Log a purchase, scan the receipt, and see what is left to spend today. No account, no bank connection, no tracking.">
 <link rel="canonical" href="https://app.isjia.page/slip/">
-<meta name="theme-color" content="#f7f3ec" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0e090b" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#100a0c">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Slip — Receipts &amp; daily budget">
 <meta property="og:description" content="A private iPhone ledger: log what you spend, scan the receipt, see what is left today.">
@@ -19,108 +18,133 @@
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=2" sizes="180x180">
 <link rel="stylesheet" href="../assets/style.css">
 </head>
-<body>
+<body style="--app-accent: #8b93ff">
+<a class="skip" href="#features">Skip to the features</a>
 <div class="sky" aria-hidden="true"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
 
-<div class="nav-outer">
-  <div class="wrap nav">
-    <a class="brand" href="../"><span class="mark">JJ</span> isjia.page</a>
-    <nav class="nav-links" aria-label="Main">
-      <a class="optional" href="../#apps">Apps</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <div class="app-head">
+      <a class="back" href="../"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>All apps</a>
+      <span class="sep" aria-hidden="true">/</span>
+      <span class="id"><img src="../assets/icons/slip-256.png" alt="" width="26" height="26">Slip</span>
+    </div>
+    <nav class="nav" aria-label="Slip">
+      <a class="optional" href="#features">Features</a>
       <a href="../support/#slip">Support</a>
       <a class="cta" href="mailto:isjiajiazhang@gmail.com?subject=Slip">Contact</a>
     </nav>
   </div>
-</div>
+</header>
 
-<main class="wrap">
-  <p class="crumb"><a href="../">← All apps</a></p>
-
-  <section class="app-hero">
-    <div class="head">
-      <img src="../assets/icons/slip-256.png" alt="Slip app icon" width="84" height="84">
-      <div>
-        <h1>Slip</h1>
-        <p class="sub">Receipts &amp; daily budget · iPhone · iOS 26 or later</p>
+<main>
+  <section class="wrap detail-hero">
+    <div class="copy">
+      <img class="app-icon" src="../assets/icons/slip-256.png" alt="Slip app icon" width="108" height="108">
+      <p class="cat">Money · iPhone</p>
+      <h1>Slip</h1>
+      <p class="tagline">Know what you can spend today.</p>
+      <div class="btn-row">
+        <a class="btn" href="#features">See what it does</a>
       </div>
     </div>
-    <p class="lede">Know what you can spend today.</p>
+    <figure class="figure">
+      <div class="screens count-2">
+      <span class="screen lead"><img src="../assets/shots/slip-home.webp" alt="Slip home screen showing how much is left to spend today" width="560" height="1214"></span>
+      <span class="screen"><img src="../assets/shots/slip-insights.webp" alt="Slip Insights showing a monthly spending receipt and daily spending chart" width="560" height="1214"></span>
+      </div>
+    </figure>
   </section>
 
-  <figure class="shot-stage">
-    <div class="phones">
-      <span class="phone lead"><img src="../assets/shots/slip-home.webp" alt="Slip home screen showing how much is left to spend today" width="560" height="1217"></span>
+  <section class="wrap detail-section" id="features">
+    <p class="eyebrow">What it does</p>
+    <h2>A ledger that stays <span class="em">on your phone.</span></h2>
+    <div class="feature-grid">
+        <div class="feature"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="14" cy="14" r="10"/><path d="M14 8v12M11 11h4.5a2.5 2.5 0 0 1 0 5H11"/></svg><h3>Today's allowance</h3><p>Set a monthly budget and see the day's remaining allowance, with everyday spending kept separate from fixed costs like rent and subscriptions.</p></div>
+        <div class="feature"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3L6 16h7l-2 9 9-13h-7z"/></svg><h3>Quick entry</h3><p>Amount and merchant, or one short sentence. Siri and Shortcuts can pass a transaction in; there is no bank connection.</p></div>
+        <div class="feature"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h16v22l-2.5-2-2.5 2-2.5-2-2.5 2-2.5-2-2.5 2z"/><path d="M10 9h8M10 14h8M10 19h5"/></svg><h3>Receipts, on device</h3><p>Scan a paper receipt or pick a photo; text recognition runs on the iPhone, and you correct the fields before anything is saved.</p></div>
+        <div class="feature"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h16M4 16h8M4 22h16"/><circle cx="22" cy="8" r="2.2"/><circle cx="14" cy="16" r="2.2"/></svg><h3>Categories you control</h3><p>Merchant matching and custom rules do the routine work; uncertain entries wait in a review queue for your decision.</p></div>
+        <div class="feature"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="14" cy="14" r="10"/><path d="M14 8v12M11 11h4.5a2.5 2.5 0 0 1 0 5H11"/></svg><h3>Twelve currencies</h3><p>DKK, EUR, USD, GBP, SEK, NOK, CNY, JPY, CHF, PLN, ISK and HKD, keeping the original amount with a conversion in your main currency.</p></div>
+        <div class="feature"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9l10-5 10 5v10l-10 5-10-5z"/><path d="M4 9l10 5 10-5M14 14v10"/></svg><h3>Portable records</h3><p>Summaries by category and period, plus JSON backup export and restore, free.</p></div>
     </div>
-  </figure>
+  </section>
 
-  <div class="app-body">
-    <div>
-      <p>Slip is a personal expense ledger that keeps your records on your iPhone. Log everyday purchases, scan receipts, and see your spending in the context of the budget you actually set — not a category pie chart you never asked for.</p>
+  <section class="wrap detail-section">
+    <p class="eyebrow">The boundaries</p>
+    <h2>What Slip does, <span class="em">and what it does not.</span></h2>
+        <div class="check-list"><div class="col yes"><h3>It does</h3><ul><li>Keep the ledger and the receipt processing on your iPhone</li><li>Show today's remaining allowance against the budget you set</li><li>Read receipts on the device, with fields you check before anything is saved</li><li>Export and restore JSON backups, free</li></ul></div><div class="col "><h3>It does not</h3><ul><li>Connect to your bank</li><li>Read other apps' notifications</li><li>Upload your ledger anywhere</li><li>Keep a cloud copy of its own — a backup goes only where you send it</li></ul></div></div>
+  </section>
 
-      <ul class="feature-list">
-        <li><strong>A daily view of your budget</strong> — set a monthly budget and see today's remaining allowance, with everyday spending kept separate from fixed costs like rent and subscriptions.</li>
-        <li><strong>Quick entry</strong> — amount and merchant, or one short sentence. Siri and Shortcuts automations can pass a transaction in, after you set them up with the in-app guide. No bank connection.</li>
-        <li><strong>Receipts, on device</strong> — scan a paper receipt or pick a photo; text recognition runs on the iPhone, and you check and correct the fields before anything is saved.</li>
-        <li><strong>Categories you control</strong> — merchant matching and custom rules do the routine work, Apple Intelligence can assist on supported devices, and uncertain entries wait in a review queue for your decision.</li>
-        <li><strong>Twelve currencies</strong> — DKK, EUR, USD, GBP, SEK, NOK, CNY, JPY, CHF, PLN, ISK and HKD, keeping the original amount with a conversion in your main currency.</li>
-        <li><strong>Portable records</strong> — spending summaries by category and period, plus JSON backup export and restore, free.</li>
-        <li><strong>Privacy built into the workflow</strong> — no account, no ads, no tracking. The ledger and receipt processing stay on the device.</li>
-      </ul>
-
-      <h2>What Slip does not do</h2>
-      <p>It does not connect to your bank, read other apps' notifications, or upload your ledger anywhere. It also has no cloud sync of its own: a backup you export goes wherever you send it, and that destination is your choice and your responsibility.</p>
-
-      <h2>Free and Pro</h2>
-      <p>Slip is a free download. Slip Pro is optional, offered as a yearly subscription ($11.99/year with a 7-day free introductory offer) or a one-time lifetime purchase ($19.99). Existing entries, manual logging, JSON backup and restore stay free either way. Restore Purchases lives on the paywall and under Settings → Slip Pro.</p>
+  <section class="wrap detail-body">
+    <div class="notes">
+        <p class="lead">Slip is a personal expense ledger that keeps your records on your iPhone. Log everyday purchases, scan receipts, and see your spending in the context of the budget you actually set — not a category pie chart you never asked for.</p>
+        <h2>Backups go where you send them</h2>
+        <p>There is no cloud sync of its own: a backup you export goes wherever you send it, and that destination is your choice and your responsibility.</p>
+        <h2>Free and Pro</h2>
+        <p>Slip is a free download. Slip Pro is optional, offered as a yearly subscription ($11.99/year with a 7-day free introductory offer) or a one-time lifetime purchase ($19.99). Existing entries, manual logging, JSON backup and restore stay free either way. Restore Purchases lives on the paywall and under Settings → Slip Pro.</p>
     </div>
-
-    <aside>
-      <div class="panel">
-        <h3>Details</h3>
-        <dl>
-          <dt>Platforms</dt>
-          <dd>iPhone · iOS 26 or later</dd>
-          <dt>Price</dt>
-          <dd>Free download · Slip Pro $11.99/year or $19.99 lifetime</dd>
-          <dt>Account</dt>
-          <dd>None required</dd>
-          <dt>Data</dt>
-          <dd>Ledger and receipts stay on the device</dd>
-          <dt>Availability</dt>
-          <dd>Version 0.1.0 in App Review</dd>
-        </dl>
-        <div class="link-row">
-          <a class="btn small" href="privacy/">Privacy</a>
-          <a class="btn small" href="../support/#slip">Support</a>
-        </div>
+    <aside class="facts">
+      <h3>Details</h3>
+      <dl>
+          <div class="row"><dt>Platforms</dt><dd>iPhone · iOS 26 or later</dd></div>
+          <div class="row"><dt>Price</dt><dd>Free download · Slip Pro $11.99/year or $19.99 lifetime</dd></div>
+          <div class="row"><dt>Account</dt><dd>None required</dd></div>
+          <div class="row"><dt>Data</dt><dd>Ledger and receipts stay on the device</dd></div>
+          <div class="row"><dt>Availability</dt><dd>Version 0.1.0 in App Review</dd></div>
+      </dl>
+      <div class="btn-row">
+        <a class="btn small" href="privacy/">Privacy</a><a class="btn small" href="../support/#slip">Support</a>
       </div>
     </aside>
-  </div>
+  </section>
 
-  <div class="cta-band" id="support">
-    <h2>Questions about Slip?</h2>
-    <p>Scanner trouble, currencies, backups, Apple Intelligence and Slip Pro are covered in the support section.</p>
-    <a class="btn primary" href="../support/#slip">Open Slip support</a>
-  </div>
-</main>
-
-<footer class="site">
-  <div class="wrap">
-    <div class="cols">
+  <section class="wrap">
+    <div class="support-band">
       <div>
-        <strong style="color:var(--ink)">isjia.page</strong>
-        <p class="meta" style="margin:6px 0 0">Apps by Jiajia Zhang · built in Denmark.</p>
+        <h2>Need help with Slip?</h2>
+        <p>Scanner trouble, currencies, backups, Apple Intelligence and Slip Pro are covered in the support section.</p>
       </div>
-      <div class="links">
-        <a href="../">All apps</a>
-        <a href="../support/">Support</a>
-        <a href="privacy/">Privacy</a>
-        <a href="mailto:isjiajiazhang@gmail.com">Email</a>
+      <div class="btn-row">
+        <a class="btn" href="../support/#slip">Slip support</a>
+        <a class="btn" href="privacy/">Privacy</a>
       </div>
     </div>
-    <p class="fine">Apple, iPhone, Apple Watch, Apple TV, Mac and Safari are trademarks of Apple Inc. This site is not affiliated with Apple.</p>
+  </section>
+</main>
+
+<section class="more-section">
+  <div class="wrap more-inner">
+    <div class="more-head">
+      <h2>More from JJ</h2>
+      <a href="../">See all eight apps →</a>
+    </div>
+    <div class="more-row">
+        <a href="../solis/" aria-label="Solis"><img src="../assets/icons/solis-256.png" alt="" width="64" height="64"></a>
+        <a href="../punctum/" aria-label="Punctum"><img src="../assets/icons/punctum-256.png" alt="" width="64" height="64"></a>
+        <a href="../threadlite/" aria-label="ThreadLite"><img src="../assets/icons/threadlite-256.png" alt="" width="64" height="64"></a>
+        <a href="../span/" aria-label="Span"><img src="../assets/icons/span-256.png" alt="" width="64" height="64"></a>
+        <a href="../wayfinder/" aria-label="Wayfinder"><img src="../assets/icons/wayfinder-256.png" alt="" width="64" height="64"></a>
+        <a href="../ordbro/" aria-label="Ordbro"><img src="../assets/icons/ordbro-256.png" alt="" width="64" height="64"></a>
+        <a href="../dot/" aria-label="DOT"><img src="../assets/icons/dot-256.png" alt="" width="64" height="64"></a>
+    </div>
   </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <span class="name">isjia.page</span>
+      <span class="meta">Apps by Jiajia Zhang · built in Denmark.</span>
+    </div>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="../">All apps</a>
+      <a href="../support/">Support</a>
+      <a href="privacy/">Privacy</a>
+      <a href="mailto:isjiajiazhang@gmail.com">Email</a>
+      <a href="https://x.com/jjmakesapps">X</a>
+    </nav>
+  </div>
+  <div class="wrap"><p class="fine">Apple, iPhone, Apple Watch, Apple TV, Mac and Safari are trademarks of Apple Inc. This site is not affiliated with Apple.</p></div>
 </footer>
-<script src="../assets/lenis.min.js" defer></script>
 </body>
 </html>

@@ -6,8 +6,7 @@
 <title>Wayfinder — Tabs, sessions and a calm new tab</title>
 <meta name="description" content="Wayfinder lets you search your tabs, saved pages and sessions from one palette, save a window as a task and restore it later. Safari on Mac, plus Chrome. Free, local, no account.">
 <link rel="canonical" href="https://app.isjia.page/wayfinder/">
-<meta name="theme-color" content="#f7f3ec" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0e090b" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#100a0c">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Wayfinder — Tabs, sessions and a calm new tab">
 <meta property="og:description" content="Search tabs, saved pages and sessions from one palette, then put a whole window back.">
@@ -19,108 +18,138 @@
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=2" sizes="180x180">
 <link rel="stylesheet" href="../assets/style.css">
 </head>
-<body>
+<body style="--app-accent: #e0885f">
+<a class="skip" href="#features">Skip to the features</a>
 <div class="sky" aria-hidden="true"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
 
-<div class="nav-outer">
-  <div class="wrap nav">
-    <a class="brand" href="../"><span class="mark">JJ</span> isjia.page</a>
-    <nav class="nav-links" aria-label="Main">
-      <a class="optional" href="../#apps">Apps</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <div class="app-head">
+      <a class="back" href="../"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>All apps</a>
+      <span class="sep" aria-hidden="true">/</span>
+      <span class="id"><img src="../assets/icons/wayfinder-256.png" alt="" width="26" height="26">Wayfinder</span>
+    </div>
+    <nav class="nav" aria-label="Wayfinder">
+      <a class="optional" href="#features">Features</a>
       <a href="../support/#wayfinder">Support</a>
       <a class="cta" href="https://apps.apple.com/app/id6823482560">Download</a>
     </nav>
   </div>
-</div>
+</header>
 
-<main class="wrap">
-  <p class="crumb"><a href="../">← All apps</a></p>
-
-  <section class="app-hero">
-    <div class="head">
-      <img src="../assets/icons/wayfinder-256.png" alt="Wayfinder app icon" width="84" height="84">
-      <div>
-        <h1>Wayfinder</h1>
-        <p class="sub">Tabs &amp; sessions · macOS (Safari) and Chrome</p>
+<main>
+  <section class="wrap detail-hero">
+    <div class="copy">
+      <img class="app-icon" src="../assets/icons/wayfinder-256.png" alt="Wayfinder app icon" width="108" height="108">
+      <p class="cat">Tabs &amp; sessions · macOS · Safari · Chrome</p>
+      <h1>Wayfinder</h1>
+      <p class="tagline">Pick up where you left off — pages, in order.</p>
+      <div class="btn-row">
+        <a class="btn app" href="https://apps.apple.com/app/id6823482560">Get Wayfinder <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="btn" href="#features">See what it does</a>
       </div>
     </div>
-    <p class="lede">Pick up where you left off — pages, in order.</p>
+    <figure class="figure">
+      <div class="screens wide"><img class="win" src="../assets/shots/wayfinder-palette-win.webp" alt="Wayfinder palette searching tabs, sessions and saved pages for “bayes”" width="1000" height="782"></div>
+    </figure>
   </section>
 
-  <figure class="shot-stage">
-    <img class="win" src="../assets/shots/wayfinder-palette-win.webp" alt="Wayfinder palette searching tabs, sessions and saved pages for “bayes”" width="1000" height="782">
-  </figure>
-
-  <div class="app-body">
-    <div>
-      <p>Wayfinder turns Safari into a place you can come back to. Keep a window as a task, restore it whenever you need it, and search every open tab, saved page and session from one palette that works on any page — and from any app, with a global hotkey.</p>
-
-      <ul class="feature-list">
-        <li><strong>One palette for everything</strong> — tabs, saved pages, sessions and, if you turn it on, the text of pages you have already read.</li>
-        <li><strong>Save a window, not a bookmark</strong> — capture the pages of a working session in order, then resume the whole thing later, with a version history behind it.</li>
-        <li><strong>Quick Open from anywhere</strong> — ⌃⌥Space reopens a session or a saved page without switching to the browser first.</li>
-        <li><strong>A calm new tab page</strong> — a deck of your tasks, a clock, site search shortcuts and an optional daily wallpaper.</li>
-        <li><strong>Private by default</strong> — visit recording and page-text indexing are off until you enable them; private windows, excluded sites and sensitive sites are never indexed.</li>
-        <li><strong>Your data stays yours</strong> — no account, no analytics, no server. Sync is optional and goes to your own WebDAV server or your own iCloud account.</li>
-      </ul>
-
-      <h2>How it fits together</h2>
-      <p>A task is a saved window. Sessions are the versions of that window over time. Saved pages are the individual things you want to find again. The palette searches all of them at once and remembers where a match came from — a tab that is still open, a page you saved, a session snapshot, or text you have read before.</p>
-      <p>Recording visits and indexing page text are deliberately separate switches, both off by default. Full page text never syncs; the optional index sync carries a title, address and a short excerpt only. Form data, logins and unsaved page state are never restored.</p>
-
-      <h2>Getting set up</h2>
-      <p>Open Wayfinder once, then go to Safari → Settings (⌘,) → Extensions, enable Wayfinder and allow it on all websites. Press ⌘⇧K on any page to open the palette. In Chrome, install the extension from the Chrome Web Store and press Ctrl+Shift+K (⌘⇧K on a Mac).</p>
-      <p>Pages that were already open before installing or updating need a reload before the palette can attach to them.</p>
+  <section class="wrap detail-section" id="features">
+    <p class="eyebrow">What it does</p>
+    <h2>A browser you can <span class="em">come back to.</span></h2>
+    <div class="feature-grid">
+        <div class="feature"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="7"/><path d="M17 17l6 6"/></svg><h3>One palette</h3><p>Tabs, saved pages, sessions and, if you turn it on, the text of pages you have already read.</p></div>
+        <div class="feature"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4l10 5-10 5L4 9z"/><path d="M4 14l10 5 10-5"/><path d="M4 19l10 5 10-5"/></svg><h3>Save a window, not a bookmark</h3><p>Capture the pages of a working session in order, then resume the whole thing later, with a version history behind it.</p></div>
+        <div class="feature"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4l14 8-6 1.5L12 21z"/></svg><h3>Quick Open from anywhere</h3><p>⌃⌥Space reopens a session or a saved page without switching to the browser first.</p></div>
+        <div class="feature"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="14" cy="14" r="10"/><path d="M14 8v6l4 2"/></svg><h3>A calm new tab</h3><p>A deck of your tasks, a clock, site search shortcuts and an optional daily wallpaper.</p></div>
+        <div class="feature"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3l9 4v7c0 5-4 8.5-9 11-5-2.5-9-6-9-11V7z"/><path d="M9.5 14l3 3 6-6.5"/></svg><h3>Private by default</h3><p>Visit recording and page-text indexing are off until you enable them; private windows, excluded sites and sensitive sites are never indexed.</p></div>
+        <div class="feature"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 20a5 5 0 0 1 .6-10 7 7 0 0 1 13.3 1.5A4.5 4.5 0 0 1 21 20z"/></svg><h3>Yours to sync</h3><p>No account, no analytics, no server. Sync is optional and goes to your own WebDAV server or your own iCloud account.</p></div>
     </div>
+  </section>
 
-    <aside>
-      <div class="panel">
-        <h3>Details</h3>
-        <dl>
-          <dt>Platforms</dt>
-          <dd>macOS 14 or later with Safari; Chrome on macOS, Windows and Linux</dd>
-          <dt>Price</dt>
-          <dd>Free — no subscription, no in-app purchase</dd>
-          <dt>Account</dt>
-          <dd>None required</dd>
-          <dt>Data</dt>
-          <dd>Local by default; optional sync to your own WebDAV server or iCloud</dd>
-          <dt>Availability</dt>
-          <dd>Mac App Store, version 1.0 approved</dd>
-        </dl>
-        <div class="link-row">
-          <a class="btn small primary" href="https://apps.apple.com/app/id6823482560">Mac App Store</a>
-          <a class="btn small" href="privacy/">Privacy</a>
-          <a class="btn small" href="../support/#wayfinder">Support</a>
+  <section class="wrap detail-section">
+    <p class="eyebrow">How it fits together</p>
+    <h2>A task, a session, <span class="em">a page.</span></h2>
+        <div class="step-list">
+        <div class="step"><span class="n">01</span><h3>A task is a saved window</h3><p>Capture the pages of a working session in order, then resume the whole thing later, with a version history behind it.</p></div>
+        <div class="step"><span class="n">02</span><h3>Sessions are the versions of that window</h3><p>Over time, a window becomes a version history instead of a pile of tabs.</p></div>
+        <div class="step"><span class="n">03</span><h3>Saved pages are the ones you want again</h3><p>The individual things you kept on purpose, searchable next to everything else.</p></div>
+        <div class="step"><span class="n">04</span><h3>The palette searches all of them at once</h3><p>And it remembers where a match came from — a tab still open, a page you saved, a session snapshot, or text you have read before.</p></div>
         </div>
+  </section>
+
+  <section class="wrap detail-body">
+    <div class="notes">
+        <p class="lead">Wayfinder turns Safari into a place you can come back to. Keep a window as a task, restore it whenever you need it, and search every open tab, saved page and session from one palette that works on any page — and from any app, with a global hotkey.</p>
+        <h2>What it records</h2>
+        <p>Recording visits and indexing page text are deliberately separate switches, both off by default. Full page text never syncs; the optional index sync carries a title, address and a short excerpt only. Form data, logins and unsaved page state are never restored.</p>
+        <h2>Getting set up</h2>
+        <p>Open Wayfinder once, then go to Safari → Settings (⌘,) → Extensions, enable Wayfinder and allow it on all websites. Press ⌘⇧K on any page to open the palette. In Chrome, install the extension from the Chrome Web Store and press Ctrl+Shift+K (⌘⇧K on a Mac).</p>
+        <p>Pages that were already open before installing or updating need a reload before the palette can attach to them.</p>
+        <h2>Price</h2>
+        <p>Wayfinder is free, with no subscription and no in-app purchase.</p>
+    </div>
+    <aside class="facts">
+      <h3>Details</h3>
+      <dl>
+          <div class="row"><dt>Platforms</dt><dd>macOS 14 or later with Safari; Chrome on macOS, Windows and Linux</dd></div>
+          <div class="row"><dt>Price</dt><dd>Free — no subscription, no in-app purchase</dd></div>
+          <div class="row"><dt>Account</dt><dd>None required</dd></div>
+          <div class="row"><dt>Data</dt><dd>Local by default; optional sync to your own WebDAV server or iCloud</dd></div>
+          <div class="row"><dt>Availability</dt><dd>Mac App Store, version 1.0 approved</dd></div>
+      </dl>
+      <div class="btn-row">
+        <a class="btn small" href="https://apps.apple.com/app/id6823482560">Mac App Store</a><a class="btn small" href="privacy/">Privacy</a><a class="btn small" href="../support/#wayfinder">Support</a>
       </div>
     </aside>
-  </div>
+  </section>
 
-  <div class="cta-band" id="support">
-    <h2>Need help with Wayfinder?</h2>
-    <p>Setup, the palette, sessions, sync and data questions are answered on the support page.</p>
-    <a class="btn primary" href="../support/#wayfinder">Open Wayfinder support</a>
-  </div>
-</main>
-
-<footer class="site">
-  <div class="wrap">
-    <div class="cols">
+  <section class="wrap">
+    <div class="support-band">
       <div>
-        <strong style="color:var(--ink)">isjia.page</strong>
-        <p class="meta" style="margin:6px 0 0">Apps by Jiajia Zhang · built in Denmark.</p>
+        <h2>Need help with Wayfinder?</h2>
+        <p>Setup, the palette, sessions, sync and data questions are answered on the support page.</p>
       </div>
-      <div class="links">
-        <a href="../">All apps</a>
-        <a href="../support/">Support</a>
-        <a href="privacy/">Privacy</a>
-        <a href="mailto:isjiajiazhang@gmail.com">Email</a>
+      <div class="btn-row">
+        <a class="btn" href="../support/#wayfinder">Wayfinder support</a>
+        <a class="btn" href="privacy/">Privacy</a>
       </div>
     </div>
-    <p class="fine">Apple, iPhone, Apple Watch, Apple TV, Mac and Safari are trademarks of Apple Inc. This site is not affiliated with Apple.</p>
+  </section>
+</main>
+
+<section class="more-section">
+  <div class="wrap more-inner">
+    <div class="more-head">
+      <h2>More from JJ</h2>
+      <a href="../">See all eight apps →</a>
+    </div>
+    <div class="more-row">
+        <a href="../solis/" aria-label="Solis"><img src="../assets/icons/solis-256.png" alt="" width="64" height="64"></a>
+        <a href="../punctum/" aria-label="Punctum"><img src="../assets/icons/punctum-256.png" alt="" width="64" height="64"></a>
+        <a href="../threadlite/" aria-label="ThreadLite"><img src="../assets/icons/threadlite-256.png" alt="" width="64" height="64"></a>
+        <a href="../span/" aria-label="Span"><img src="../assets/icons/span-256.png" alt="" width="64" height="64"></a>
+        <a href="../ordbro/" aria-label="Ordbro"><img src="../assets/icons/ordbro-256.png" alt="" width="64" height="64"></a>
+        <a href="../slip/" aria-label="Slip"><img src="../assets/icons/slip-256.png" alt="" width="64" height="64"></a>
+        <a href="../dot/" aria-label="DOT"><img src="../assets/icons/dot-256.png" alt="" width="64" height="64"></a>
+    </div>
   </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <span class="name">isjia.page</span>
+      <span class="meta">Apps by Jiajia Zhang · built in Denmark.</span>
+    </div>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="../">All apps</a>
+      <a href="../support/">Support</a>
+      <a href="privacy/">Privacy</a>
+      <a href="mailto:isjiajiazhang@gmail.com">Email</a>
+      <a href="https://x.com/jjmakesapps">X</a>
+    </nav>
+  </div>
+  <div class="wrap"><p class="fine">Apple, iPhone, Apple Watch, Apple TV, Mac and Safari are trademarks of Apple Inc. This site is not affiliated with Apple.</p></div>
 </footer>
-<script src="../assets/lenis.min.js" defer></script>
 </body>
 </html>

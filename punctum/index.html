@@ -6,8 +6,7 @@
 <title>Punctum — Dot-matrix clock</title>
 <meta name="description" content="Punctum is a dot-matrix clock for iPhone, Apple Watch and Apple TV that can also show the weather, your next event and now playing.">
 <link rel="canonical" href="https://app.isjia.page/punctum/">
-<meta name="theme-color" content="#f7f3ec" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0e090b" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#100a0c">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Punctum — Dot-matrix clock">
 <meta property="og:description" content="A clock with a pulse, made to be read across the room.">
@@ -19,107 +18,131 @@
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=2" sizes="180x180">
 <link rel="stylesheet" href="../assets/style.css">
 </head>
-<body>
+<body style="--app-accent: #f0b04a">
+<a class="skip" href="#features">Skip to the features</a>
 <div class="sky" aria-hidden="true"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
 
-<div class="nav-outer">
-  <div class="wrap nav">
-    <a class="brand" href="../"><span class="mark">JJ</span> isjia.page</a>
-    <nav class="nav-links" aria-label="Main">
-      <a class="optional" href="../#apps">Apps</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <div class="app-head">
+      <a class="back" href="../"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>All apps</a>
+      <span class="sep" aria-hidden="true">/</span>
+      <span class="id"><img src="../assets/icons/punctum-256.png" alt="" width="26" height="26">Punctum</span>
+    </div>
+    <nav class="nav" aria-label="Punctum">
+      <a class="optional" href="#features">Features</a>
       <a href="../support/#punctum">Support</a>
       <a class="cta" href="https://apps.apple.com/app/id6819719995">Download</a>
     </nav>
   </div>
-</div>
+</header>
 
-<main class="wrap">
-  <p class="crumb"><a href="../">← All apps</a></p>
-
-  <section class="app-hero">
-    <div class="head">
-      <img src="../assets/icons/punctum-256.png" alt="Punctum app icon" width="84" height="84">
-      <div>
-        <h1>Punctum</h1>
-        <p class="sub">Dot-matrix clock · iPhone, Apple Watch, Apple TV</p>
+<main>
+  <section class="wrap detail-hero">
+    <div class="copy">
+      <img class="app-icon" src="../assets/icons/punctum-256.png" alt="Punctum app icon" width="108" height="108">
+      <p class="cat">Clock · iPhone · Watch · TV</p>
+      <h1>Punctum</h1>
+      <p class="tagline">A clock with a pulse.</p>
+      <div class="btn-row">
+        <a class="btn app" href="https://apps.apple.com/app/id6819719995">Get Punctum <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="btn" href="#features">See what it does</a>
       </div>
     </div>
-    <p class="lede">A clock with a pulse.</p>
+    <figure class="figure">
+      <div class="screens wide"><img class="win" src="../assets/shots/punctum-clock.webp" alt="Punctum dot-matrix clock showing 09:41 and the date" width="1400" height="600"></div>
+    </figure>
   </section>
 
-  <figure class="shot-stage full">
-    <img class="win" src="../assets/shots/punctum-clock.webp" alt="Punctum dot-matrix clock showing 09:41 and the date" width="1400" height="600">
-  </figure>
-
-  <div class="app-body">
-    <div>
-      <p>Punctum is a dot-matrix clock for iPhone, Apple Watch and Apple TV. Beyond the time, it can surface the things you glance at all day — the weather, your next calendar event, and what's playing — all rendered in dots.</p>
-
-      <ul class="feature-list">
-        <li>Dot-matrix time and date displays, made to be read across the room</li>
-        <li>Optional sources: weather, next event, now playing, timers</li>
-        <li>Full Display: a dimmed, always-on clock that can start by itself when your iPhone charges in landscape</li>
-        <li>Widgets, including StandBy while a locked iPhone charges</li>
-        <li>Runs on iPhone, Apple Watch and Apple TV</li>
-        <li>Several icon styles, all built on the same dot grid</li>
-      </ul>
-
-      <h2>Sources are optional, and honest</h2>
-      <p>Each extra source asks for exactly the permission it needs, and only when you first choose it: location for weather, Calendar for the next event, Media &amp; Apple Music for now playing. Deny one and the clock keeps working — the source simply stays blank until you grant it.</p>
-      <p>Nothing is sent to a server operated by the developer. There is no account, no analytics and no advertising, and event, media and location data never leave the device.</p>
-
-      <h2>Price</h2>
-      <p>Punctum is a free download. Punctum Pro is an optional one-time purchase ($3.99) with Family Sharing — not a subscription. Restore Purchases lives in Settings → Punctum Pro. Apple handles billing and refunds.</p>
+  <section class="wrap detail-section" id="features">
+    <p class="eyebrow">What it does</p>
+    <h2>Time, drawn <span class="em">in dots.</span></h2>
+    <div class="feature-grid">
+        <div class="feature"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="1.6"/><circle cx="14" cy="8" r="1.6"/><circle cx="20" cy="8" r="1.6"/><circle cx="8" cy="14" r="1.6"/><circle cx="14" cy="14" r="1.6"/><circle cx="20" cy="14" r="1.6"/><circle cx="8" cy="20" r="1.6"/><circle cx="14" cy="20" r="1.6"/><circle cx="20" cy="20" r="1.6"/></svg><h3>Dot-matrix time</h3><p>Time and date displays made to be read across the room.</p></div>
+        <div class="feature"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4l10 5-10 5L4 9z"/><path d="M4 14l10 5 10-5"/><path d="M4 19l10 5 10-5"/></svg><h3>Optional sources</h3><p>Weather, next event, now playing and timers — each one off until you choose it.</p></div>
+        <div class="feature"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="3" width="14" height="22" rx="3.5"/><path d="M12 21.5h4"/></svg><h3>Full Display</h3><p>A dimmed, always-on clock that can start by itself when your iPhone charges in landscape.</p></div>
+        <div class="feature"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="8" height="8" rx="2"/><rect x="16" y="4" width="8" height="8" rx="2"/><rect x="4" y="16" width="8" height="8" rx="2"/><rect x="16" y="16" width="8" height="8" rx="2"/></svg><h3>Widgets &amp; StandBy</h3><p>Widgets, including StandBy while a locked iPhone charges.</p></div>
+        <div class="feature"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="22" height="14" rx="2.5"/><path d="M10 23h8"/></svg><h3>On every screen</h3><p>iPhone, Apple Watch and Apple TV.</p></div>
+        <div class="feature"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="14" cy="14" r="10"/><circle cx="10" cy="10" r="1.4"/><circle cx="18" cy="10" r="1.4"/><circle cx="9" cy="17" r="1.4"/></svg><h3>Icon styles</h3><p>Several icon styles, all built on the same dot grid.</p></div>
     </div>
+  </section>
 
-    <aside>
-      <div class="panel">
-        <h3>Details</h3>
-        <dl>
-          <dt>Platforms</dt>
-          <dd>iPhone · Apple Watch · Apple TV</dd>
-          <dt>Price</dt>
-          <dd>Free download · Punctum Pro $3.99 one-time (Family Sharing)</dd>
-          <dt>Account</dt>
-          <dd>None required</dd>
-          <dt>Data</dt>
-          <dd>No collection. Sources are read on the device</dd>
-          <dt>Availability</dt>
-          <dd>On the App Store · version 1.3</dd>
-        </dl>
-        <div class="link-row">
-          <a class="btn small primary" href="https://apps.apple.com/app/id6819719995">App Store</a>
-          <a class="btn small" href="privacy/">Privacy</a>
-          <a class="btn small" href="../support/#punctum">Support</a>
-        </div>
+  <section class="wrap detail-section">
+    <p class="eyebrow">In the app, around it</p>
+    <h2>Time you can read <span class="em">across the room.</span></h2>
+        <div class="check-list"><div class="col "><h3>In the app</h3><ul><li>Time and date, in dots</li><li>Weather, next event, now playing, timers — each optional</li><li>Full Display, including starting by itself while charging in landscape</li><li>Several icon styles on the same dot grid</li></ul></div><div class="col "><h3>Around it</h3><ul><li>Widgets, including StandBy</li><li>Apple Watch</li><li>Apple TV</li></ul></div></div>
+  </section>
+
+  <section class="wrap detail-body">
+    <div class="notes">
+        <p class="lead">Punctum is a dot-matrix clock for iPhone, Apple Watch and Apple TV. Beyond the time, it can surface the things you glance at all day — the weather, your next calendar event, and what's playing — all rendered in dots.</p>
+        <h2>Sources are optional, and honest</h2>
+        <p>Each extra source asks for exactly the permission it needs, and only when you first choose it: location for weather, Calendar for the next event, Media &amp; Apple Music for now playing. Deny one and the clock keeps working — the source simply stays blank until you grant it.</p>
+        <p>Nothing is sent to a server operated by the developer. There is no account, no analytics and no advertising, and event, media and location data never leave the device.</p>
+        <h2>Price</h2>
+        <p>Punctum is a free download. Punctum Pro is an optional one-time purchase ($3.99) with Family Sharing — not a subscription. Restore Purchases lives in Settings → Punctum Pro. Apple handles billing and refunds.</p>
+    </div>
+    <aside class="facts">
+      <h3>Details</h3>
+      <dl>
+          <div class="row"><dt>Platforms</dt><dd>iPhone · Apple Watch · Apple TV</dd></div>
+          <div class="row"><dt>Price</dt><dd>Free download · Punctum Pro $3.99 one-time (Family Sharing)</dd></div>
+          <div class="row"><dt>Account</dt><dd>None required</dd></div>
+          <div class="row"><dt>Data</dt><dd>No collection. Sources are read on the device</dd></div>
+          <div class="row"><dt>Availability</dt><dd>On the App Store · version 1.3</dd></div>
+      </dl>
+      <div class="btn-row">
+        <a class="btn small" href="https://apps.apple.com/app/id6819719995">App Store</a><a class="btn small" href="privacy/">Privacy</a><a class="btn small" href="../support/#punctum">Support</a>
       </div>
     </aside>
-  </div>
+  </section>
 
-  <div class="cta-band" id="support">
-    <h2>Need help with Punctum?</h2>
-    <p>Weather, calendar, Full Display, widgets and Punctum Pro are answered on the support page.</p>
-    <a class="btn primary" href="../support/#punctum">Open Punctum support</a>
-  </div>
-</main>
-
-<footer class="site">
-  <div class="wrap">
-    <div class="cols">
+  <section class="wrap">
+    <div class="support-band">
       <div>
-        <strong style="color:var(--ink)">isjia.page</strong>
-        <p class="meta" style="margin:6px 0 0">Apps by Jiajia Zhang · built in Denmark.</p>
+        <h2>Need help with Punctum?</h2>
+        <p>Weather, calendar, Full Display, widgets and Punctum Pro are answered on the support page.</p>
       </div>
-      <div class="links">
-        <a href="../">All apps</a>
-        <a href="../support/">Support</a>
-        <a href="privacy/">Privacy</a>
-        <a href="mailto:isjiajiazhang@gmail.com">Email</a>
+      <div class="btn-row">
+        <a class="btn" href="../support/#punctum">Punctum support</a>
+        <a class="btn" href="privacy/">Privacy</a>
       </div>
     </div>
-    <p class="fine">Apple, iPhone, Apple Watch, Apple TV, Mac and Safari are trademarks of Apple Inc. This site is not affiliated with Apple.</p>
+  </section>
+</main>
+
+<section class="more-section">
+  <div class="wrap more-inner">
+    <div class="more-head">
+      <h2>More from JJ</h2>
+      <a href="../">See all eight apps →</a>
+    </div>
+    <div class="more-row">
+        <a href="../solis/" aria-label="Solis"><img src="../assets/icons/solis-256.png" alt="" width="64" height="64"></a>
+        <a href="../threadlite/" aria-label="ThreadLite"><img src="../assets/icons/threadlite-256.png" alt="" width="64" height="64"></a>
+        <a href="../span/" aria-label="Span"><img src="../assets/icons/span-256.png" alt="" width="64" height="64"></a>
+        <a href="../wayfinder/" aria-label="Wayfinder"><img src="../assets/icons/wayfinder-256.png" alt="" width="64" height="64"></a>
+        <a href="../ordbro/" aria-label="Ordbro"><img src="../assets/icons/ordbro-256.png" alt="" width="64" height="64"></a>
+        <a href="../slip/" aria-label="Slip"><img src="../assets/icons/slip-256.png" alt="" width="64" height="64"></a>
+        <a href="../dot/" aria-label="DOT"><img src="../assets/icons/dot-256.png" alt="" width="64" height="64"></a>
+    </div>
   </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <span class="name">isjia.page</span>
+      <span class="meta">Apps by Jiajia Zhang · built in Denmark.</span>
+    </div>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="../">All apps</a>
+      <a href="../support/">Support</a>
+      <a href="privacy/">Privacy</a>
+      <a href="mailto:isjiajiazhang@gmail.com">Email</a>
+      <a href="https://x.com/jjmakesapps">X</a>
+    </nav>
+  </div>
+  <div class="wrap"><p class="fine">Apple, iPhone, Apple Watch, Apple TV, Mac and Safari are trademarks of Apple Inc. This site is not affiliated with Apple.</p></div>
 </footer>
-<script src="../assets/lenis.min.js" defer></script>
 </body>
 </html>
