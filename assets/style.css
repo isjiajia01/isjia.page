@@ -329,9 +329,10 @@ p { margin: 0 0 14px; }
   box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.85);
 }
 @media (prefers-reduced-motion: no-preference) {
-  .ico img { transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); }
+  .ico img { transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s; }
   .ico:hover img, .ico:focus-visible img {
     transform: translateY(-8px) scale(1.1);
+    box-shadow: 0 26px 48px -20px rgba(0, 0, 0, 0.95);
   }
 }
 /* name card on hover/focus — no script, works for keyboard too */
@@ -375,6 +376,31 @@ p { margin: 0 0 14px; }
   .icon-row { gap: 10px; margin-top: 34px; }
   .ico img { width: 54px; height: 54px; border-radius: 18px; }
   .field::before { background-size: 14px 14px; }
+}
+
+/* ---------- ticker ---------- */
+
+.ticker {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+  padding: 15px 0;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.ticker-track { display: flex; width: max-content; }
+.ticker-track span { white-space: nowrap; padding-right: 48px; }
+@media (prefers-reduced-motion: no-preference) {
+  .ticker-track { animation: ticker 44s linear infinite; }
+  .ticker:hover .ticker-track { animation-play-state: paused; }
+  @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track { animation: none; }
+  .ticker { overflow-x: auto; }
 }
 
 /* ---------- shelf ---------- */
@@ -568,10 +594,11 @@ p { margin: 0 0 14px; }
 .panel.wine:hover::before, .panel.wine:focus-within::before { opacity: 1; }
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
   .panel.wine {
-    transition: transform 0.5s ease;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
   }
   .panel.wine:hover {
     transform: perspective(1200px) rotateX(1deg) rotateY(-2deg);
+    box-shadow: 0 24px 48px rgba(27, 8, 14, 0.32);
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -947,6 +974,22 @@ p { margin: 0 0 14px; }
 .lost h1 { font-size: clamp(44px, 8vw, 96px); line-height: 0.96; letter-spacing: -0.045em; }
 .lost .lede { margin: 20px 0 28px; }
 
+/* ---------- scroll reveal (progressive enhancement, no JS) ---------- */
+
+@supports (animation-timeline: view()) and (animation-range: entry 0% entry 36vh) {
+  @media screen and (prefers-reduced-motion: no-preference) {
+    .shelf .card, .values .value, .support-band, .feature {
+      animation: reveal linear backwards;
+      animation-timeline: view();
+      animation-range: entry 0% entry 32vh;
+    }
+    @keyframes reveal {
+      from { opacity: 0; translate: 0 24px; scale: 0.97; }
+      to { opacity: 1; translate: 0 0; scale: 1; }
+    }
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {
@@ -960,6 +1003,6 @@ p { margin: 0 0 14px; }
 }
 
 @media print {
-  .site-header, .sky, .field, .more-section { display: none; }
+  .site-header, .ticker, .sky, .field, .more-section { display: none; }
   body { background: #fff; color: #000; }
 }
