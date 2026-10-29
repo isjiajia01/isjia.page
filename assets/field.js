@@ -29,10 +29,13 @@
 
   function measure() {
     var r = canvas.getBoundingClientRect();
-    dpr = Math.min(window.devicePixelRatio || 1, 2);
-    W = Math.round(r.width);
-    H = Math.round(r.height);
-    if (!W || !H) return;
+    var nextDpr = Math.min(window.devicePixelRatio || 1, 2);
+    var nextW = Math.round(r.width);
+    var nextH = Math.round(r.height);
+    if (!nextW || !nextH || (ready && nextW === W && nextH === H && nextDpr === dpr)) return;
+    dpr = nextDpr;
+    W = nextW;
+    H = nextH;
     canvas.width = Math.round(W * dpr);
     canvas.height = Math.round(H * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -220,11 +223,17 @@
     : null;
   if (io) io.observe(hero);
 
-  window.addEventListener("resize", function () {
+  function onResize() {
     measure();
     if (reduce.matches) frame(performance.now());
     else schedule();
-  }, { passive: true });
+  }
+
+  if ("ResizeObserver" in window) {
+    new ResizeObserver(onResize).observe(canvas);
+  }
+  window.addEventListener("resize", onResize, { passive: true });
+  window.addEventListener("pageshow", onResize);
 
   window.addEventListener("pointermove", onMove, { passive: true });
   hero.addEventListener("pointerleave", onLeave, { passive: true });
