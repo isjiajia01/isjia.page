@@ -23,8 +23,8 @@ User explicitly authorised overriding the earlier locks on **colour tokens** and
 `--radius`, font stacks, "isjia.page" brand text, shared component classes, routes, canonical URLs, JSON-LD, support anchors, privacy bodies and Store IDs are preserved. Colour tokens and site favicons changed at the user's explicit request; home/support gained OG metadata.
 
 ## Typography (role split only)
-- Display (h1, h2): `--sans`, 700/650, letter-spacing −0.035em, tight leading. Hero h1 clamp(34px, 8.8vw, 96px), two lines (sans / serif italic).
-- Emphasis phrase (`.dim` in hero): `--serif`, italic, weight 500, accent colour — the single brand flourish.
+- Display (h1, h2): `--sans`, weight 600, tight leading. Hero h1 clamp(42px, 7.2vw, 72px)/0.98, letter-spacing −0.035em, with the accent-coloured `.em` phrase.
+- Emphasis phrase (`.em` span in hero h1): same `--sans` and weight as the headline, accent colour only (`color: var(--accent)`) — no serif, no italic.
 - Body 17px/1.65 sans (unchanged). Eyebrows: sentence-case `.tag` kept small; no new all-caps.
 
 ## Shared dark surfaces
@@ -124,7 +124,7 @@ User handed over a saved prototype (`~/Downloads/isjia.page 重构.html`: home +
 **Theme: one dark theme.** Wine-black canvas `#100a0c`, bone text `#f8f6eb`, rose accent `#e0a3b1`, wine `#7c4a55`, cards `#171013`/`#1d1216`, hairlines `rgba(248,246,235,.08)`. Status colours keep their meaning: live `#5bd68a`, in review `#e8b45a`, coming soon `#a69b95`. `color-scheme: dark`; `prefers-color-scheme` no longer switches anything (the bone-paper light theme of rounds 3–4 is retired, as the prototype is a single dark design). `theme-color` is `#100a0c` on every page.
 - **Per-app accent** (`--app-accent`, set inline on `<body>` of that app page only) is sampled from that app's own icon: Solis `#d9a566`, Punctum `#f0b04a`, ThreadLite `#e08b5e`, Span `#8fa6ff`, Wayfinder `#e0885f`, Ordbro `#7f9bff`, Slip `#8b93ff`, Hairspring `#e3cba6`, DOT `#f2b23c`. Used for the category eyebrow, feature glyphs, figure glow and the "Get …" button (dark text on the accent). The site accent stays rose.
 
-**Type.** System fonts only (`-apple-system` / `system-ui` stack, `ui-monospace` for eyebrows, labels, statuses and platform lines) — no webfont shipped or fetched. Hero h1 `clamp(42px, 7.2vw, 104px)`/0.98/−0.045em/600; sections `clamp(34px, 4.6vw, 62px)`; body 17px/1.6. The Instrument Serif italic file is retained but no longer used (documented in the CSS) — the prototype's single accent-coloured phrase replaces it.
+**Type.** System fonts only (`-apple-system` / `system-ui` stack, `ui-monospace` for eyebrows, labels, statuses and platform lines) — no webfont shipped or fetched. Hero h1 `clamp(42px, 7.2vw, 104px)`/0.98/−0.045em/600; sections `clamp(34px, 4.6vw, 62px)`; body 17px/1.6. The unused Instrument Serif italic file was deleted; the prototype's single accent-coloured phrase replaces it.
 
 **Components (all in `assets/style.css`, 925 lines).** `.site-header`/`.brand`/`.nav`, `.hero`+`.field` (CSS dot field, masked; no canvas), `.icon-row`/`.ico`/`.ico-pop`, `.ticker`, `.shelf-section`+`.pills`+`.card`, `.values`, `.contact-grid`/`.panel.wine`, `.detail-hero`/`.screens`/`.screen`/`.win`/`.icon-plate`, `.feature-grid`/`.feature`, `.detail-body`/`.notes`/`.facts`, `.support-band`, `.more-section`, `.page-head`, `.support-layout`/`.toc`/`.support-app`/`.qa`/`.chip`, `.legal`, `.lost`, `.site-footer`.
 
