@@ -257,6 +257,34 @@ p { margin: 0 0 14px; }
   .btn:hover { transform: translateY(-2px); }
 }
 
+/* ---------- glow border (cards + outline buttons) ---------- */
+/* Pure CSS: a rotating conic-gradient ring masked down to the border. */
+
+@property --glow-a { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+
+.card, .btn:not(.primary):not(.app) { position: relative; }
+.card::before, .btn:not(.primary):not(.app)::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  padding: 1.5px;
+  border-radius: inherit;
+  background: conic-gradient(from var(--glow-a), transparent 0deg, var(--accent) 70deg, #fff 110deg, var(--wine) 170deg, transparent 230deg, transparent 360deg);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s;
+}
+.card:hover::before, .card:focus-visible::before,
+.btn:not(.primary):not(.app):hover::before, .btn:not(.primary):not(.app):focus-visible::before { opacity: 1; }
+@media (prefers-reduced-motion: no-preference) {
+  .card:hover::before, .card:focus-visible::before,
+  .btn:not(.primary):not(.app):hover::before, .btn:not(.primary):not(.app):focus-visible::before { animation: glow-spin 12s linear infinite; }
+}
+@keyframes glow-spin { to { --glow-a: 360deg; } }
+
 /* ---------- hero ---------- */
 
 .hero { position: relative; isolation: isolate; padding: 104px 0 76px; }
