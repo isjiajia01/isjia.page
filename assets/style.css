@@ -607,28 +607,42 @@ p { margin: 0 0 14px; }
 .panel.wine .contact-mark { width: 96px; height: 96px; object-fit: contain; }
 .panel.wine p { color: #f1e6e4; }
 .panel.wine .mail {
-  margin-top: 6px;
-  font-size: clamp(19px, 2.1vw, 27px);
+  margin-top: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 100%;
+  padding: 8px 20px 8px 8px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: #2a1218;
   font-family: var(--mono);
+  font-size: clamp(15px, 1.7vw, 20px);
   font-weight: 500;
   letter-spacing: -0.01em;
   text-decoration: none;
+  box-shadow: 0 10px 24px rgba(27, 8, 14, 0.35);
+  transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
 }
-.panel.wine .mail { display: inline-block; }
-.panel.wine .mail::after {
-  content: "click to email \2192";
-  display: block;
-  margin-top: 8px;
-  font-family: var(--sans);
-  font-size: 13px;
-  font-weight: 400;
-  letter-spacing: 0.04em;
-  color: #f1e6e4;
-  opacity: 0.7;
-  transition: opacity 0.2s;
+.panel.wine .mail-ico {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #7c4a55;
+  color: #fff;
 }
-.panel.wine .mail:hover { color: #fff; }
-.panel.wine .mail:hover::after { opacity: 1; }
+.panel.wine .mail-addr { min-width: 0; overflow-wrap: anywhere; }
+.panel.wine .mail-arrow { flex: none; transition: transform 0.2s; }
+.panel.wine .mail:hover { color: #2a1218; background: #fff; transform: translateY(-2px); box-shadow: 0 14px 30px rgba(27, 8, 14, 0.45); }
+.panel.wine .mail:hover .mail-arrow { transform: translateX(4px); }
+.panel.wine .mail:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) {
+  .panel.wine .mail, .panel.wine .mail-arrow { transition: none; }
+  .panel.wine .mail:hover, .panel.wine .mail:hover .mail-arrow { transform: none; }
+}
 @media (max-width: 560px) { .panel { padding: 30px; } }
 
 /* ---------- footer ---------- */
