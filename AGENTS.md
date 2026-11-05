@@ -13,7 +13,7 @@
 **视觉系统**
 - 设计 token（`:root` 的颜色、`--radius`、字体栈）不改。站点为**单一深色主题**（酒红黑 `#100a0c`、骨白文字、玫瑰 `--accent #e0a3b1`、酒红 `#7c4a55`），不再随 `prefers-color-scheme` 切换；`--app-accent` 取自该 App 真实图标的强调色，只用于单 App 页。
 - 不为单个 App 页写私有 CSS / 内联大段样式（只有 `<body style="--app-accent: …">` 一处变量）；新组件进 `style.css`，沿用现有类（`detail-hero`、`screens`、`feature-grid`、`facts`、`support-band`、`panel`、`chip`、`qa` 等）。
-- 保留 `prefers-reduced-motion`、skip link、`aria-*` 等无障碍支持；不引入网络字体（系统字体栈），不新增 JS（CSS 实现图标悬浮说明与平台筛选）。
+- 保留 `prefers-reduced-motion`、skip link、`aria-*` 等无障碍支持；不引入网络字体（系统字体栈），不新增 JS（CSS 实现图标悬浮说明与平台筛选）；唯一例外：`assets/skeleton.js`（图片骨架屏，用户 2026-11-05 明确要求）。
 
 **事实与法务（最容易出错）**
 - 站点定位口径：独立开发者 Jiajia Zhang，Denmark；“No accounts, no ads, no tracking”。联系邮箱唯一：`isjiajiazhang@gmail.com`；X：`@jjmakesapps`。不得换邮箱、不得加新联系渠道。
