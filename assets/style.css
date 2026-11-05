@@ -42,7 +42,8 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 92px;
-  overflow-x: clip;
+  /* Clip horizontal overflow on body only. Root-level clip makes Safari
+     cull positioned content below the initial viewport while scrolling. */
   background: var(--bg);
 }
 
