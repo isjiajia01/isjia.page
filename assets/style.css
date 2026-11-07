@@ -729,6 +729,22 @@ p { margin: 0 0 14px; }
 .footer-site { display: flex; flex-direction: column; gap: 10px; font-size: 14px; }
 .footer-site a { color: var(--muted); transition: color 0.2s; }
 .footer-site a:hover { color: var(--accent); }
+/* Ghost wordmark: a soft light band sweeps across the letters (CSS only). */
+@keyframes wordmark-sheen {
+  from { background-position: 0 0, 0% 0; }
+  to { background-position: 0 0, 100% 0; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .site-footer::after {
+    background-image:
+      linear-gradient(to bottom, rgba(224, 163, 177, 0.5), rgba(124, 74, 85, 0.06) 88%),
+      linear-gradient(100deg, transparent 38%, rgba(248, 246, 235, 0.55) 50%, transparent 62%);
+    background-size: 100% 100%, 250% 100%;
+    background-repeat: no-repeat, repeat-x;
+    background-position: 0 0, 0% 0;
+    animation: wordmark-sheen 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+}
 @media (prefers-reduced-motion: no-preference) {
   .footer-apps img { transition: transform 0.25s; }
   .footer-apps a:hover img { transform: translateY(-3px) scale(1.06); }
