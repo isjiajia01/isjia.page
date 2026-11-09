@@ -1,4 +1,5 @@
-/* isjia.page — shared stylesheet. No build step, no JS.
+/* isjia.page — shared stylesheet. No build step; JS only for opt-in effects
+   (see AGENTS.md); every page reads fine without it.
    Round 5 (2026-10): "wine-dark" redesign. One dark theme for every page:
    wine-black canvas, bone text, rose accent, one accent colour per app taken
    from that app's own icon. System fonts only (no webfonts on the wire). */
@@ -682,28 +683,6 @@ p { margin: 0 0 14px; }
   border-top: 1px solid var(--line);
   background: radial-gradient(120% 70% at 50% 100%, rgba(124, 74, 85, 0.28), transparent 70%);
 }
-/* Decorative ghost wordmark, cropped by the page edge (CSS only; hidden from AT) */
-.site-footer::after {
-  content: "isjia.page";
-  content: "isjia.page" / "";
-  display: block;
-  margin-top: 8px;
-  padding-inline: 0;
-  text-align: center;
-  white-space: nowrap;
-  font-size: min(calc((100vw - 64px) * 0.266), 312px);
-  font-weight: 700;
-  letter-spacing: -0.055em;
-  line-height: 0.8;
-  height: 0.84em;
-  overflow: hidden;
-  color: transparent;
-  background: linear-gradient(to bottom, rgba(224, 163, 177, 0.5), rgba(124, 74, 85, 0.06) 88%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  pointer-events: none;
-  user-select: none;
-}
 .footer-inner {
   padding: 56px 32px 32px;
   display: grid;
@@ -729,22 +708,6 @@ p { margin: 0 0 14px; }
 .footer-site { display: flex; flex-direction: column; gap: 10px; font-size: 14px; }
 .footer-site a { color: var(--muted); transition: color 0.2s; }
 .footer-site a:hover { color: var(--accent); }
-/* Ghost wordmark: a soft light band sweeps across the letters (CSS only). */
-@keyframes wordmark-sheen {
-  from { background-position: 0 0, 0% 0; }
-  to { background-position: 0 0, 100% 0; }
-}
-@media (prefers-reduced-motion: no-preference) {
-  .site-footer::after {
-    background-image:
-      linear-gradient(to bottom, rgba(224, 163, 177, 0.5), rgba(124, 74, 85, 0.06) 88%),
-      linear-gradient(100deg, transparent 38%, rgba(248, 246, 235, 0.55) 50%, transparent 62%);
-    background-size: 100% 100%, 250% 100%;
-    background-repeat: no-repeat, repeat-x;
-    background-position: 0 0, 0% 0;
-    animation: wordmark-sheen 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-  }
-}
 @media (prefers-reduced-motion: no-preference) {
   .footer-apps img { transition: transform 0.25s; }
   .footer-apps a:hover img { transform: translateY(-3px) scale(1.06); }
@@ -764,6 +727,49 @@ p { margin: 0 0 14px; }
   color: var(--muted);
 }
 .fine strong { font-weight: 500; }
+
+/* Footer icon pile (assets/pile.js): copies of the app icons heaped at the
+   bottom of every page. Decorative and aria-hidden. The script draws into a
+   canvas that sits behind the footer text; without JS the <noscript> heap
+   below fills the same strip. */
+.site-footer > .wrap { position: relative; z-index: 1; }
+.footer-pile { position: relative; height: 200px; overflow: hidden; pointer-events: none; }
+.pile-canvas { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; pointer-events: none; }
+
+/* The no-JS heap: discs laid out once by tools/sync-footer.py (from
+   tools/footer.json), each carrying its own --x (px from the strip centre),
+   --y (px above the strip floor) and --r (degrees). The box is the width and
+   height the script lays out — 60px discs in 1440x200 — and narrow screens
+   show the middle of it at 0.75 scale, the way the old still picture was
+   cropped. Geometry changes here must be mirrored in the script. */
+.pile-css {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 1440px;
+  height: 200px;
+  transform: translateX(-50%);
+  transform-origin: 50% 100%;
+}
+.pile-css i {
+  position: absolute;
+  left: calc(50% + var(--x) * 1px);
+  bottom: calc(var(--y) * 1px);
+  width: 60px;
+  height: 60px;
+  margin-left: -30px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: 50% 50%;
+  transform: rotate(calc(var(--r) * 1deg));
+  box-shadow: inset 0 0 0 1.5px rgba(248, 246, 235, 0.16), 0 14px 26px -10px rgba(0, 0, 0, 0.6);
+}
+.site-footer.pile-grab { cursor: grab; }
+.site-footer.pile-grabbing { cursor: grabbing; user-select: none; -webkit-user-select: none; }
+@media (max-width: 560px) {
+  .footer-pile { height: 150px; }
+  .pile-css { transform: translateX(-50%) scale(0.75); }
+}
 
 /* ---------- app detail page ---------- */
 

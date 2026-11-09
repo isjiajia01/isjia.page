@@ -1,0 +1,19 @@
+{
+  "apps": [
+    { "slug": "solis", "name": "Solis" },
+    { "slug": "punctum", "name": "Punctum" },
+    { "slug": "threadlite", "name": "ThreadLite" },
+    { "slug": "span", "name": "Span" },
+    { "slug": "wayfinder", "name": "Wayfinder" },
+    { "slug": "ordbro", "name": "Ordbro" },
+    { "slug": "slip", "name": "Slip" },
+    { "slug": "dot", "name": "DOT" }
+  ],
+  "extras": [
+    { "src": "assets/disc-192.png", "weight": 1.6 }
+  ],
+  "pile": {
+    "seed": 20261122
+  },
+  "absolutePathPages": ["404.html"]
+}
