@@ -391,10 +391,10 @@ p { margin: 0 0 14px; }
   .ico:hover .ico-pop { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
   @media (prefers-reduced-motion: no-preference) {
     .ico-pop { transition: opacity 0.2s, transform 0.2s, visibility 0.2s; }
-/* narrow screens: the hover card would hang past the viewport edge (scrollWidth 415 at 390px); the name is in aria-label and the card is decorative */
-@media (max-width: 600px) { .ico-pop { display: none; } }
   }
 }
+/* Hide overflowing decorative cards on narrow screens for every motion/input preference. */
+@media (max-width: 600px) { .ico-pop { display: none; } }
 .ico:focus-visible .ico-pop { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
 
 @media (max-width: 900px) {
@@ -623,22 +623,15 @@ p { margin: 0 0 14px; }
   .panel.stack:hover { transform: rotateX(1deg) rotateY(2deg); border-color: rgba(224,163,177,.35); }
   .panel.stack:hover .icon-stack img { transform: translateZ(calc(var(--i) * 46px)) translateX(calc(var(--i) * 6px)); }
 }
-/* The sway keeps running; --mark-k (1 → 0 on hover) scales it, so the disc eases face-on with no jump. */
-@property --mark-y  { syntax: "<length>"; inherits: false; initial-value: 0px; }
-@property --mark-ry { syntax: "<angle>";  inherits: false; initial-value: 0deg; }
-@property --mark-rx { syntax: "<angle>";  inherits: false; initial-value: 0deg; }
-@property --mark-k  { syntax: "<number>"; inherits: false; initial-value: 1; }
-@media (prefers-reduced-motion: no-preference) {
+/* Keep the hover surface stationary. A single reversible transform transition
+   turns the decorative disc face-on; no running animation is cancelled or reset. */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
   .panel.wine .contact-mark {
-    filter: drop-shadow(0 14px 14px rgba(20, 4, 10, .55));
-    transform: perspective(500px) translateY(calc(var(--mark-y) * var(--mark-k))) rotateY(calc(var(--mark-ry) * var(--mark-k))) rotateX(calc(var(--mark-rx) * var(--mark-k)));
-    animation: mark-float 6s ease-in-out infinite;
-    transition: --mark-k .6s ease;
+    transform: perspective(500px) rotateY(-16deg) rotateX(6deg);
+    transition: transform .6s ease;
   }
-  .panel.wine:hover .contact-mark, .panel.wine:focus-within .contact-mark { --mark-k: 0; }
-  @keyframes mark-float {
-    0%, 100% { --mark-y: 0px;  --mark-ry: -16deg; --mark-rx: 6deg; }
-    50%      { --mark-y: -8px; --mark-ry: 16deg;  --mark-rx: -4deg; }
+  .panel.wine:hover .contact-mark, .panel.wine:focus-within .contact-mark {
+    transform: perspective(500px) rotateY(0deg) rotateX(0deg);
   }
 }
 .panel h2 { font-size: 28px; letter-spacing: -0.02em; }
@@ -666,20 +659,57 @@ p { margin: 0 0 14px; }
   transition: opacity 0.5s ease;
 }
 .panel.wine:hover::before, .panel.wine:focus-within::before { opacity: 1; }
-@media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  .panel.wine {
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
-  }
-  .panel.wine:hover {
-    transform: rotateX(1deg) rotateY(-3deg) translateZ(10px);
-    box-shadow: 0 24px 48px rgba(27, 8, 14, 0.32);
-  }
-}
 @media (prefers-reduced-motion: reduce) {
   .panel.wine::before { transition: none; }
 }
-.panel.wine .contact-mark { width: 96px; height: 96px; object-fit: contain; }
+.panel.wine .contact-mark {
+  width: 96px; height: 96px; object-fit: contain;
+  pointer-events: none;
+  filter: drop-shadow(0 14px 14px rgba(20, 4, 10, .55));
+}
 .panel.wine p { color: #f1e6e4; }
+
+/* ---- material: smoked glass (left) and satin wine lacquer (right) ----
+   Pure CSS: layered gradients for the sheen, inset lines for the bevel, an inline SVG noise for grain. */
+.panel.stack, .panel.wine { --grain: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"); }
+.panel.stack::after, .panel.wine::after {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: var(--grain); background-size: 160px; mix-blend-mode: overlay; opacity: .16;
+}
+.panel.stack {
+  isolation: isolate;
+  background:
+    linear-gradient(158deg, rgba(255, 244, 240, .085) 0%, rgba(255, 244, 240, .02) 26%, transparent 46%),
+    radial-gradient(ellipse at 88% 105%, rgba(224, 163, 177, .16), transparent 58%),
+    linear-gradient(180deg, #1b1417 0%, #120d10 100%);
+  border-color: rgba(255, 236, 232, .09);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 240, 236, .16),
+    inset 0 -1px 0 rgba(0, 0, 0, .5),
+    inset 0 -40px 70px rgba(0, 0, 0, .28),
+    0 18px 40px rgba(0, 0, 0, .38);
+}
+.panel.stack::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: linear-gradient(112deg, transparent 38%, rgba(255, 230, 228, .07) 48%, transparent 58%);
+  opacity: .7; transition: opacity .5s ease;
+}
+.panel.stack:hover::before { opacity: 1; }
+.panel.wine {
+  background:
+    radial-gradient(ellipse at 14% -4%, rgba(255, 214, 220, .30), transparent 50%),
+    linear-gradient(118deg, transparent 30%, rgba(255, 226, 226, .10) 42%, transparent 54%),
+    linear-gradient(150deg, #8a5a66 0%, #6b414d 46%, #432832 100%);
+  border-color: rgba(246, 208, 214, .30);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 236, 236, .34),
+    inset 0 -1px 0 rgba(24, 6, 12, .55),
+    inset 0 -50px 80px rgba(30, 8, 16, .28),
+    0 18px 40px rgba(27, 8, 14, .30);
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .panel.stack:hover { box-shadow: inset 0 1px 0 rgba(255, 240, 236, .2), inset 0 -1px 0 rgba(0, 0, 0, .5), inset 0 -40px 70px rgba(0, 0, 0, .28), 0 24px 48px rgba(0, 0, 0, .45); }
+}
 .panel.wine .mail {
   margin-top: 10px;
   display: inline-flex;
