@@ -9,11 +9,5 @@
     { "slug": "slip", "name": "Slip" },
     { "slug": "dot", "name": "DOT" }
   ],
-  "extras": [
-    { "src": "assets/disc-192.png", "weight": 1.6 }
-  ],
-  "pile": {
-    "seed": 20261122
-  },
   "absolutePathPages": ["404.html"]
 }

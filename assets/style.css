@@ -753,179 +753,221 @@ p { margin: 0 0 14px; }
 @media (max-width: 560px) { .panel { padding: 30px; } }
 
 /* ---------- footer ---------- */
-/* Round 8 (2026-11): "signature + tray". Same markup as before; the grid
-   re-stacks it into a signature row (name, one-line dateline, Site links as
-   capsules), a full-width Apps tray that the falling icons pass behind, and
-   a hairline trademark line resting on top of the pile. */
+/* Round 9 (2026-11): "curtain" footer. The footer is at least one viewport
+   tall, so the bottom of every page reveals a full screen of its own: a
+   three-column row (Site nav, Contact, Apps), the wordmark across the full
+   width, then the copyright / legal row. Pure CSS — the wine glow is
+   gradients on the footer itself (no images, no scripts). */
 
 .site-footer {
   position: relative;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100svh;
+  overflow: clip;
+  isolation: isolate;
   border-top: 1px solid var(--line);
+  /* The glow sits behind the wordmark and fades before the legal row, so the
+     13px disclaimers keep their contrast (--faint is 6.7:1 on --bg). */
   background:
-    linear-gradient(to bottom, rgba(124, 74, 85, 0.10), transparent 140px),
-    radial-gradient(120% 70% at 50% 100%, rgba(124, 74, 85, 0.30), transparent 70%);
+    radial-gradient(112% 56% at 50% 68%, rgba(124, 74, 85, 0.72), transparent 72%),
+    radial-gradient(56% 32% at 50% 58%, rgba(224, 163, 177, 0.14), transparent 76%),
+    linear-gradient(180deg, #130c0f 0%, #1a1015 58%, #120b0e 100%);
 }
 .footer-inner {
-  padding: 72px 32px 28px;
+  padding-top: clamp(56px, 11vh, 132px);
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  grid-template-areas: "brand site" "apps apps";
-  align-items: end;
-  gap: 40px 48px;
-}
-.footer-brand { grid-area: brand; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 0; min-width: 0; }
-.footer-brand .name {
-  flex: 0 0 100%;
-  margin-bottom: 10px;
-  font-size: clamp(30px, 3.6vw, 46px);
-  font-weight: 600;
-  line-height: 1.05;
-  letter-spacing: -0.035em;
-}
-a.name { align-self: flex-start; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 8px; text-decoration-color: rgba(248, 246, 235, 0.3); transition: color 0.2s, text-decoration-color 0.2s; }
-a.name:hover, a.name:focus-visible { color: var(--accent); text-decoration-color: currentColor; }
-.footer-brand .meta { font-size: 15px; color: var(--muted); }
-.footer-brand .meta + .meta::before {
-  content: "";
-  display: inline-block;
-  width: 5px; height: 5px;
-  margin: 0 12px;
-  vertical-align: 0.2em;
-  border-radius: 50%;
-  background: var(--accent);
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: start;
+  gap: 44px 56px;
 }
 .footer-h {
-  margin: 0;
+  margin: 0 0 18px;
   font-family: var(--mono);
-  font-size: 12px;
-  letter-spacing: 0.12em;
+  font-size: 11px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--faint);
 }
-.footer-col ul { list-style: none; margin: 0; padding: 0; }
+.footer-nav ul, .footer-contact ul, .footer-apps { list-style: none; margin: 0; padding: 0; }
 
-/* Site: label + capsules, on the right of the signature row */
-nav.footer-col { grid-area: site; display: flex; align-items: center; gap: 16px; }
-.footer-site { display: flex; flex-wrap: wrap; gap: 8px; font-size: 14px; }
-.footer-site a {
+/* Site: a plain uppercase column, like a table of contents */
+.footer-nav ul { display: flex; flex-direction: column; }
+.footer-nav a {
   display: inline-flex;
   align-items: center;
-  min-height: 40px;
-  padding: 0 16px;
-  border: 1px solid var(--line-mid);
-  border-radius: 999px;
+  min-height: 34px;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
   color: var(--ink-soft);
-  background: rgba(248, 246, 235, 0.03);
-  transition: color 0.2s, border-color 0.2s, background-color 0.2s;
+  transition: color 0.2s;
 }
-.footer-site a:hover { color: var(--on-accent); background: var(--accent); border-color: var(--accent); }
-.footer-site a:focus-visible { border-radius: 999px; }
+.footer-nav a:hover { color: var(--accent); }
 
-/* Apps: one tray, label on the left, eight tiles in a row */
-div.footer-col {
-  grid-area: apps;
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  align-items: center;
-  gap: 16px 28px;
-  padding: 14px 14px 14px 28px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: rgba(23, 16, 19, 0.82);
-  box-shadow: var(--shadow);
+/* Contact: the column the eye lands on — the address over the X handle */
+.footer-contact { text-align: center; }
+.footer-contact ul { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.footer-contact a {
+  font-size: clamp(16px, 1.5vw, 21px);
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  transition: color 0.2s;
 }
-.footer-apps { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 6px; }
+.footer-contact a:hover { color: var(--accent); }
+.footer-contact .footer-x { font-family: var(--mono); font-size: 13px; letter-spacing: 0.08em; color: var(--muted); }
+
+/* Apps: eight tiles, icon + name, two columns */
+.footer-apps-col { justify-self: end; width: 100%; max-width: 320px; }
+.footer-apps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2px 12px; }
 .footer-apps a {
   display: flex;
   align-items: center;
   gap: 10px;
-  min-height: 48px;
-  padding: 8px 10px;
-  border-radius: 16px;
-  font-size: 14px;
+  min-height: 38px;
+  padding: 6px 8px;
+  border-radius: 12px;
+  font-size: 13px;
   color: var(--ink-soft);
   transition: color 0.2s, background-color 0.2s;
 }
 .footer-apps a span { min-width: 0; overflow-wrap: anywhere; }
-.footer-apps img { flex: none; width: 28px; height: 28px; border-radius: 7px; box-shadow: 0 0 0 1px rgba(248, 246, 235, 0.08), 0 6px 14px -6px rgba(0, 0, 0, 0.8); }
+.footer-apps img {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+  box-shadow: 0 0 0 1px rgba(248, 246, 235, 0.10), 0 6px 14px -6px rgba(0, 0, 0, 0.8);
+}
 .footer-apps a:hover { color: var(--ink); background: rgba(248, 246, 235, 0.06); }
-.footer-apps a:focus-visible { border-radius: 16px; outline-offset: 0; }
+.footer-apps a:focus-visible { border-radius: 12px; outline-offset: 0; }
 @media (prefers-reduced-motion: no-preference) {
   .footer-apps img { transition: transform 0.25s; }
-  .footer-apps a:hover img { transform: translateY(-3px) rotate(-6deg) scale(1.06); }
+  .footer-apps a:hover img { transform: translateY(-2px) rotate(-6deg) scale(1.06); }
 }
-@media (max-width: 1180px) {
-  .footer-apps { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+/* Wordmark: the last thing on the page, pushed to the bottom of the curtain */
+.footer-wordmark-wrap { margin-top: auto; padding-top: clamp(56px, 9vh, 120px); }
+.footer-wordmark {
+  display: block;
+  /* 21.4vw keeps the ten characters just inside the wrap at 320px; the cap is
+     the size that fills the 1176px wrap once the page stops widening. */
+  font-size: clamp(64px, 21.4vw, 315px);
+  padding-bottom: 0.14em;
+  font-weight: 600;
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+  color: var(--ink);
+  white-space: nowrap;
+  transition: color 0.25s;
 }
-@media (max-width: 860px) {
-  .footer-inner { grid-template-columns: minmax(0, 1fr); grid-template-areas: "brand" "apps" "site"; align-items: start; gap: 28px; }
-  div.footer-col { grid-template-columns: minmax(0, 1fr); padding: 20px 12px 12px; }
-  div.footer-col .footer-h { padding-left: 10px; }
+.footer-wordmark:hover { color: var(--accent); }
+
+/* Aurora: two soft blobs drift and breathe behind the wordmark; the wordmark
+   itself rises into place as the curtain scrolls into view (scroll-driven,
+   no JS). Both are motion-only extras: reduced-motion / no support = static. */
+.site-footer::before,
+.site-footer::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(60px);
 }
-@media (max-width: 560px) {
-  .footer-inner { padding-top: 52px; }
-  .footer-brand .meta { flex: 0 0 100%; }
-  .footer-brand .meta + .meta::before { display: none; }
-  .footer-apps { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; }
-  div.footer-col { padding: 18px 8px 8px; }
-  .footer-apps a { gap: 8px; padding: 8px 6px; }
-  nav.footer-col { flex-wrap: wrap; gap: 10px 14px; }
+.site-footer::before {
+  width: 46vw; height: 30vw; left: 6%; top: 42%;
+  background: radial-gradient(closest-side, rgba(224, 163, 177, 0.20), transparent);
 }
-@media (max-width: 360px) { .footer-apps a { font-size: 13px; } }
-.fine {
-  margin: 0;
-  padding: 18px 0 8px;
+.site-footer::after {
+  width: 40vw; height: 26vw; right: 4%; top: 52%;
+  background: radial-gradient(closest-side, rgba(124, 74, 85, 0.55), transparent);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .site-footer::before { animation: aurora-a 14s ease-in-out infinite alternate; }
+  .site-footer::after { animation: aurora-b 18s ease-in-out infinite alternate; }
+  @keyframes aurora-a {
+    from { transform: translate3d(0, 0, 0) scale(1); opacity: 0.7; }
+    to { transform: translate3d(22vw, -6vw, 0) scale(1.25); opacity: 1; }
+  }
+  @keyframes aurora-b {
+    from { transform: translate3d(0, 0, 0) scale(1.15); opacity: 1; }
+    to { transform: translate3d(-24vw, 5vw, 0) scale(0.9); opacity: 0.65; }
+  }
+  @supports (animation-timeline: view()) {
+    .footer-wordmark {
+      animation: wordmark-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 90%;
+    }
+    @keyframes wordmark-rise {
+      from { transform: translateY(32%); opacity: 0; letter-spacing: -0.09em; }
+      to { transform: none; opacity: 1; letter-spacing: -0.045em; }
+    }
+  }
+}
+
+/* Copyright / legal */
+.footer-base {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 14px 48px;
+  margin-top: clamp(12px, 2vh, 24px);
+  padding-top: 20px;
+  padding-bottom: clamp(24px, 4vh, 40px);
   border-top: 1px solid var(--line);
-  font-size: 13px;
+}
+.footer-copy {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.footer-note { margin: 8px 0 0; font-size: 13px; color: var(--faint); }
+.footer-legal { text-align: right; }
+.footer-tag { margin: 0; font-size: 13px; color: var(--ink-soft); }
+.fine {
+  margin: 8px 0 0 auto;
+  max-width: 62ch;
+  font-size: 12px;
   line-height: 1.6;
   color: var(--faint);
 }
 .fine strong { font-weight: 500; }
 
-/* Footer icon pile (assets/pile.js): copies of the app icons heaped at the
-   bottom of every page. Decorative and aria-hidden. The script draws into a
-   canvas that sits behind the footer text; without JS the <noscript> heap
-   below fills the same strip. */
-.site-footer > .wrap { position: relative; z-index: 1; }
-.footer-pile { position: relative; height: 200px; overflow: hidden; pointer-events: none; }
-.pile-canvas { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; pointer-events: none; }
-
-/* The no-JS heap: discs laid out once by tools/sync-footer.py (from
-   tools/footer.json), each carrying its own --x (px from the strip centre),
-   --y (px above the strip floor) and --r (degrees). The box is the width and
-   height the script lays out — 60px discs in 1440x200 — and narrow screens
-   show the middle of it at 0.75 scale, the way the old still picture was
-   cropped. Geometry changes here must be mirrored in the script. */
-.pile-css {
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  width: 1440px;
-  height: 200px;
-  transform: translateX(-50%);
-  transform-origin: 50% 100%;
+@media (max-width: 1000px) {
+  .footer-inner { gap: 36px 32px; }
+  .footer-apps-col { max-width: 280px; }
 }
-.pile-css i {
-  position: absolute;
-  left: calc(50% + var(--x) * 1px);
-  bottom: calc(var(--y) * 1px);
-  width: 60px;
-  height: 60px;
-  margin-left: -30px;
-  border-radius: 50%;
-  /* zoomed past the transparent squircle corners / macOS margins, the way
-     pile.js crops each icon to its artwork */
-  background-size: 124%;
-  background-position: 50% 50%;
-  transform: rotate(calc(var(--r) * 1deg));
-  box-shadow: inset 0 0 0 1.5px rgba(248, 246, 235, 0.16), 0 14px 26px -10px rgba(0, 0, 0, 0.6);
+@media (max-width: 860px) {
+  .footer-inner { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+  .footer-contact { text-align: left; }
+  .footer-contact ul { align-items: flex-start; }
+  .footer-apps-col { justify-self: start; max-width: none; }
+  .footer-apps { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .footer-base { grid-template-columns: minmax(0, 1fr); align-items: start; gap: 22px; }
+  .footer-legal { text-align: left; }
+  .fine { margin-left: 0; }
 }
-.site-footer.pile-grab { cursor: grab; }
-.site-footer.pile-grabbing { cursor: grabbing; user-select: none; -webkit-user-select: none; }
+@media (max-width: 700px) {
+  .footer-apps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
 @media (max-width: 560px) {
-  .footer-pile { height: 150px; }
-  .pile-css { transform: translateX(-50%) scale(0.75); }
+  /* the whole footer is meant to fit one phone screen, with its first label
+     clear of the 55px sticky header at the bottom of the page */
+  .footer-inner { padding-top: 62px; gap: 22px; }
+  .footer-apps { gap: 2px 8px; }
+  .footer-apps a { min-height: 32px; }
+  .footer-contact ul { gap: 6px; }
+  .footer-wordmark-wrap { padding-top: 26px; }
+  .footer-base { margin-top: 10px; padding-top: 16px; padding-bottom: 22px; }
+}
+@media (max-width: 440px) {
+  .footer-apps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 /* ---------- app detail page ---------- */
