@@ -391,6 +391,8 @@ p { margin: 0 0 14px; }
   .ico:hover .ico-pop { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
   @media (prefers-reduced-motion: no-preference) {
     .ico-pop { transition: opacity 0.2s, transform 0.2s, visibility 0.2s; }
+/* narrow screens: the hover card would hang past the viewport edge (scrollWidth 415 at 390px); the name is in aria-label and the card is decorative */
+@media (max-width: 600px) { .ico-pop { display: none; } }
   }
 }
 .ico:focus-visible .ico-pop { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
