@@ -1153,3 +1153,11 @@ p { margin: 0 0 14px; }
   .site-header, .ticker, .sky, .field, .more-section { display: none; }
   body { background: #fff; color: #000; }
 }
+
+/* Inline line icons (static SVG, currentColor). */
+.pill-ico { flex: none; opacity: 0.85; }
+.value { position: relative; }
+.value-ico { position: absolute; top: 32px; right: 28px; color: var(--accent); opacity: 0.9; }
+.value + .value .value-ico { right: 0; }
+.toc a img { border-radius: 5px; vertical-align: -4px; margin-right: 7px; }
+@media (max-width: 759px) { .value-ico { top: 26px; right: 0; } }
