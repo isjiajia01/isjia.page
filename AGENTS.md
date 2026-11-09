@@ -69,7 +69,6 @@
 
 - `ordbro` 页写 "macOS 1.0 in App Review"、`slip` "0.1.0 in App Review"：审核通过后需更新页面与 support（chip、价格表述）。
 - 隐私页日期不一致（Punctum 6 Oct，其他 23–24 Oct）属正常，只在内容变更时才动。
-- `DESIGN.md` Round 7 的“Fallbacks”一段仍写 `pile-still.webp`（无 JS 兜底已换成 `.pile-css`）：DESIGN.md 不随本次修改，需要时由用户追加 Round 8 记录。
 
 ## 四、验证（最小）
 
