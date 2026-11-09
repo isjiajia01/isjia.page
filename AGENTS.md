@@ -63,7 +63,7 @@
 - `sitemap.xml` 的 `changefreq/priority` 微调。
 - 新增 App 页（复制 `span/` 为模板，按“一致性清单”走完，包括 `tools/footer.json` + `python3 tools/sync-footer.py`）。
 - `tools/footer.json` 增删 App / 权重 / 装饰图标，跑 `python3 tools/sync-footer.py`（见上“页脚同步”）。
-- `style.css` 内向后兼容的小调整（间距、响应式修复），改后在亮/暗色、窄屏各看一眼；改完把 19 页的 `style.css?v=N` 一起 +1（当前 `?v=7`）。
+- `style.css` 内向后兼容的小调整（间距、响应式修复），改后在亮/暗色、窄屏各看一眼；改完把 19 页的 `style.css?v=N` 一起 +1（当前 `?v=12`）。
 
 ## 三、已知待核对（发现，非本次修改）
 
