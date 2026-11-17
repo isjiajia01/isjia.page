@@ -1366,3 +1366,7 @@ p { margin: 0 0 14px; }
 .value + .value .value-ico { right: 0; }
 .toc a img { border-radius: 5px; vertical-align: -4px; margin-right: 7px; }
 @media (max-width: 759px) { .value-ico { top: 26px; right: 0; } }
+
+/* ASCII wordmark (assets/ascii-footer.js): the script swaps the text for a canvas */
+.footer-wordmark.is-ascii { font-size: 0; line-height: 0; padding-bottom: 0.4rem; letter-spacing: 0; }
+.footer-wordmark.is-ascii canvas { display: block; width: 100%; touch-action: pan-y; }
