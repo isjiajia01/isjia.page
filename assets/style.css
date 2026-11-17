@@ -848,7 +848,7 @@ p { margin: 0 0 14px; }
 }
 
 /* Wordmark: the last thing on the page, pushed to the bottom of the curtain */
-.footer-wordmark-wrap { margin-top: auto; padding-top: clamp(56px, 9vh, 120px); }
+.footer-wordmark-wrap { position: relative; padding-top: clamp(24px, 4vh, 48px); }
 .footer-wordmark {
   display: block;
   /* 21.4vw keeps the ten characters just inside the wrap at 320px; the cap is
@@ -963,7 +963,7 @@ p { margin: 0 0 14px; }
   .footer-apps { gap: 2px 8px; }
   .footer-apps a { min-height: 32px; }
   .footer-contact ul { gap: 6px; }
-  .footer-wordmark-wrap { padding-top: 26px; }
+  .footer-wordmark-wrap { padding-top: 16px; }
   .footer-base { margin-top: 10px; padding-top: 16px; padding-bottom: 22px; }
 }
 @media (max-width: 440px) {
@@ -1370,3 +1370,15 @@ p { margin: 0 0 14px; }
 /* ASCII wordmark (assets/ascii-footer.js): the script swaps the text for a canvas */
 .footer-wordmark.is-ascii { font-size: 0; line-height: 0; padding-bottom: 0.4rem; letter-spacing: 0; }
 .footer-wordmark.is-ascii canvas { display: block; width: 100%; touch-action: pan-y; }
+
+/* Wordmark is the last thing on the page: flush to the bottom edge, with a
+   progressive blur melting its lower part (layers injected by ascii-footer.js). */
+.footer-wordmark.is-ascii { padding-bottom: 0; animation: none; }
+.site-footer .footer-base { margin-top: auto; }
+.site-footer .footer-wordmark-wrap { padding-top: clamp(16px, 3vh, 32px); }
+.footer-pb { position: absolute; left: 0; right: 0; bottom: 0; height: 45%; pointer-events: none; }
+.footer-pb div { position: absolute; inset: 0; }
+.footer-pb div:nth-child(1) { backdrop-filter: blur(1px); -webkit-backdrop-filter: blur(1px); -webkit-mask: linear-gradient(transparent 0%, #000 25%, #000 50%, transparent 75%); mask: linear-gradient(transparent 0%, #000 25%, #000 50%, transparent 75%); }
+.footer-pb div:nth-child(2) { backdrop-filter: blur(2.5px); -webkit-backdrop-filter: blur(2.5px); -webkit-mask: linear-gradient(transparent 25%, #000 50%, #000 75%, transparent 100%); mask: linear-gradient(transparent 25%, #000 50%, #000 75%, transparent 100%); }
+.footer-pb div:nth-child(3) { backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); -webkit-mask: linear-gradient(transparent 50%, #000 75%); mask: linear-gradient(transparent 50%, #000 75%); }
+.footer-pb div:nth-child(4) { backdrop-filter: blur(9px); -webkit-backdrop-filter: blur(9px); -webkit-mask: linear-gradient(transparent 70%, #000 100%); mask: linear-gradient(transparent 70%, #000 100%); }

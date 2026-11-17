@@ -38,7 +38,7 @@
 **页脚同步（`tools/footer.json` + `tools/sync-footer.py`）**
 19 页页脚是同一个纯 CSS 的高屏“幕布”（`min-height: 100svh`，滚到底等于露出一整屏），从上到下：
 - 三列：左 = Site 导航竖排大写列表；中 = `CONTACT` 标题 + 邮箱 + `@jjmakesapps`；右 = 8 个 App 的图标 + 名字两列网格（`.footer-apps`）。
-- 整行大字号 wordmark `isjia.page`（`.footer-wordmark`，链接到 me.isjia.page；由 `assets/ascii-footer.js` 换成 canvas 字符点阵，悬停字符乱码并变亮，减少动画时为静态，无 JS 时回退为文字链接；每页 `</body>` 前引入该脚本，不在 sync 标记内；`clamp(64px, 21.4vw, 315px)` 随视口缩放，390px 与 320px 都不横向溢出）。
+- 页面最底部（在法务行之后、紧贴页底，下半部有渐进模糊淡化）的整行大字号 wordmark `isjia.page`（`.footer-wordmark`，链接到 me.isjia.page；由 `assets/ascii-footer.js` 换成 canvas 字符点阵，悬停字符乱码并变亮，减少动画时为静态，无 JS 时回退为文字链接；每页 `</body>` 前引入该脚本，不在 sync 标记内；`clamp(64px, 21.4vw, 315px)` 随视口缩放，390px 与 320px 都不横向溢出）。
 - 底部行：左 `© 2026 …` + “Small apps, built in Denmark.”，右 “No accounts, no ads, no tracking.” + 商标声明（`.fine`）。
 
 背景只有 CSS 渐变（酒红/玫瑰光晕，光晕压在大字后面、到法务行前衰减，保证 `.fine` 的 `--faint` 对比度仍在 4.5:1 以上），背景不用图片、不做 sticky-reveal。
@@ -62,7 +62,7 @@
 - `sitemap.xml` 的 `changefreq/priority` 微调。
 - 新增 App 页（复制 `span/` 为模板，按“一致性清单”走完，包括 `tools/footer.json` + `python3 tools/sync-footer.py`）。
 - `tools/footer.json` 增删 App，跑 `python3 tools/sync-footer.py`（见上“页脚同步”）。
-- `style.css` 内向后兼容的小调整（间距、响应式修复），改后在 1440 与 390 各看一眼；改完把 19 页的 `style.css?v=N` 一起 +1（当前 `?v=19`）。
+- `style.css` 内向后兼容的小调整（间距、响应式修复），改后在 1440 与 390 各看一眼；改完把 19 页的 `style.css?v=N` 一起 +1（当前 `?v=20`）。
 
 ## 三、已知待核对（发现，非本次修改）
 

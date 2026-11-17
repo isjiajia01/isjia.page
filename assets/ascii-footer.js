@@ -19,6 +19,9 @@
   link.classList.add("is-ascii");
   link.textContent = "";
   link.appendChild(cv);
+  var pb = document.createElement("div"); pb.className = "footer-pb"; pb.setAttribute("aria-hidden", "true");
+  pb.innerHTML = "<div></div><div></div><div></div><div></div>";
+  if (link.parentNode) link.parentNode.appendChild(pb);
   var ctx = cv.getContext("2d");
   if (!ctx) return;
 
