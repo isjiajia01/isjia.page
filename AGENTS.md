@@ -5,9 +5,9 @@
 ## 一、锁死（不得改动，除非用户明确要求）
 
 **站点形态**
-- 不引入构建工具、框架、npm 依赖、JS、第三方脚本、字体、tracker、CDN 资源。`style.css` 头注释写明无构建；页面里的脚本只有既有的 `assets/field.js`（首页 hero 点阵）、`assets/lenis.min.js`，以及页脚 wordmark 用的 `assets/ascii-footer.js`（2026-11-17 按用户要求加入，原生 JS、无依赖、无网络请求）。
+- 不引入构建工具、框架、npm 依赖、JS、第三方脚本、字体、tracker、CDN 资源。`style.css` 头注释写明无构建；页面里的脚本只有既有的 `assets/field.js`（首页 hero 点阵）、`assets/lenis.min.js`，以及页脚 wordmark 用的 `assets/isjia-footer.js`（2026-11-18 起取代 `ascii-footer.js`，后者已搬去 ascii.isjia.page；原 2026-11-17 按用户要求加入，原生 JS、无依赖、无网络请求）。
 - `tools/sync-footer.py`（python3 stdlib，无依赖）只是页脚 App 列表的生成器，不是构建步骤：19 页仍是提交进仓库的静态 HTML，Pages 不跑它，只在改页脚时手动跑（见第二节“页脚同步”）。
-- **页脚图标堆已于 2026-11-09 按用户要求整体移除**：`assets/pile.js` 已删除，`.footer-pile` / `.footer-pile-extra` / `.pile-css` / `<noscript>` 堆与相关 CSS、脚本标签全部清掉。不要再加回 canvas、物理引擎、图标堆或 `<noscript>` 兜底堆。页脚现在是高屏“幕布”（结构见第二节“页脚同步”），除 wordmark 的 ASCII 点阵脚本 `assets/ascii-footer.js` 外不依赖任何 JS，也不要为它再新增脚本。
+- **页脚图标堆已于 2026-11-09 按用户要求整体移除**：`assets/pile.js` 已删除，`.footer-pile` / `.footer-pile-extra` / `.pile-css` / `<noscript>` 堆与相关 CSS、脚本标签全部清掉。不要再加回 canvas、物理引擎、图标堆或 `<noscript>` 兜底堆。页脚现在是高屏“幕布”（结构见第二节“页脚同步”），除 wordmark 的挤压字母脚本 `assets/isjia-footer.js` 外不依赖任何 JS，也不要为它再新增脚本。
 - 现有的 `assets/field.js`（首页 hero 点阵）与 `assets/lenis.min.js` 早于页脚改版，仍在仓库里引用；本页脚不追认也不扩大它们。
 - 不改 `CNAME`（`app.isjia.page`）、`robots.txt` 的 `Allow: /`、404 的 `noindex`。
 - 目录结构固定：`/<app>/index.html` + `/<app>/privacy/index.html`，URL 一律带尾斜杠；`/support/` 是唯一支持中心（全部 App 的 FAQ 都在这一页，用 `#<app>` 锚点）。不要给每个 App 另建 support 页。
@@ -38,7 +38,7 @@
 **页脚同步（`tools/footer.json` + `tools/sync-footer.py`）**
 19 页页脚是同一个纯 CSS 的高屏“幕布”（`min-height: 100svh`，滚到底等于露出一整屏），从上到下：
 - 三列：左 = Site 导航竖排大写列表；中 = `CONTACT` 标题 + 邮箱 + `@jjmakesapps`；右 = 8 个 App 的图标 + 名字两列网格（`.footer-apps`）。
-- 页面最底部（在法务行之后、紧贴页底，下半部有渐进模糊淡化）的整行大字号 wordmark `isjia.page`（`.footer-wordmark`，链接到 me.isjia.page；由 `assets/ascii-footer.js` 换成 canvas 字符点阵，悬停字符乱码并变亮，减少动画时为静态，无 JS 时回退为文字链接；每页 `</body>` 前引入该脚本，不在 sync 标记内；`clamp(64px, 21.4vw, 315px)` 随视口缩放，390px 与 320px 都不横向溢出）。
+- 页面最底部（在法务行之后、紧贴页底，下半部有渐进模糊淡化）的整行 wordmark（`.footer-wordmark`，链接到 me.isjia.page）：由 `assets/isjia-footer.js` 换成 SVG 的 isJia 五个厚块字母（上排 i｜s，下排 J｜i｜a），指针在盒内挤压分割线，空闲自动漂移，减少动画时为静态，无 JS 时回退为文字链接；盒子与 `.wrap` 左右对齐，高度 `clamp(260px, 40vw, 500px)`，酒红色、指针在内时变 `--accent`；几何改自 isjia-404 仓库；每页 `</body>` 前引入该脚本，不在 sync 标记内；`clamp(64px, 21.4vw, 315px)` 随视口缩放，390px 与 320px 都不横向溢出）。
 - 底部行：左 `© 2026 …` + “Small apps, built in Denmark.”，右 “No accounts, no ads, no tracking.” + 商标声明（`.fine`）。
 
 背景只有 CSS 渐变（酒红/玫瑰光晕，光晕压在大字后面、到法务行前衰减，保证 `.fine` 的 `--faint` 对比度仍在 4.5:1 以上），背景不用图片、不做 sticky-reveal。

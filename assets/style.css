@@ -1367,18 +1367,18 @@ p { margin: 0 0 14px; }
 .toc a img { border-radius: 5px; vertical-align: -4px; margin-right: 7px; }
 @media (max-width: 759px) { .value-ico { top: 26px; right: 0; } }
 
-/* ASCII wordmark (assets/ascii-footer.js): the script swaps the text for a canvas */
-.footer-wordmark.is-ascii { font-size: 0; line-height: 0; padding-bottom: 0.4rem; letter-spacing: 0; }
-.footer-wordmark.is-ascii canvas { display: block; width: 100%; touch-action: pan-y; }
-
-/* Wordmark is the last thing on the page: flush to the bottom edge, with a
-   progressive blur melting its lower part (layers injected by ascii-footer.js). */
-.footer-wordmark.is-ascii { padding-bottom: 0; animation: none; }
+/* isJia wordmark (assets/isjia-footer.js): five slab letters in a box the pointer squashes.
+   The box lines up with the .wrap edges and sits one gutter above the page bottom. */
+.footer-wordmark.is-glyphs {
+  font-size: 0; line-height: 0; letter-spacing: 0; padding: 0; animation: none;
+  color: #7c4a55;
+}
+.footer-wordmark.is-glyphs svg {
+  display: block; width: 100%; height: clamp(260px, 40vw, 500px);
+  touch-action: pan-y; overflow: visible; fill: currentColor; cursor: crosshair;
+}
+.footer-wordmark.is-glyphs.is-live, .footer-wordmark.is-glyphs.is-live:hover { color: var(--accent); }
+.footer-wordmark.is-glyphs:hover { color: #7c4a55; }
 .site-footer .footer-base { margin-top: auto; }
-.site-footer .footer-wordmark-wrap { padding-top: clamp(16px, 3vh, 32px); }
-.footer-pb { position: absolute; left: 0; right: 0; bottom: 0; height: 45%; pointer-events: none; }
-.footer-pb div { position: absolute; inset: 0; }
-.footer-pb div:nth-child(1) { backdrop-filter: blur(1px); -webkit-backdrop-filter: blur(1px); -webkit-mask: linear-gradient(transparent 0%, #000 25%, #000 50%, transparent 75%); mask: linear-gradient(transparent 0%, #000 25%, #000 50%, transparent 75%); }
-.footer-pb div:nth-child(2) { backdrop-filter: blur(2.5px); -webkit-backdrop-filter: blur(2.5px); -webkit-mask: linear-gradient(transparent 25%, #000 50%, #000 75%, transparent 100%); mask: linear-gradient(transparent 25%, #000 50%, #000 75%, transparent 100%); }
-.footer-pb div:nth-child(3) { backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); -webkit-mask: linear-gradient(transparent 50%, #000 75%); mask: linear-gradient(transparent 50%, #000 75%); }
-.footer-pb div:nth-child(4) { backdrop-filter: blur(9px); -webkit-backdrop-filter: blur(9px); -webkit-mask: linear-gradient(transparent 70%, #000 100%); mask: linear-gradient(transparent 70%, #000 100%); }
+.site-footer .footer-wordmark-wrap { padding-top: clamp(16px, 3vh, 32px); padding-bottom: clamp(12px, 2.4vw, 28px); }
+@media (prefers-reduced-motion: no-preference) { .footer-wordmark.is-glyphs { transition: color 0.4s; } }
