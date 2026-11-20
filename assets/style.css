@@ -489,7 +489,7 @@ p { margin: 0 0 14px; }
 .shelf {
   margin-top: 4px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(304px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(304px, 100%), 1fr));
   gap: 16px;
 }
 .card {
@@ -588,7 +588,7 @@ p { margin: 0 0 14px; }
 /* ---------- contact ---------- */
 
 .contact-section { padding-block: 0 112px; }
-.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
+.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 16px; }
 .panel {
   padding: 44px;
   border-radius: var(--radius);
@@ -618,6 +618,13 @@ p { margin: 0 0 14px; }
 .icon-stack img:nth-child(3) { --i: 2; }
 .icon-stack img:nth-child(4) { --i: 3; }
 @media (max-width: 1000px) and (min-width: 701px) { .icon-stack { display: none; } }
+/* Phones: the stack joins the flow above the heading instead of floating over the text. */
+@media (max-width: 700px) {
+  .icon-stack { position: relative; right: auto; bottom: auto; width: 180px; height: 120px; margin: 34px 0 6px -18px; }
+  .icon-stack img { left: 42px; top: 10px; width: 80px; height: 80px; }
+}
+/* App pages reuse the dark panel; keep its own heading size inside a detail section. */
+.detail-section .panel h2 { font-size: 28px; line-height: 1.15; letter-spacing: -0.02em; }
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
   .panel.stack { transition: transform .5s ease, border-color .3s; transform-style: preserve-3d; }
   .panel.stack:hover { transform: rotateX(1deg) rotateY(2deg); border-color: rgba(224,163,177,.35); }
@@ -1264,7 +1271,7 @@ p { margin: 0 0 14px; }
 .cinema::before {
   content: "";
   position: absolute;
-  inset: -12% -8%;
+  inset: -12% 0;
   z-index: -1;
   pointer-events: none;
   background: radial-gradient(60% 55% at 50% 60%, color-mix(in srgb, var(--app-accent) 22%, transparent), transparent 72%);
