@@ -16,10 +16,10 @@
 <link rel="icon" href="../assets/favicon.svg?v=2" type="image/svg+xml">
 <link rel="icon" href="../assets/favicon-32.png?v=2" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=2" sizes="180x180">
-<link rel="stylesheet" href="../assets/style.css?v=22">
+<link rel="stylesheet" href="../assets/style.css?v=23">
 </head>
 <body style="--app-accent: #7f9bff">
-<a class="skip" href="#features">Skip to the features</a>
+<a class="skip" href="#what">Skip to what it does</a>
 <div class="sky" aria-hidden="true"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
 
 <header class="site-header">
@@ -30,7 +30,7 @@
       <span class="id"><img src="../assets/icons/ordbro-256.png" alt="" width="26" height="26">Ordbro</span>
     </div>
     <nav class="nav" aria-label="Ordbro">
-      <a class="optional" href="#features">Features</a>
+      <a class="optional" href="#what">Features</a>
       <a href="../support/#ordbro">Support</a>
       <a class="cta" href="mailto:isjiajiazhang@gmail.com?subject=Ordbro">Contact</a>
     </nav>
@@ -41,52 +41,121 @@
   <section class="wrap detail-hero">
     <div class="copy">
       <img class="app-icon" src="../assets/icons/ordbro-256.png" alt="Ordbro app icon" width="108" height="108">
-      <p class="cat">Translation, macOS, Safari</p>
+      <p class="cat">Translation, Safari on Mac</p>
       <h1>Ordbro</h1>
-      <p class="tagline">A bridge between languages — on your terms.</p>
+      <p class="tagline dual"><span>Read and watch in your own language.</span><span class="src" lang="da">Læs og se på dit eget sprog.</span></p>
       <div class="btn-row">
-        <a class="btn" href="#features">See what it does</a>
+        <a class="btn app" href="#what">See what it does</a>
+        <a class="btn" href="#modes">Try the reading modes</a>
       </div>
     </div>
-    <figure class="figure">
-      <div class="screens wide"><img class="win" src="../assets/shots/ordbro-web.webp" alt="Ordbro translating a web article, with the translation shown under each paragraph" width="1400" height="980"></div>
+    <figure class="figure cinema">
+      <img src="../assets/shots/ordbro-subtitles.webp" alt="A video playing with Ordbro's subtitle layer: a Chinese translation above the original Danish line" width="1400" height="787">
+      <figcaption>Danish subtitles, translated into Simplified Chinese as the video plays</figcaption>
     </figure>
   </section>
 
-  <section class="wrap detail-section" id="features">
+  <section class="wrap detail-section" id="what">
     <p class="eyebrow">What it does</p>
-    <h2>Read and watch <span class="em">in your own language.</span></h2>
-    <div class="feature-grid">
-        <div class="feature"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="22" height="16" rx="2.5"/><path d="M7 12h6M7 16h9M17 12h4"/></svg><h3>Pages, on your terms</h3><p>Translate the whole page beside the original or in place; select a few words to translate just those.</p></div>
-        <div class="feature"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4l10 5-10 5L4 9z"/><path d="M4 14l10 5 10-5"/><path d="M4 19l10 5 10-5"/></svg><h3>Video subtitles</h3><p>Ordbro finds the subtitle file, translates ahead of the video and shows it in a clean layer that follows pause, seeking, speed and fullscreen.</p></div>
-        <div class="feature"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3l2.5 6.5L23 12l-6.5 2.5L14 21l-2.5-6.5L5 12l6.5-2.5z"/></svg><h3>Context aware</h3><p>Names, pronouns and meaning stay consistent from line to line instead of being translated sentence by isolated sentence.</p></div>
-        <div class="feature"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="19" r="4"/><path d="M12 16L22 6M18 6h4v4"/></svg><h3>Your service, your key</h3><p>OpenAI, Google Gemini, Anthropic Claude, DeepSeek, any OpenAI-compatible endpoint, or a machine-translation service such as DeepL, Google Cloud Translation or Azure Translator.</p></div>
-        <div class="feature"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h16M4 16h8M4 22h16"/><circle cx="22" cy="8" r="2.2"/><circle cx="14" cy="16" r="2.2"/></svg><h3>Per-site rules</h3><p>Translate on request, always, or never, per site. Login and payment pages are never cached.</p></div>
-        <div class="feature"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3l9 4v7c0 5-4 8.5-9 11-5-2.5-9-6-9-11V7z"/><path d="M9.5 14l3 3 6-6.5"/></svg><h3>Private by design</h3><p>No account, no analytics, no tracking, no ads, and no Ordbro server in the middle.</p></div>
+    <h2 class="dual"><span>Two things, <span class="em">carried across.</span></span><span class="src" lang="da">To ting, båret over.</span></h2>
+    <p class="sub">Ordbro is Danish for “word bridge”. It takes the page you are reading, or the video you are watching, into your own language, whatever language it started in.</p>
+    <div class="duo">
+      <article class="duo-card">
+        <div class="shot"><img src="../assets/shots/ordbro-web.webp" alt="An article translated by Ordbro, with the translation shown under each paragraph" width="1400" height="980" loading="lazy"></div>
+        <p class="kicker">Web pages · free</p>
+        <h3>The whole page, visible text first.</h3>
+        <p>Translate a page beside the original or in place. What is on screen is translated first, the rest as you scroll. Select a few words to translate just those, or look them up, break a sentence down, or send it to Anki.</p>
+        <ul class="tagset" aria-label="Per-site choices"><li>On request</li><li>Always translate</li><li>Never translate</li></ul>
+      </article>
+      <article class="duo-card">
+        <div class="shot"><img src="../assets/shots/ordbro-captions.webp" alt="Close-up of Ordbro's caption: the translation on top, the original Danish line smaller underneath" width="1120" height="700" loading="lazy"></div>
+        <p class="kicker">Video subtitles · Ordbro Pro</p>
+        <h3>Press play. The subtitles follow.</h3>
+        <p>Ordbro finds a video's subtitle file, translates it ahead of playback and shows it in a layer of its own, in step with pause, seeking, speed and fullscreen. The captions are styled after Apple TV and sized to the video, not the page.</p>
+        <ul class="tagset" aria-label="Sites with a subtitle adapter"><li>YouTube</li><li>DRTV</li><li>Netflix</li><li>Prime Video</li><li>Bilibili</li><li>Crunchyroll</li><li class="more">+ sites you allow</li></ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="wrap detail-section" id="modes">
+    <p class="eyebrow">Three reading modes</p>
+    <h2 class="dual"><span>Read it <span class="em">your way.</span></span><span class="src" lang="da">Læs det på din måde.</span></h2>
+    <div class="modes" role="group" aria-label="Reading mode sample">
+      <input class="f-radio" type="radio" name="mode" id="m-tr">
+      <input class="f-radio" type="radio" name="mode" id="m-bi" checked>
+      <input class="f-radio" type="radio" name="mode" id="m-or">
+      <div class="mode-bar">
+        <label class="pill" for="m-tr">Translation only</label>
+        <label class="pill" for="m-bi">Bilingual</label>
+        <label class="pill" for="m-or">Original</label>
+        <p class="mode-note" aria-live="polite"><span class="n-tr">Your language, the original out of the way.</span><span class="n-bi">The translation under each paragraph.</span><span class="n-or">The page exactly as it was; requests pause.</span></p>
+      </div>
+      <div class="mode-sheet">
+        <p class="kicker"><span class="orig">DESIGN</span><span class="tr" lang="zh-Hans">设计</span></p>
+        <h3><span class="orig">The quiet engineering of a Nordic bridge</span><span class="tr" lang="zh-Hans">北欧桥梁的静默工程学</span></h3>
+        <p><span class="orig">Long before the Øresund link, Danish engineers learned to build slowly, with materials that age well and lines that ask for no attention.</span><span class="tr" lang="zh-Hans">早在厄勒海峡大桥之前，丹麦工程师就学会了慢慢来：用经得起岁月的材料，画不需要被注意的线条。</span></p>
+        <p><span class="orig">Walk across any of Copenhagen’s harbour bridges at dusk and you notice what is missing: no ornament, no slogan, just a deck, a rail and a curve that seems to have always been there.</span><span class="tr" lang="zh-Hans">黄昏时走过哥本哈根任何一座港口桥，你会发现少了些什么：没有装饰，没有口号，只有桥面、栏杆，和一道仿佛一直就在那里的弧线。</span></p>
+      </div>
+      <p class="caption">A sample. Ordbro does this to the real page, and switching back to the original puts it back exactly as it was, without a reload.</p>
     </div>
   </section>
 
   <section class="wrap detail-section">
-    <p class="eyebrow">Three reading modes</p>
-    <h2>Read it your way, <span class="em">page by page.</span></h2>
-        <div class="step-list">
-        <div class="step"><span class="n">01</span><h3>Translation only</h3><p>The page in your language, with the original out of the way.</p></div>
-        <div class="step"><span class="n">02</span><h3>Bilingual</h3><p>Translation alongside the original, paragraph by paragraph.</p></div>
-        <div class="step"><span class="n">03</span><h3>Original</h3><p>Restores the page exactly as it was, and pauses translation requests.</p></div>
-        </div>
+    <p class="eyebrow">How subtitles keep up</p>
+    <h2 class="dual"><span>It reads <span class="em">ahead of the video.</span></span><span class="src" lang="da">Den læser forud for videoen.</span></h2>
+    <figure class="track">
+      <div class="track-bar" aria-hidden="true"><span class="z-kept"></span><span class="z-now"></span><span class="z-ahead"></span><span class="z-later"></span><i class="head"></i></div>
+      <div class="track-scale" aria-hidden="true"><span>−45 s</span><span>playhead</span><span>+8 min</span><span>later</span></div>
+      <ul class="track-legend">
+        <li><i class="l-now"></i><span><b>Nearest lines first.</b> Up to 40 at a time, with the six lines before them and the four after, so names and pronouns stay consistent.</span></li>
+        <li><i class="l-ahead"></i><span><b>Eight minutes ahead.</b> The buffer follows the playhead. Jump from minute 5 to minute 45 and it translates around minute 45, never the forty minutes in between.</span></li>
+        <li><i class="l-kept"></i><span><b>A little behind.</b> The last 45 seconds stay ready, so a short rewind is instant.</span></li>
+        <li><i class="l-later"></i><span><b>Nothing you skip.</b> Lines you never reach are never sent. Watch it again and the cache answers, at no cost.</span></li>
+      </ul>
+    </figure>
+  </section>
+
+  <section class="wrap detail-section">
+    <p class="eyebrow">Your service, your key</p>
+    <h2 class="dual"><span>Pick the engine. <span class="em">Pay it directly.</span></span><span class="src" lang="da">Vælg motoren. Betal den direkte.</span></h2>
+    <p class="sub">Paste a key once and press Check connection. The provider bills you directly; Ordbro never sees the money or the text.</p>
+    <p class="wall-label">AI SERVICES</p>
+    <ul class="wordwall"><li>OpenAI</li><li>Anthropic Claude</li><li>Google Gemini</li><li>DeepSeek</li><li>Mistral</li><li>xAI</li><li>Groq</li><li>OpenRouter</li><li>Moonshot (Kimi)</li><li>Zhipu</li><li>Alibaba</li><li>Volcengine</li><li>SiliconFlow</li><li>MiniMax</li><li class="own">any OpenAI-compatible endpoint</li><li class="own">local models such as Ollama</li></ul>
+    <p class="wall-label">MACHINE TRANSLATION</p>
+    <ul class="wordwall"><li>DeepL</li><li>Google Cloud Translation</li><li>Azure Translator</li><li>Baidu</li><li>Tencent</li><li>Youdao</li></ul>
+  </section>
+
+  <section class="wrap detail-section">
+    <p class="eyebrow">Privacy</p>
+    <h2 class="dual"><span>Nothing <span class="em">in the middle.</span></span><span class="src" lang="da">Intet imellem.</span></h2>
+    <div class="check-list">
+      <div class="col yes">
+        <h3>Goes to the provider you chose</h3>
+        <ul>
+          <li>The text you ask it to translate</li>
+          <li>Subtitle lines in batches, with a few lines of context</li>
+          <li>The page or programme title, to keep the translation consistent</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3>Never happens</h3>
+        <ul>
+          <li>An Ordbro server, an account, analytics, ads or tracking</li>
+          <li>Your key going anywhere but your provider</li>
+          <li>Login and payment pages being translated or cached</li>
+        </ul>
+      </div>
+    </div>
   </section>
 
   <section class="wrap detail-body">
     <div class="notes">
-        <p class="lead">Ordbro (Danish for “word bridge”) carries what you read and watch into your own language, whatever language it started in. Translate a page next to the original or replace it in place, or let Ordbro find the subtitles of a video and translate them ahead of playback.</p>
-        <h2>Reading and watching</h2>
-        <p>Web page translation is free. Video subtitle translation is part of Ordbro Pro, a one-time purchase with Family Sharing — no subscription. Translations are cached on your Mac, so reading or watching the same thing again costs nothing.</p>
-        <p>Subtitle translation needs a video that actually has subtitles. DRTV is available in Denmark and requires a free DR login to play; Ordbro neither changes nor bypasses that.</p>
-        <h2>What you need</h2>
-        <p>macOS with Safari, a translation provider and that provider's API key. There is nothing to sign up for in Ordbro itself: you paste the key once in Settings, press Test connection, and the provider bills you directly.</p>
-        <p>Ordbro is an independent app and is not affiliated with, endorsed by or sponsored by DR (Danmarks Radio).</p>
         <h2>Price</h2>
-        <p>Ordbro is a free download. Ordbro Pro is a $3.99 one-time purchase with Family Sharing — no subscription.</p>
+        <p>Ordbro is a free download, and web page translation is free. Video subtitle translation is part of Ordbro Pro, a $3.99 one-time purchase with Family Sharing — no subscription. Translations are cached on your Mac, so reading or watching the same thing again costs nothing.</p>
+        <h2>What you need</h2>
+        <p>macOS with Safari, a translation provider and that provider's API key. There is nothing to sign up for in Ordbro itself.</p>
+        <p>Subtitle translation needs a video that actually has subtitles. DRTV is available in Denmark and requires a free DR login to play; Ordbro neither changes nor bypasses that.</p>
+        <p>Ordbro is an independent app and is not affiliated with, endorsed by or sponsored by DR (Danmarks Radio), YouTube, or any other site whose pages or subtitles it can translate.</p>
     </div>
     <aside class="facts">
       <h3>Details</h3>
