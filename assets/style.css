@@ -1472,6 +1472,137 @@ p { margin: 0 0 14px; }
 .lost h1 { font-size: clamp(44px, 8vw, 96px); line-height: 0.96; letter-spacing: -0.045em; }
 .lost .lede { margin: 20px 0 28px; }
 
+/* ---------- Ordbro motion (2026-11) — CSS only, borrowed from the extension's own vocabulary:
+   sheen over pending text (1.6 s linear), reveal (3 px rise + faint cobalt wash, .22 s),
+   caption cue-in (.3em rise, .985 scale), pending breath (opacity .62↔.92, 2 s), ten progress dots,
+   and the bridge mark whose target dot "lands". Every base style is the finished state, so reduced
+   motion (the global rule above kills animations) and old browsers show the page complete. */
+.mode-sheet .sheet-status {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin: 0 0 26px; padding: 6px 13px 6px 10px;
+  border-radius: 999px; background: #1b1f3a; color: #eef1ff;
+  font: 500 12px/1.3 var(--sans); letter-spacing: 0;
+}
+.bridge-mark { width: 18px; height: 18px; flex: none; overflow: visible; }
+.bridge-mark path { fill: none; stroke: var(--app-accent); stroke-width: 2.4; stroke-linecap: round; }
+.bridge-mark .from { fill: currentColor; }
+.bridge-mark .to { fill: var(--app-accent); transform-box: fill-box; transform-origin: center; }
+#m-or:checked ~ .mode-sheet .sheet-status { display: none; }
+.mode-sheet .tr { position: relative; }
+
+.cinema figcaption { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.cinema figcaption .bridge-mark { color: var(--ink); }
+.dots { display: inline-flex; gap: 3px; }
+.dots i { width: 4px; height: 4px; border-radius: 50%; background: var(--app-accent); }
+
+.track-bar > span { position: relative; overflow: hidden; }
+.track-bar .z-ahead { --c: color-mix(in srgb, var(--app-accent) 24%, transparent); }
+.track-bar .z-ahead::before {
+  content: ""; position: absolute; inset: 0;
+  background: repeating-linear-gradient(90deg, color-mix(in srgb, var(--app-accent) 62%, transparent) 0 5px, transparent 5px 8px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :root { --ord-ease: cubic-bezier(0.2, 0.8, 0.2, 1); --ord-spring: cubic-bezier(0.34, 1.56, 0.64, 1); }
+
+  /* Hero: the Danish line arrives, a sheen passes over it, then the translation lands above it. */
+  .detail-hero .tagline.dual .src { justify-self: start; position: relative; overflow: hidden; animation: ord-fade 0.4s ease-out 0.15s both; }
+  .detail-hero .tagline.dual .src::after {
+    content: ""; position: absolute; inset: 0; width: 55%;
+    background: linear-gradient(100deg, transparent, color-mix(in srgb, var(--app-accent) 34%, transparent), transparent);
+    animation: ord-sheen 1.1s linear 0.3s both;
+  }
+  .detail-hero .tagline.dual > span:first-child { border-radius: 8px; animation: ord-cue-in 0.5s var(--ord-spring) 1.15s both; }
+  .detail-hero .cinema { animation: ord-rise 0.7s var(--ord-ease) 0.1s both; }
+  .cinema::before { animation: ord-breathe 2s cubic-bezier(0.37, 0, 0.63, 1) 0.25s infinite alternate; }
+
+  /* Hero caption: ten dots fill, the arc draws, the target dot lands. Loops every 4 s. */
+  .dots i { animation: ord-dot 4s ease-in-out infinite both; }
+  .dots i:nth-child(2) { animation-delay: 0.1s; } .dots i:nth-child(3) { animation-delay: 0.2s; }
+  .dots i:nth-child(4) { animation-delay: 0.3s; } .dots i:nth-child(5) { animation-delay: 0.4s; }
+  .dots i:nth-child(6) { animation-delay: 0.5s; } .dots i:nth-child(7) { animation-delay: 0.6s; }
+  .dots i:nth-child(8) { animation-delay: 0.7s; } .dots i:nth-child(9) { animation-delay: 0.8s; }
+  .dots i:nth-child(10) { animation-delay: 0.9s; }
+  .cinema .bridge-mark path { stroke-dasharray: 1; animation: ord-draw 4s var(--ord-ease) infinite both; }
+  .cinema .bridge-mark .to { animation: ord-land 4s var(--ord-spring) infinite both; }
+
+  /* Reading modes. Switching to Bilingual replays a real translation pass: each line is veiled by the
+     loading sheen, then revealed in turn. Distinct animation names per mode restart them on every switch. */
+  .mode-sheet .d0 { --d: 0.3s; } .mode-sheet .d1 { --d: 0.5s; }
+  .mode-sheet .d2 { --d: 0.75s; } .mode-sheet .d3 { --d: 1s; }
+  #m-bi:checked ~ .mode-sheet .tr { border-radius: 6px; animation: ord-reveal-bi 0.26s var(--ord-ease) var(--d, 0s) both; }
+  #m-bi:checked ~ .mode-sheet .tr::after {
+    content: ""; position: absolute; inset: 0; border-radius: 6px; pointer-events: none;
+    background: linear-gradient(100deg, transparent 30%, rgba(51, 70, 224, 0.22) 45%, transparent 60%) 0 0 / 250% 100% no-repeat;
+    animation: ord-veil-sheen 1.6s linear infinite, ord-veil-out 0.18s ease-out var(--d, 0s) both;
+  }
+  #m-tr:checked ~ .mode-sheet .tr { animation: ord-fade-tr 0.3s ease-out both; }
+  .mode-sheet .orig { animation: ord-fade 0.25s ease-out both; }
+  .mode-note span { animation: ord-note 0.3s var(--ord-ease) both; }
+  #m-bi:checked ~ .mode-sheet .sheet-status { animation: ord-pop-bi 0.32s var(--ord-spring) 1.3s both; }
+  #m-bi:checked ~ .mode-sheet .sheet-status .to { animation: ord-hop-bi 0.5s ease-out 1.55s both; }
+  #m-tr:checked ~ .mode-sheet .sheet-status { animation: ord-pop-tr 0.32s var(--ord-spring) 0.1s both; }
+  #m-tr:checked ~ .mode-sheet .sheet-status .to { animation: ord-hop-tr 0.5s ease-out 0.35s both; }
+
+  /* Read-ahead track: cues roll left under a fixed playhead, the active batch shimmers,
+     the buffer ahead fills, the playhead pings. */
+  .track-bar > span, .track-bar .z-ahead::before { animation: ord-roll 0.8s linear infinite; }
+  .track-bar .z-ahead::before { animation: ord-roll 0.8s linear infinite, ord-buffer 5s var(--ord-ease) infinite; }
+  .track-bar .z-now::after, .track-legend .l-now { position: relative; overflow: hidden; }
+  .track-bar .z-now::after, .track-legend .l-now::after {
+    content: ""; position: absolute; inset: 0; width: 55%;
+    background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+    animation: ord-sheen 1.6s linear infinite;
+  }
+  .track-bar .head::after {
+    content: ""; position: absolute; top: -6px; left: -5px; width: 12px; height: 12px; border-radius: 50%;
+    border: 1.5px solid var(--ink); animation: ord-ping 2s ease-out infinite;
+  }
+
+  /* Small hovers. */
+  .wordwall li { transition: color 0.25s; }
+  .wordwall li:hover { color: var(--app-accent); }
+  .duo-card .shot img { transition: transform 0.6s var(--ord-ease); }
+  .duo-card:hover .shot img { transform: scale(1.035); }
+}
+
+@keyframes ord-sheen { from { transform: translateX(-100%); } to { transform: translateX(190%); } }
+@keyframes ord-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes ord-fade-tr { from { opacity: 0.4; } to { opacity: 1; } }
+@keyframes ord-cue-in {
+  from { opacity: 0; transform: translateY(0.3em) scale(0.985); background-color: color-mix(in srgb, var(--app-accent) 16%, transparent); }
+  to { opacity: 1; transform: none; background-color: transparent; }
+}
+@keyframes ord-rise { from { opacity: 0; transform: translateY(18px) scale(0.985); } to { opacity: 1; transform: none; } }
+@keyframes ord-breathe { from { opacity: 0.62; } to { opacity: 0.92; } }
+@keyframes ord-dot { 0% { opacity: 0.25; } 4%, 62% { opacity: 1; } 72%, 100% { opacity: 0.25; } }
+@keyframes ord-draw { 0%, 22% { stroke-dashoffset: 1; } 38%, 70% { stroke-dashoffset: 0; } 80%, 100% { stroke-dashoffset: 1; } }
+@keyframes ord-land { 0%, 36% { transform: scale(0); } 42% { transform: scale(1.65) translateY(-1.5px); } 50%, 72% { transform: scale(1); } 80%, 100% { transform: scale(0); } }
+@keyframes ord-reveal-bi {
+  0% { color: transparent; border-left-color: transparent; background-color: rgba(51, 70, 224, 0.09); transform: translateY(3px); }
+  1% { color: transparent; border-left-color: transparent; background-color: rgba(51, 70, 224, 0.09); transform: translateY(3px); }
+  100% { transform: none; background-color: transparent; }
+}
+@keyframes ord-veil-sheen { from { background-position: 150% 0, 0 0; } to { background-position: -150% 0, 0 0; } }
+@keyframes ord-veil-out { from { opacity: 1; } to { opacity: 0; } }
+@keyframes ord-note { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; transform: none; } }
+@keyframes ord-pop-bi { from { opacity: 0; transform: translateY(4px) scale(0.97); } to { opacity: 1; transform: none; } }
+@keyframes ord-pop-tr { from { opacity: 0; transform: translateY(4px) scale(0.97); } to { opacity: 1; transform: none; } }
+@keyframes ord-hop-bi { 0%, 100% { transform: none; } 40% { transform: translateY(-3px) scale(1.5); } }
+@keyframes ord-hop-tr { 0%, 100% { transform: none; } 40% { transform: translateY(-3px) scale(1.5); } }
+@keyframes ord-roll { from { background-position: 0 0; } to { background-position: -8px 0; } }
+@keyframes ord-buffer { 0% { clip-path: inset(0 78% 0 0); } 70%, 100% { clip-path: inset(0 0 0 0); } }
+@keyframes ord-ping { from { opacity: 0.8; transform: scale(1); } to { opacity: 0; transform: scale(2.6); } }
+
+/* Section headings: the source line first, then the translation, as the heading scrolls in.
+   Same gate as the site's other scroll reveal (not WebKit), so Safari simply shows them. */
+@supports (animation-timeline: view()) and (animation-range: entry 0% entry 36vh) and (not (font: -apple-system-body)) {
+  @media screen and (prefers-reduced-motion: no-preference) {
+    .detail-section h2.dual .src { animation: ord-fade linear both; animation-timeline: view(); animation-range: entry 0% entry 18vh; }
+    .detail-section h2.dual > span:first-child { animation: ord-cue-in linear both; animation-timeline: view(); animation-range: entry 8vh entry 32vh; }
+  }
+}
+
 /* ---------- scroll reveal (progressive enhancement, no JS) ---------- */
 
 /* Not for WebKit: cards stayed at opacity 0 there (blank shelf). Content must never depend on this. */
