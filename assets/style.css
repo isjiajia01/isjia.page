@@ -441,33 +441,60 @@ p { margin: 0 0 14px; }
 
 .f-radio { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
 
-.pills { display: flex; flex-wrap: wrap; gap: 8px; }
+/* Tabs Subtle, adapted to the existing CSS-only radio filters. The radios
+   remain the control and state source; no tab-script or ARIA tabs pattern. */
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 4px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(23, 16, 19, 0.72);
+}
 .pill {
-  min-height: 44px;
-  padding: 0 18px;
+  min-height: 40px;
+  padding: 0 13px;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  border-radius: 999px;
-  border: 1px solid rgba(248, 246, 235, 0.18);
-  color: var(--ink);
+  gap: 7px;
+  border-radius: 7px;
+  border: 1px solid transparent;
+  color: var(--muted);
   background: transparent;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   cursor: pointer;
   user-select: none;
 }
-.pill:hover { border-color: rgba(248, 246, 235, 0.5); }
-.pill .n { font-family: var(--sans); font-size: 14px; opacity: 0.7; }
+.pill:hover { color: var(--ink); background: rgba(248, 246, 235, 0.05); }
+.pill .n {
+  min-width: 20px;
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: rgba(248, 246, 235, 0.06);
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 1.5;
+  text-align: center;
+}
 
 #f-all:checked ~ .section-head .pills label[for="f-all"],
 #f-iphone:checked ~ .section-head .pills label[for="f-iphone"],
 #f-watch:checked ~ .section-head .pills label[for="f-watch"],
 #f-tv:checked ~ .section-head .pills label[for="f-tv"],
 #f-mac:checked ~ .section-head .pills label[for="f-mac"] {
-  background: var(--wine);
-  border-color: var(--wine);
-  color: var(--ink);
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--bg);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.28);
+}
+#f-all:checked ~ .section-head .pills label[for="f-all"] .n,
+#f-iphone:checked ~ .section-head .pills label[for="f-iphone"] .n,
+#f-watch:checked ~ .section-head .pills label[for="f-watch"] .n,
+#f-tv:checked ~ .section-head .pills label[for="f-tv"] .n,
+#f-mac:checked ~ .section-head .pills label[for="f-mac"] .n {
+  background: rgba(16, 10, 12, 0.12);
 }
 #f-all:focus-visible ~ .section-head .pills label[for="f-all"],
 #f-iphone:focus-visible ~ .section-head .pills label[for="f-iphone"],
@@ -476,6 +503,13 @@ p { margin: 0 0 14px; }
 #f-mac:focus-visible ~ .section-head .pills label[for="f-mac"] {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .pill { transition: color 0.18s, background-color 0.18s, border-color 0.18s; }
+}
+@media (max-width: 560px) {
+  .pill { min-height: 38px; padding: 0 11px; }
+  .pill-ico { display: none; }
 }
 
 /* CSS-only filtering; browsers without :has() simply show every card. */
@@ -495,49 +529,58 @@ p { margin: 0 0 14px; }
 .card {
   display: flex;
   flex-direction: column;
-  gap: 22px;
-  min-height: 300px;
-  padding: 28px;
+  gap: 20px;
+  min-height: 288px;
+  padding: 24px;
   border-radius: var(--radius);
   background: var(--card);
   border: 1px solid var(--line);
   color: var(--ink);
 }
 .card:hover { color: var(--ink); }
+/* Quiet cards: one border and a short lift, not a rotating glow ring. */
+.shelf .card::before { display: none; }
 @media (prefers-reduced-motion: no-preference) {
-  .card { transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s, background 0.3s; }
-  .card:hover, .card:focus-visible { transform: translateY(-6px); border-color: rgba(224, 163, 177, 0.45); background: var(--card-hi); }
+  .card { transition: transform 0.25s ease, border-color 0.25s, background 0.25s; }
+  .card:hover, .card:focus-visible { transform: translateY(-2px); border-color: rgba(224, 163, 177, 0.38); background: var(--card-hi); }
 }
-.card .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.card .top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 12px; }
 .card .cicon img {
   width: 68px; height: 68px;
   border-radius: 18px;
 }
 @media (prefers-reduced-motion: no-preference) {
-  .card .cicon img { transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); }
-  .card:hover .cicon img { transform: scale(1.08) rotate(-4deg); }
+  .card .cicon img { transition: transform 0.25s ease; }
+  .card:hover .cicon img { transform: scale(1.03); }
 }
+/* Compact dot badge: the colour carries status, the label carries the fact. */
 .card .badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 12px;
-  border-radius: 999px;
-  background: rgba(248, 246, 235, 0.05);
+  gap: 6px;
+  min-height: 26px;
+  margin-left: auto;
+  padding: 0 9px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: rgba(248, 246, 235, 0.035);
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 10px;
   letter-spacing: 0.04em;
+  line-height: 1;
   text-transform: uppercase;
   color: var(--muted);
   white-space: nowrap;
 }
-.card .badge::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--soon); }
+.card .badge::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--soon); }
 .card .badge.live::before { background: var(--live); }
 .card .badge.review::before { background: var(--review); }
 .card .body { display: flex; flex-direction: column; gap: 9px; flex-grow: 1; }
 .card .tag {
-  font-family: var(--sans);
-  font-size: 14px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
   color: var(--accent);
 }
 .card .name { font-size: 28px; font-weight: 600; letter-spacing: -0.02em; line-height: 1; }
@@ -547,14 +590,14 @@ p { margin: 0 0 14px; }
   justify-content: space-between;
   align-items: center;
   gap: 12px;
-  padding-top: 18px;
+  padding-top: 16px;
   border-top: 1px solid var(--line);
   font-family: var(--sans);
   font-size: 14px;
   color: var(--muted);
 }
 .card .arrow {
-  width: 36px; height: 36px;
+  width: 34px; height: 34px;
   flex: none;
   border-radius: 50%;
   border: 1px solid var(--line-mid);
@@ -563,8 +606,8 @@ p { margin: 0 0 14px; }
   justify-content: center;
 }
 @media (prefers-reduced-motion: no-preference) {
-  .card .arrow { transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), background 0.3s, border-color 0.3s, color 0.3s; }
-  .card:hover .arrow { transform: translateX(4px) rotate(-45deg); background: var(--wine); border-color: var(--wine); color: var(--ink); }
+  .card .arrow { transition: transform 0.2s ease, background 0.2s, border-color 0.2s, color 0.2s; }
+  .card:hover .arrow { transform: translateX(3px); background: var(--wine); border-color: var(--wine); color: var(--ink); }
 }
 
 /* ---------- values ---------- */
@@ -758,6 +801,66 @@ p { margin: 0 0 14px; }
   .panel.wine .mail:hover, .panel.wine .mail:hover .mail-arrow { transform: none; }
 }
 @media (max-width: 560px) { .panel { padding: 30px; } }
+
+
+/* Shared panels above remain available to app pages such as Ordbro. */
+/* CTA Centered: one decision point instead of two competing feature cards. */
+.contact-section { padding-block: 24px 112px; }
+.contact-cta {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: clamp(44px, 7vw, 80px) 24px;
+  border: 1px solid var(--line-mid);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(58% 90% at 50% 110%, rgba(124, 74, 85, 0.32), transparent 76%),
+    var(--card);
+  text-align: center;
+}
+.contact-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: radial-gradient(circle at 1px 1px, rgba(248, 246, 235, 0.10) 1px, transparent 0);
+  background-size: 24px 24px;
+  -webkit-mask-image: linear-gradient(to bottom, #000, transparent 72%);
+  mask-image: linear-gradient(to bottom, #000, transparent 72%);
+  opacity: 0.34;
+}
+.contact-cta .eyebrow { margin-bottom: 16px; color: var(--accent); }
+.contact-cta h2 {
+  max-width: 760px;
+  font-size: clamp(32px, 4.6vw, 56px);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+.contact-cta > p:not(.eyebrow) {
+  max-width: 590px;
+  margin: 20px auto 0;
+  color: var(--ink-soft);
+  font-size: 16px;
+  line-height: 1.65;
+}
+.contact-actions { justify-content: center; margin-top: 28px; }
+.contact-actions .btn { min-height: 44px; }
+@media (prefers-reduced-motion: no-preference) {
+  .contact-actions .btn.primary svg { transition: transform 0.2s ease; }
+  .contact-actions .btn.primary:hover svg,
+  .contact-actions .btn.primary:focus-visible svg { transform: translateX(3px); }
+}
+@media (max-width: 480px) {
+  .contact-section { padding-bottom: 80px; }
+  .contact-cta { padding: 40px 20px; }
+  .contact-actions { width: 100%; }
+  .contact-actions .btn { width: 100%; justify-content: center; }
+}
 
 /* ---------- footer ---------- */
 /* Round 9 (2026-11): "curtain" footer. The footer is at least one viewport
