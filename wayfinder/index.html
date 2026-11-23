@@ -16,10 +16,10 @@
 <link rel="icon" href="../assets/favicon.svg?v=2" type="image/svg+xml">
 <link rel="icon" href="../assets/favicon-32.png?v=2" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=2" sizes="180x180">
-<link rel="stylesheet" href="../assets/style.css?v=26">
+<link rel="stylesheet" href="../assets/style.css?v=27">
 </head>
 <body style="--app-accent: #e0885f">
-<a class="skip" href="#features">Skip to the features</a>
+<a class="skip" href="#palette">Skip to the palette</a>
 <div class="sky" aria-hidden="true"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
 
 <header class="site-header">
@@ -30,7 +30,7 @@
       <span class="id"><img src="../assets/icons/wayfinder-256.png" alt="" width="26" height="26">Wayfinder</span>
     </div>
     <nav class="nav" aria-label="Wayfinder">
-      <a class="optional" href="#features">Features</a>
+      <a class="optional" href="#palette">Palette</a><a class="optional" href="#private">Privacy</a>
       <a href="../support/#wayfinder">Support</a>
       <a class="cta" href="https://apps.apple.com/app/id6823482560">Download</a>
     </nav>
@@ -38,14 +38,15 @@
 </header>
 
 <main>
-  <section class="wrap detail-hero">
+  <section class="wrap detail-hero wf-hero">
     <div class="copy">
       <img class="app-icon" src="../assets/icons/wayfinder-256.png" alt="Wayfinder app icon" width="108" height="108">
       <p class="cat">Tabs &amp; sessions, macOS, Safari, Chrome</p>
       <h1>Wayfinder</h1>
       <p class="tagline">Pick up where you left off — pages, in order.</p>
+      <p class="wf-hint"><span class="wf-keys" aria-label="Command Shift K"><kbd>⌘</kbd><kbd>⇧</kbd><kbd>K</kbd></span>on any page · <span class="wf-keys" aria-label="Control Option Space"><kbd>⌃</kbd><kbd>⌥</kbd><kbd>Space</kbd></span>from any app</p>
       <div class="btn-row">
-        <a class="btn app" href="https://apps.apple.com/app/id6823482560">Get Wayfinder <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="btn" href="#features">See what it does</a>
+        <a class="btn app" href="https://apps.apple.com/app/id6823482560">Get Wayfinder <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="btn" href="#palette">Try the palette</a>
       </div>
     </div>
     <figure class="figure">
@@ -53,38 +54,107 @@
     </figure>
   </section>
 
+  <section class="wrap detail-section" id="palette">
+    <p class="eyebrow">One palette</p>
+    <h2>Everything you opened, <span class="em">one search away.</span></h2>
+    <p class="wf-lede">Tabs still open, pages you kept, every version of a window and, if you turn it on, the text of pages you have already read. Each match says where it came from.</p>
+    <div class="wf-demo" role="group" aria-label="Palette sample, filter by source">
+      <input class="f-radio" type="radio" name="wf-src" id="wf-all" checked>
+      <input class="f-radio" type="radio" name="wf-src" id="wf-tab">
+      <input class="f-radio" type="radio" name="wf-src" id="wf-saved">
+      <input class="f-radio" type="radio" name="wf-src" id="wf-session">
+      <input class="f-radio" type="radio" name="wf-src" id="wf-text">
+      <div class="wf-palette">
+        <div class="wf-query"><svg width="18" height="18" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="7"/><path d="M17 17l6 6"/></svg><span class="wf-typed">bayes</span><span class="wf-caret" aria-hidden="true"></span><span class="wf-keys wf-esc" aria-hidden="true"><kbd>esc</kbd></span></div>
+        <div class="pills wf-pills">
+          <label class="pill" for="wf-all">All <span class="n">5</span></label>
+          <label class="pill" for="wf-tab">Tabs <span class="n">2</span></label>
+          <label class="pill" for="wf-saved">Saved <span class="n">1</span></label>
+          <label class="pill" for="wf-session">Sessions <span class="n">1</span></label>
+          <label class="pill" for="wf-text">Page text <span class="n">1</span></label>
+        </div>
+        <ul class="wf-results">
+          <li class="wf-row sel" data-src="tab"><span class="wf-ico">◫</span><span class="wf-main"><b>Bayesian inference — Wikipedia</b><small>en.wikipedia.org</small></span><span class="wf-src">Open tab</span></li>
+          <li class="wf-row" data-src="session"><span class="wf-ico">≋</span><span class="wf-main"><b>Thesis · stats reading</b><small>14 pages, in order · 3 versions</small></span><span class="wf-src">Session</span></li>
+          <li class="wf-row" data-src="saved"><span class="wf-ico">☆</span><span class="wf-main"><b>Think Bayes — chapter 2</b><small>Saved on purpose, last week</small></span><span class="wf-src">Saved page</span></li>
+          <li class="wf-row" data-src="text"><span class="wf-ico">¶</span><span class="wf-main"><b>“…the posterior is the prior, updated by the evidence…”</b><small>From a page you read</small></span><span class="wf-src">Page text</span></li>
+          <li class="wf-row" data-src="tab"><span class="wf-ico">◫</span><span class="wf-main"><b>bayes_model.ipynb</b><small>Another window</small></span><span class="wf-src">Open tab</span></li>
+        </ul>
+        <div class="wf-foot" aria-hidden="true"><span><kbd>↑</kbd><kbd>↓</kbd> move</span><span><kbd>↵</kbd> open</span><span class="wf-foot-r">Illustration</span></div>
+      </div>
+    </div>
+  </section>
+
   <section class="wrap detail-section" id="features">
-    <p class="eyebrow">What it does</p>
-    <h2>A browser you can <span class="em">come back to.</span></h2>
-    <div class="feature-grid">
-        <div class="feature"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="7"/><path d="M17 17l6 6"/></svg><h3>One palette</h3><p>Tabs, saved pages, sessions and, if you turn it on, the text of pages you have already read.</p></div>
-        <div class="feature"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4l10 5-10 5L4 9z"/><path d="M4 14l10 5 10-5"/><path d="M4 19l10 5 10-5"/></svg><h3>Save a window, not a bookmark</h3><p>Capture the pages of a working session in order, then resume the whole thing later, with a version history behind it.</p></div>
-        <div class="feature"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4l14 8-6 1.5L12 21z"/></svg><h3>Quick Open from anywhere</h3><p>⌃⌥Space reopens a session or a saved page without switching to the browser first.</p></div>
-        <div class="feature"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="14" cy="14" r="10"/><path d="M14 8v6l4 2"/></svg><h3>A calm new tab</h3><p>A deck of your tasks, a clock, site search shortcuts and an optional daily wallpaper.</p></div>
-        <div class="feature"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3l9 4v7c0 5-4 8.5-9 11-5-2.5-9-6-9-11V7z"/><path d="M9.5 14l3 3 6-6.5"/></svg><h3>Private by default</h3><p>Visit recording and page-text indexing are off until you enable them; private windows, excluded sites and sensitive sites are never indexed.</p></div>
-        <div class="feature"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 20a5 5 0 0 1 .6-10 7 7 0 0 1 13.3 1.5A4.5 4.5 0 0 1 21 20z"/></svg><h3>Yours to sync</h3><p>No account, no analytics, no server. Sync is optional and goes to your own WebDAV server or your own iCloud account.</p></div>
+    <p class="eyebrow">How it fits together</p>
+    <h2>A task, a session, <span class="em">a page.</span></h2>
+    <div class="wf-stack">
+      <figure class="wf-versions" aria-hidden="true">
+        <div class="wf-task"><span class="wf-dot"></span>Thesis · stats reading<span class="wf-meta">Task</span></div>
+        <div class="wf-ver v3"><span class="wf-tag">Today</span><i></i><i></i><i></i><i></i><i></i><i class="new"></i></div>
+        <div class="wf-ver v2"><span class="wf-tag">Tuesday</span><i></i><i></i><i></i><i></i></div>
+        <div class="wf-ver v1"><span class="wf-tag">Last week</span><i></i><i></i><i></i></div>
+        <figcaption><span class="wf-keep">☆ one page, kept on purpose</span></figcaption>
+      </figure>
+      <div class="step-list wf-steps">
+        <div class="step"><span class="n">01</span><h3>A task is a saved window</h3><p>Capture the pages of a working session in order, then resume the whole thing later.</p></div>
+        <div class="step"><span class="n">02</span><h3>Sessions are its versions</h3><p>Over time, a window becomes a version history instead of a pile of tabs.</p></div>
+        <div class="step"><span class="n">03</span><h3>Saved pages are the ones you want again</h3><p>The individual things you kept on purpose, searchable next to everything else.</p></div>
+        <div class="step"><span class="n">04</span><h3>The palette searches all of them</h3><p>And it remembers where a match came from — a tab still open, a page you saved, a session snapshot, or text you have read before.</p></div>
+      </div>
     </div>
   </section>
 
   <section class="wrap detail-section">
-    <p class="eyebrow">How it fits together</p>
-    <h2>A task, a session, <span class="em">a page.</span></h2>
-        <div class="step-list">
-        <div class="step"><span class="n">01</span><h3>A task is a saved window</h3><p>Capture the pages of a working session in order, then resume the whole thing later, with a version history behind it.</p></div>
-        <div class="step"><span class="n">02</span><h3>Sessions are the versions of that window</h3><p>Over time, a window becomes a version history instead of a pile of tabs.</p></div>
-        <div class="step"><span class="n">03</span><h3>Saved pages are the ones you want again</h3><p>The individual things you kept on purpose, searchable next to everything else.</p></div>
-        <div class="step"><span class="n">04</span><h3>The palette searches all of them at once</h3><p>And it remembers where a match came from — a tab still open, a page you saved, a session snapshot, or text you have read before.</p></div>
-        </div>
+    <p class="eyebrow">What it does</p>
+    <h2>A browser you can <span class="em">come back to.</span></h2>
+    <div class="feature-grid">
+        <div class="feature"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4l14 8-6 1.5L12 21z"/></svg><h3>Quick Open from anywhere</h3><p>⌃⌥Space reopens a session or a saved page without switching to the browser first.</p></div>
+        <div class="feature"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="14" cy="14" r="10"/><path d="M14 8v6l4 2"/></svg><h3>A calm new tab</h3><p>A deck of your tasks, a clock, site search shortcuts and an optional daily wallpaper.</p></div>
+        <div class="feature"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 20a5 5 0 0 1 .6-10 7 7 0 0 1 13.3 1.5A4.5 4.5 0 0 1 21 20z"/></svg><h3>Yours to sync</h3><p>No account, no analytics, no server. Sync is optional and goes to your own WebDAV server or your own iCloud account.</p></div>
+    </div>
+  </section>
+
+  <section class="wrap detail-section" id="private">
+    <p class="eyebrow">Private by default</p>
+    <h2>Two switches. <span class="em">Both start off.</span></h2>
+    <div class="wf-privacy">
+      <div class="wf-switches">
+        <div class="wf-switch"><span class="wf-toggle" aria-hidden="true"></span><div><h3>Record visits</h3><p>Off until you turn it on.</p></div></div>
+        <div class="wf-switch"><span class="wf-toggle" aria-hidden="true"></span><div><h3>Index page text</h3><p>Off until you turn it on. Full page text never syncs; the optional index sync carries a title, address and a short excerpt only.</p></div></div>
+      </div>
+      <div class="wf-never">
+        <p class="wf-never-h">Never indexed</p>
+        <ul><li>Private windows</li><li>Sites you exclude</li><li>Sensitive sites</li></ul>
+        <p class="wf-never-h">Never restored</p>
+        <ul><li>Form data</li><li>Logins</li><li>Unsaved page state</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap detail-section" id="setup">
+    <p class="eyebrow">Getting set up</p>
+    <h2>Two minutes, <span class="em">then one shortcut.</span></h2>
+    <div class="wf-setup" role="group" aria-label="Setup steps by browser">
+      <input class="f-radio" type="radio" name="wf-br" id="wf-safari" checked>
+      <input class="f-radio" type="radio" name="wf-br" id="wf-chrome">
+      <div class="pills wf-br-pills"><label class="pill" for="wf-safari">Safari on Mac</label><label class="pill" for="wf-chrome">Chrome</label></div>
+      <ol class="wf-steps-safari">
+        <li><span>Open Wayfinder once.</span></li>
+        <li><span>Safari → Settings (⌘,) → Extensions: enable Wayfinder and allow it on all websites.</span></li>
+        <li><span>Press <span class="wf-keys"><kbd>⌘</kbd><kbd>⇧</kbd><kbd>K</kbd></span> on any page.</span></li>
+      </ol>
+      <ol class="wf-steps-chrome">
+        <li><span>Install the extension from the Chrome Web Store.</span></li>
+        <li><span>Press <span class="wf-keys"><kbd>Ctrl</kbd><kbd>⇧</kbd><kbd>K</kbd></span>, or <span class="wf-keys"><kbd>⌘</kbd><kbd>⇧</kbd><kbd>K</kbd></span> on a Mac.</span></li>
+      </ol>
+      <p class="wf-note">Pages that were already open before installing or updating need a reload before the palette can attach to them.</p>
+    </div>
   </section>
 
   <section class="wrap detail-body">
     <div class="notes">
         <p class="lead">Wayfinder turns Safari into a place you can come back to. Keep a window as a task, restore it whenever you need it, and search every open tab, saved page and session from one palette that works on any page — and from any app, with a global hotkey.</p>
-        <h2>What it records</h2>
-        <p>Recording visits and indexing page text are deliberately separate switches, both off by default. Full page text never syncs; the optional index sync carries a title, address and a short excerpt only. Form data, logins and unsaved page state are never restored.</p>
-        <h2>Getting set up</h2>
-        <p>Open Wayfinder once, then go to Safari → Settings (⌘,) → Extensions, enable Wayfinder and allow it on all websites. Press ⌘⇧K on any page to open the palette. In Chrome, install the extension from the Chrome Web Store and press Ctrl+Shift+K (⌘⇧K on a Mac).</p>
-        <p>Pages that were already open before installing or updating need a reload before the palette can attach to them.</p>
         <h2>Price</h2>
         <p>Wayfinder is free, with no subscription and no in-app purchase.</p>
     </div>
