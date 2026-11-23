@@ -1953,3 +1953,18 @@ p { margin: 0 0 14px; }
 @keyframes wf-type { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0); } }
 @keyframes wf-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 @keyframes wf-rise { from { opacity: 0; transform: translateY(28px) scale(0.98); } to { transform: none; } }
+
+/* Wayfinder new-tab screenshot: full-width, framed like a display, credit line under it */
+.wf-shot { margin: 40px 0 0; }
+.wf-shot img {
+  display: block; width: 100%; height: auto; border-radius: 22px;
+  border: 1px solid var(--line-mid);
+  box-shadow: var(--shadow-lift), 0 50px 140px -70px color-mix(in srgb, var(--app-accent) 45%, transparent);
+}
+.wf-shot figcaption { margin-top: 14px; font-size: 13px; line-height: 1.5; color: var(--faint); max-width: 80ch; }
+.wf-shot cite { font-style: italic; }
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .wf-shot img { animation: wf-rise linear both; animation-timeline: view(); animation-range: entry 0% cover 30%; }
+  }
+}
